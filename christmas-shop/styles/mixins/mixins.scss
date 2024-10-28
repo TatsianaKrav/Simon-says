@@ -1,0 +1,15 @@
+@import "../colors/colors";
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin header-item {
+    color: $dark;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}

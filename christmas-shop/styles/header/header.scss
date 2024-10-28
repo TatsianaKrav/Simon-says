@@ -1,0 +1,65 @@
+@import "../fonts/fonts", "../colors/colors", "../mixins/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat-SemiBold, sans-serif;
+}
+
+.header {
+    padding: 12px 82px;
+    box-sizing: border-box;
+
+    .container {
+        @include flex();
+
+        .logo {
+            @include flex();
+            gap: 8px;
+            padding: 8px 20px;
+            text-decoration: none;
+            box-sizing: border-box;
+
+            img {
+                width: 24px;
+            }
+
+            span {
+                @include header-item();
+            }
+        }
+
+        .space {
+            width: 12px;
+            height: 12px;
+        }
+
+        nav {
+            flex-shrink: 0;
+
+            .menu {
+                @include flex();
+                gap: 8px;
+                list-style: none;
+
+                .menu-item {
+                    @include flex();
+                    justify-content: center;
+                    padding: 12px 20px;
+                    box-sizing: border-box;
+
+                    a {
+                        @include header-item();
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}

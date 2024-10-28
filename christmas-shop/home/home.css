@@ -1,0 +1,81 @@
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: Allura-Regular;
+  src: url(../assets/fonts/Allura-Regular.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: Montserrat-SemiBold, sans-serif;
+}
+
+.header {
+  padding: 12px 82px;
+  box-sizing: border-box;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .container .logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 20px;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.header .container .logo img {
+  width: 24px;
+}
+.header .container .logo span {
+  color: #181C29;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.header .container .space {
+  width: 12px;
+  height: 12px;
+}
+.header .container nav {
+  flex-shrink: 0;
+}
+.header .container nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  list-style: none;
+}
+.header .container nav .menu .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+.header .container nav .menu .menu-item a {
+  color: #181C29;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+}/*# sourceMappingURL=home.css.map */
