@@ -1,1 +1,52 @@
 @import "../styles/header/header";
+
+.hero {
+    background-image: url('../assets/images/bg/bg-ball.png'), url('../assets/images/bg/bg-snow.png');
+    background-position: center;
+    background-size: cover;
+    background-color: $primary;
+    font-family: Montserrat-SemiBold, sans-serif;
+
+    .container {
+        @include flex-column();
+        padding: 60px 0;
+        box-sizing: border-box;
+
+        .hero-info {
+            @include flex-column();
+            gap: 12px;
+            padding: 60px 0;
+            box-sizing: border-box;
+            max-width: 429px;
+
+            span {
+                font-family: Allura-Regular, sans-serif;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 100%;
+                letter-spacing: 0.05em;
+                text-align: center;
+                color: $white;
+            }
+
+            h1 {
+                @include flex-column();
+
+                span {
+                    font-family: Montserrat-SemiBold, sans-serif;
+                    font-size: 32px;
+                    line-height: 150%;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: $white;
+                }
+            }
+
+            .btn {
+                @include btn();
+                font-family: Montserrat-SemiBold, sans-serif;
+            }
+        }
+    }
+}

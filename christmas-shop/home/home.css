@@ -78,4 +78,68 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.hero {
+  background-image: url("../assets/images/bg/bg-ball.png"), url("../assets/images/bg/bg-snow.png");
+  background-position: center;
+  background-size: cover;
+  background-color: #FF4646;
+  font-family: Montserrat-SemiBold, sans-serif;
+}
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  box-sizing: border-box;
+}
+.hero .container .hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px 0;
+  box-sizing: border-box;
+  max-width: 429px;
+}
+.hero .container .hero-info span {
+  font-family: Allura-Regular, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #FFFFFF;
+}
+.hero .container .hero-info h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero .container .hero-info h1 span {
+  font-family: Montserrat-SemiBold, sans-serif;
+  font-size: 32px;
+  line-height: 150%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+}
+.hero .container .hero-info .btn {
+  padding: 20px 32px;
+  border-radius: 20px;
+  width: 236px;
+  background-color: #181C29;
+  border: none;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+  font-family: Montserrat-SemiBold, sans-serif;
 }/*# sourceMappingURL=home.css.map */
