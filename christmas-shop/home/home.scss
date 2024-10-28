@@ -26,13 +26,7 @@
             max-width: 429px;
 
             span {
-                font-family: Allura-Regular, sans-serif;
-                font-weight: 400;
-                font-size: 24px;
-                line-height: 100%;
-                letter-spacing: 0.05em;
-                text-align: center;
-                color: $white;
+                @include section();
             }
 
             h1 {
@@ -84,10 +78,7 @@
                 padding: 60px 0;
 
                 span {
-                    font-family: Allura-Regular, sans-serif;
-                    font-size: 24px;
-                    line-height: 100%;
-                    letter-spacing: 0.05em;
+                    @include section();
                     color: $primary;
                 }
 
@@ -117,6 +108,88 @@
             width: 50%;
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
+        }
+    }
+}
+
+.best-gifts {
+    .container {
+        @include flex-column();
+        background-image: url('../assets/images/bg/bg-snow.png');
+        background-color: $primary;
+        padding: 60px 82px;
+        box-sizing: border-box;
+
+        span {
+            @include section();
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .best-gifts-title {
+            @include title();
+            margin-bottom: 20px;
+        }
+
+        .gift-cards-wrapper {
+            @include flex();
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            .git-card {
+                border-radius: 20px;
+                width: 310px;
+
+                .gift-card-image {
+                    background-color: #ecf3f8;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                    height: 230px;
+
+                    img {
+                        width: 100%;
+                        border-top-left-radius: 20px;
+                        border-top-right-radius: 20px;
+                    }
+                }
+
+                .gift-card-info {
+                    padding: 20px 20px 0 20px;
+                    box-sizing: border-box;
+                    height: 112px;
+                    background-color: $white;
+                    border-bottom-left-radius: 20px;
+                    border-bottom-right-radius: 20px;
+
+                    .gift-purpose {
+                        font-family: Montserrat-SemiBold, sans-serif;
+                        font-size: 12px;
+                        line-height: 130%;
+                        letter-spacing: 0.05em;
+                        text-transform: uppercase;
+                        color: $purple;
+                        display: inline-block;
+                        margin-bottom: 8px;
+
+                        &.health {
+                            color: $green;
+                        }
+
+                        &.harmony {
+                            color: $pink;
+                        }
+                    }
+
+                    h3 {
+                        font-size: 16px;
+                        line-height: 152%;
+                        letter-spacing: 0.08em;
+                        text-transform: uppercase;
+                        color: $dark;
+                    }
+                }
+            }
         }
     }
 }
