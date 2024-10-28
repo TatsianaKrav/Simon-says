@@ -1,5 +1,11 @@
 @import "../styles/header/header";
 
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+
+}
+
 .hero {
     background-image: url('../assets/images/bg/bg-ball.png'), url('../assets/images/bg/bg-snow.png');
     background-position: center;
@@ -47,6 +53,70 @@
                 @include btn();
                 font-family: Montserrat-SemiBold, sans-serif;
             }
+        }
+    }
+}
+
+.about {
+    background-image: url('../assets/images/bg/bg-snow.png');
+    background-color: $primary;
+    padding: 60px 82px;
+    box-sizing: border-box;
+
+    .container {
+        @include flex();
+        justify-content: center;
+
+        .about-info {
+            width: 50%;
+            padding: 100px 60px;
+            box-sizing: border-box;
+            background-color: $white;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+
+
+            .info-wrapper {
+                @include flex-column();
+                align-items: flex-start;
+                gap: 20px;
+                max-width: 426px;
+                padding: 60px 0;
+
+                span {
+                    font-family: Allura-Regular, sans-serif;
+                    font-size: 24px;
+                    line-height: 100%;
+                    letter-spacing: 0.05em;
+                    color: $primary;
+                }
+
+                .about-title {
+                    font-family: Montserrat-SemiBold, sans-serif;
+                    font-size: 24px;
+                    line-height: 152%;
+                    letter-spacing: 0.16em;
+                    text-transform: uppercase;
+                    color: $dark;
+                }
+
+                .about-description {
+                    font-family: Montserrat-Regular, sans-serif;
+                    font-size: 16px;
+                    line-height: 148%;
+                    color: $dark;
+                }
+            }
+        }
+
+        .about-image {
+            background-image: url('../assets/images/santa.png');
+            background-position: center;
+            background-size: cover;
+            height: 528px;
+            width: 50%;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
     }
 }
