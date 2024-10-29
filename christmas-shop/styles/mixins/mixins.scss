@@ -24,7 +24,7 @@
 @mixin btn {
     padding: 20px 32px;
     border-radius: 20px;
-    width: 236px;
+ /*    width: 236px; */
     background-color: $dark;
     border: none;
 
@@ -32,6 +32,7 @@
     line-height: 130%;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    text-decoration: none;
     text-align: center;
     color: $white;
 }

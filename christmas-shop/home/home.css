@@ -95,6 +95,7 @@
 .container {
   max-width: 1440px;
   margin: 0 auto;
+  font-family: Montserrat-SemiBold, sans-serif;
 }
 
 .hero {
@@ -148,13 +149,14 @@
 .hero .container .hero-info .btn {
   padding: 20px 32px;
   border-radius: 20px;
-  width: 236px;
+  /*    width: 236px; */
   background-color: #181C29;
   border: none;
   font-size: 12px;
   line-height: 130%;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-decoration: none;
   text-align: center;
   color: #FFFFFF;
   font-family: Montserrat-SemiBold, sans-serif;
@@ -306,4 +308,103 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #181C29;
+}
+
+.cta .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 82px;
+  box-sizing: content-box;
+  background-image: url("../assets/images/bg/bg-snow.png"), url("../assets/images/bg/bg-forest.png");
+  background-color: #FF4646;
+  background-position: center;
+  background-size: cover;
+}
+.cta .container .cta-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 426px;
+  padding: 60px 0;
+}
+.cta .container .cta-info .cta-title {
+  font-family: Montserrat-SemiBold, sans-serif;
+  font-size: 24px;
+  line-height: 152%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+}
+.cta .container .cta-info .btn {
+  padding: 20px 32px;
+  border-radius: 20px;
+  /*    width: 236px; */
+  background-color: #181C29;
+  border: none;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: #FFFFFF;
+}
+.cta .container .cta-info .timer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.cta .container .cta-info .timer-wrapper span {
+  font-family: Allura-Regular, sans-serif;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #FFFFFF;
+}
+.cta .container .cta-info .timer-wrapper .timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px 12px 12px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2509803922);
+}
+.cta .container .cta-info .timer-wrapper .timer .timer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  /*   &:not(:last-child) {
+      border-right: 1px solid $white-40;
+  } */
+}
+.cta .container .cta-info .timer-wrapper .timer .timer-item .count {
+  font-size: 24px;
+  line-height: 152%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+}
+.cta .container .cta-info .timer-wrapper .timer .timer-item .time-unit {
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+}
+.cta .container .cta-info .timer-wrapper .timer .border {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.2509803922);
 }/*# sourceMappingURL=home.css.map */
