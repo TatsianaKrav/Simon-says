@@ -1,4 +1,4 @@
-@import "../styles/header/header";
+@import "../styles/header/header", "../styles/footer/footer";
 
 .container {
     max-width: 1440px;
@@ -198,7 +198,7 @@
 .cta {
     .container {
         @include flex-column();
-        padding: 60px 82px;
+        padding: 120px 82px;
         box-sizing: content-box;
         background-image: url('../assets/images/bg/bg-snow.png'), url('../assets/images/bg/bg-forest.png');
         background-color: $primary;
@@ -210,6 +210,7 @@
             gap: 20px;
             max-width: 426px;
             padding: 60px 0;
+            box-sizing: border-box;
 
             .cta-title {
                 @include title();
@@ -254,10 +255,6 @@
                             text-align: center;
                             color: $white;
                         }
-
-                        /*   &:not(:last-child) {
-                            border-right: 1px solid $white-40;
-                        } */
                     }
 
                     .border {

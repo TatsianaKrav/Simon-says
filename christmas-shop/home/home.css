@@ -92,6 +92,125 @@
   text-decoration: none;
 }
 
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: Allura-Regular;
+  src: url(../assets/fonts/Allura-Regular.otf);
+}
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: Allura-Regular;
+  src: url(../assets/fonts/Allura-Regular.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: Montserrat-SemiBold, sans-serif;
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 60px 82px;
+  box-sizing: content-box;
+}
+.footer .container .contacts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.footer .container .contacts .contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 417px;
+  background: #ecf3f8;
+  text-decoration: none;
+}
+.footer .container .contacts .contact-card .contact {
+  font-size: 24px;
+  line-height: 152%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #181C29;
+}
+.footer .container .contacts .contact-card span {
+  font-size: 16px;
+  line-height: 152%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #181C29;
+}
+.footer .container .footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.footer .container .footer-info .socials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.footer .container .footer-info .socials a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+.footer .container .footer-info p {
+  font-family: Montserrat-Regular, sans-serif;
+  font-size: 16px;
+  line-height: 148%;
+  text-align: center;
+  color: #181C29;
+}
+.footer .container .footer-info span {
+  font-family: Allura-Regular, sans-serif;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #FFFFFF;
+  color: #181C29;
+  font-weight: 400;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -315,7 +434,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 82px;
+  padding: 120px 82px;
   box-sizing: content-box;
   background-image: url("../assets/images/bg/bg-snow.png"), url("../assets/images/bg/bg-forest.png");
   background-color: #FF4646;
@@ -330,6 +449,7 @@
   gap: 20px;
   max-width: 426px;
   padding: 60px 0;
+  box-sizing: border-box;
 }
 .cta .container .cta-info .cta-title {
   font-family: Montserrat-SemiBold, sans-serif;
@@ -383,9 +503,6 @@
   align-items: center;
   justify-content: center;
   width: 80px;
-  /*   &:not(:last-child) {
-      border-right: 1px solid $white-40;
-  } */
 }
 .cta .container .cta-info .timer-wrapper .timer .timer-item .count {
   font-size: 24px;
