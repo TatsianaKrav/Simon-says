@@ -13,11 +13,10 @@
 }
 
 .header {
-    padding: 12px 82px;
-    box-sizing: border-box;
-
     .container {
         @include flex();
+        padding: 12px 82px;
+        box-sizing: content-box;
 
         .logo {
             @include flex();

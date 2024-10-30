@@ -10,14 +10,14 @@
     max-width: 1440px;
     margin: 0 auto;
     font-family: Montserrat-SemiBold, sans-serif;
+    padding: 60px 82px;
+    box-sizing: content-box;
 }
 
 .footer {
     .container {
         @include flex-column();
         gap: 60px;
-        padding: 60px 82px;
-        box-sizing: content-box;
 
         .contacts {
             @include flex();

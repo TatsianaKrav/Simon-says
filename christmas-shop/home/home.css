@@ -33,14 +33,12 @@
   font-family: Montserrat-SemiBold, sans-serif;
 }
 
-.header {
-  padding: 12px 82px;
-  box-sizing: border-box;
-}
 .header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 82px;
+  box-sizing: content-box;
 }
 .header .container .logo {
   display: flex;
@@ -215,13 +213,13 @@
   max-width: 1440px;
   margin: 0 auto;
   font-family: Montserrat-SemiBold, sans-serif;
+  padding: 60px 82px;
+  box-sizing: content-box;
+  background-position: center;
+  background-size: cover;
 }
 
 .hero {
-  background-image: url("../assets/images/bg/bg-ball.png"), url("../assets/images/bg/bg-snow.png");
-  background-position: center;
-  background-size: cover;
-  background-color: #FF4646;
   font-family: Montserrat-SemiBold, sans-serif;
 }
 .hero .container {
@@ -229,8 +227,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 0;
-  box-sizing: border-box;
+  background-image: url("../assets/images/bg/bg-ball.png"), url("../assets/images/bg/bg-snow.png");
+  background-color: #FF4646;
 }
 .hero .container .hero-info {
   display: flex;
@@ -281,17 +279,13 @@
   font-family: Montserrat-SemiBold, sans-serif;
 }
 
-.about {
-  background-image: url("../assets/images/bg/bg-snow.png");
-  background-color: #FF4646;
-  padding: 60px 82px;
-  box-sizing: border-box;
-}
 .about .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   justify-content: center;
+  background-image: url("../assets/images/bg/bg-snow.png");
+  background-color: #FF4646;
 }
 .about .container .about-info {
   width: 50%;
@@ -351,8 +345,6 @@
   justify-content: center;
   background-image: url("../assets/images/bg/bg-snow.png");
   background-color: #FF4646;
-  padding: 60px 82px;
-  box-sizing: border-box;
 }
 .best-gifts .container span {
   font-family: Allura-Regular, sans-serif;
@@ -438,8 +430,6 @@
   box-sizing: content-box;
   background-image: url("../assets/images/bg/bg-snow.png"), url("../assets/images/bg/bg-forest.png");
   background-color: #FF4646;
-  background-position: center;
-  background-size: cover;
 }
 .cta .container .cta-info {
   display: flex;

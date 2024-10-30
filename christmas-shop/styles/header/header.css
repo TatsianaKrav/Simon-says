@@ -33,14 +33,12 @@
   font-family: Montserrat-SemiBold, sans-serif;
 }
 
-.header {
-  padding: 12px 82px;
-  box-sizing: border-box;
-}
 .header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 82px;
+  box-sizing: content-box;
 }
 .header .container .logo {
   display: flex;

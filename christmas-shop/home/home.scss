@@ -4,20 +4,19 @@
     max-width: 1440px;
     margin: 0 auto;
     font-family: Montserrat-SemiBold, sans-serif;
-
+    padding: 60px 82px;
+    box-sizing: content-box;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero {
-    background-image: url('../assets/images/bg/bg-ball.png'), url('../assets/images/bg/bg-snow.png');
-    background-position: center;
-    background-size: cover;
-    background-color: $primary;
     font-family: Montserrat-SemiBold, sans-serif;
 
     .container {
         @include flex-column();
-        padding: 60px 0;
-        box-sizing: border-box;
+        background-image: url('../assets/images/bg/bg-ball.png'), url('../assets/images/bg/bg-snow.png');
+        background-color: $primary;
 
         .hero-info {
             @include flex-column();
@@ -53,14 +52,11 @@
 }
 
 .about {
-    background-image: url('../assets/images/bg/bg-snow.png');
-    background-color: $primary;
-    padding: 60px 82px;
-    box-sizing: border-box;
-
     .container {
         @include flex();
         justify-content: center;
+        background-image: url('../assets/images/bg/bg-snow.png');
+        background-color: $primary;
 
         .about-info {
             width: 50%;
@@ -118,8 +114,6 @@
         @include flex-column();
         background-image: url('../assets/images/bg/bg-snow.png');
         background-color: $primary;
-        padding: 60px 82px;
-        box-sizing: border-box;
 
         span {
             @include section();
@@ -202,8 +196,6 @@
         box-sizing: content-box;
         background-image: url('../assets/images/bg/bg-snow.png'), url('../assets/images/bg/bg-forest.png');
         background-color: $primary;
-        background-position: center;
-        background-size: cover;
 
         .cta-info {
             @include flex-column();
