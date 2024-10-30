@@ -1,5 +1,9 @@
 @import "../styles/header/header", "../styles/footer/footer";
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
