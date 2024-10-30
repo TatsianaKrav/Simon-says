@@ -78,8 +78,6 @@
   align-items: center;
   justify-content: space-between;
   justify-content: center;
-  padding: 12px 20px;
-  box-sizing: border-box;
 }
 .header .container nav .menu .menu-item a {
   color: #181C29;
@@ -88,6 +86,8 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
+  padding: 12px 20px;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -198,7 +198,7 @@
   text-align: center;
   color: #181C29;
 }
-.footer .container .footer-info span {
+.footer .container .footer-info a {
   font-family: Allura-Regular, sans-serif;
   font-weight: 400;
   font-size: 24px;
@@ -208,6 +208,7 @@
   color: #FFFFFF;
   color: #181C29;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .container {
@@ -220,9 +221,6 @@
   background-size: cover;
 }
 
-.hero {
-  font-family: Montserrat-SemiBold, sans-serif;
-}
 .hero .container {
   display: flex;
   flex-direction: column;
@@ -241,7 +239,7 @@
   box-sizing: border-box;
   max-width: 429px;
 }
-.hero .container .hero-info span {
+.hero .container .hero-info h4 {
   font-family: Allura-Regular, sans-serif;
   font-weight: 400;
   font-size: 24px;
@@ -257,7 +255,6 @@
   justify-content: center;
 }
 .hero .container .hero-info h1 span {
-  font-family: Montserrat-SemiBold, sans-serif;
   font-size: 32px;
   line-height: 150%;
   letter-spacing: 0.18em;
@@ -278,7 +275,6 @@
   text-decoration: none;
   text-align: center;
   color: #FFFFFF;
-  font-family: Montserrat-SemiBold, sans-serif;
 }
 
 .about .container {
@@ -307,7 +303,7 @@
   max-width: 426px;
   padding: 60px 0;
 }
-.about .container .about-info .info-wrapper span {
+.about .container .about-info .info-wrapper h4 {
   font-family: Allura-Regular, sans-serif;
   font-weight: 400;
   font-size: 24px;
@@ -318,7 +314,6 @@
   color: #FF4646;
 }
 .about .container .about-info .info-wrapper .about-title {
-  font-family: Montserrat-SemiBold, sans-serif;
   font-size: 24px;
   line-height: 152%;
   letter-spacing: 0.16em;
@@ -335,7 +330,7 @@
   background-image: url("../assets/images/santa.png");
   background-position: center;
   background-size: cover;
-  height: 528px;
+  min-height: 528px;
   width: 50%;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -430,7 +425,7 @@
   background-image: url("../assets/images/bg/bg-snow.png");
   background-color: #FF4646;
 }
-.best-gifts .container span {
+.best-gifts .container h4 {
   font-family: Allura-Regular, sans-serif;
   font-weight: 400;
   font-size: 24px;
@@ -483,7 +478,6 @@
   border-bottom-right-radius: 20px;
 }
 .best-gifts .container .gift-cards-wrapper .git-card .gift-card-info .gift-purpose {
-  font-family: Montserrat-SemiBold, sans-serif;
   font-size: 12px;
   line-height: 130%;
   letter-spacing: 0.05em;
@@ -556,7 +550,7 @@
   justify-content: center;
   gap: 8px;
 }
-.cta .container .cta-info .timer-wrapper span {
+.cta .container .cta-info .timer-wrapper h4 {
   font-family: Allura-Regular, sans-serif;
   font-weight: 400;
   font-size: 24px;

@@ -77,10 +77,11 @@
                 color: $dark;
             }
 
-            span {
+            a {
                 @include section();
                 color: $dark;
                 font-weight: 400;
+                text-decoration: none;
             }
         }
     }

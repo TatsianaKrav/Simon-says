@@ -78,8 +78,6 @@
   align-items: center;
   justify-content: space-between;
   justify-content: center;
-  padding: 12px 20px;
-  box-sizing: border-box;
 }
 .header .container nav .menu .menu-item a {
   color: #181C29;
@@ -88,4 +86,6 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
+  padding: 12px 20px;
+  box-sizing: border-box;
 }/*# sourceMappingURL=header.css.map */

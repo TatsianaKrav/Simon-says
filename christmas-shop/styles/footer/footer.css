@@ -106,7 +106,7 @@
   text-align: center;
   color: #181C29;
 }
-.footer .container .footer-info span {
+.footer .container .footer-info a {
   font-family: Allura-Regular, sans-serif;
   font-weight: 400;
   font-size: 24px;
@@ -116,4 +116,5 @@
   color: #FFFFFF;
   color: #181C29;
   font-weight: 400;
+  text-decoration: none;
 }/*# sourceMappingURL=footer.css.map */

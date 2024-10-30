@@ -11,7 +11,6 @@
 }
 
 .hero {
-    font-family: Montserrat-SemiBold, sans-serif;
 
     .container {
         @include flex-column();
@@ -25,7 +24,7 @@
             box-sizing: border-box;
             max-width: 429px;
 
-            span {
+            h4 {
                 @include section();
             }
 
@@ -33,7 +32,6 @@
                 @include flex-column();
 
                 span {
-                    font-family: Montserrat-SemiBold, sans-serif;
                     font-size: 32px;
                     line-height: 150%;
                     letter-spacing: 0.18em;
@@ -45,7 +43,6 @@
 
             .btn {
                 @include btn();
-                font-family: Montserrat-SemiBold, sans-serif;
             }
         }
     }
@@ -74,13 +71,12 @@
                 max-width: 426px;
                 padding: 60px 0;
 
-                span {
+                h4 {
                     @include section();
                     color: $primary;
                 }
 
                 .about-title {
-                    font-family: Montserrat-SemiBold, sans-serif;
                     font-size: 24px;
                     line-height: 152%;
                     letter-spacing: 0.16em;
@@ -101,7 +97,7 @@
             background-image: url('../assets/images/santa.png');
             background-position: center;
             background-size: cover;
-            height: 528px;
+            min-height: 528px;
             width: 50%;
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
@@ -194,7 +190,7 @@
         background-image: url('../assets/images/bg/bg-snow.png');
         background-color: $primary;
 
-        span {
+        h4 {
             @include section();
             display: inline-block;
             margin-bottom: 12px;
@@ -237,7 +233,6 @@
                     border-bottom-right-radius: 20px;
 
                     .gift-purpose {
-                        font-family: Montserrat-SemiBold, sans-serif;
                         font-size: 12px;
                         line-height: 130%;
                         letter-spacing: 0.05em;
@@ -295,7 +290,7 @@
                 @include flex-column();
                 gap: 8px;
 
-                span {
+                h4 {
                     @include section();
                 }
 

@@ -50,12 +50,12 @@
                 .menu-item {
                     @include flex();
                     justify-content: center;
-                    padding: 12px 20px;
-                    box-sizing: border-box;
 
                     a {
                         @include header-item();
                         text-decoration: none;
+                        padding: 12px 20px;
+                        box-sizing: border-box;
                     }
                 }
             }
