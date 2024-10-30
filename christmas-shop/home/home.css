@@ -88,6 +88,12 @@
   text-decoration: none;
   padding: 12px 20px;
   box-sizing: border-box;
+  transition: all 0.3s linear;
+}
+.header .container nav .menu .menu-item:hover a {
+  color: #FF4646;
+  background-color: rgba(255, 70, 70, 0.062745098);
+  border-radius: 12px;
 }
 
 @font-face {
@@ -160,6 +166,7 @@
   text-transform: uppercase;
   text-align: center;
   color: #181C29;
+  transition: all 0.3s linear;
 }
 .footer .container .contacts .contact-card span {
   font-size: 16px;
@@ -168,6 +175,10 @@
   text-transform: uppercase;
   text-align: center;
   color: #181C29;
+  transition: all 0.3s linear;
+}
+.footer .container .contacts .contact-card:hover span {
+  color: #FF4646;
 }
 .footer .container .footer-info {
   display: flex;
@@ -191,6 +202,13 @@
   width: 40px;
   height: 40px;
 }
+.footer .container .footer-info .socials a svg {
+  transition: all 0.3s linear;
+  stroke: #181C29;
+}
+.footer .container .footer-info .socials a:hover svg {
+  stroke: #FF4646;
+}
 .footer .container .footer-info p {
   font-family: Montserrat-Regular, sans-serif;
   font-size: 16px;
@@ -209,6 +227,10 @@
   color: #181C29;
   font-weight: 400;
   text-decoration: none;
+  transition: all 0.3s linear;
+}
+.footer .container .footer-info a:hover {
+  color: #FF4646;
 }
 
 .container {
@@ -275,6 +297,11 @@
   text-decoration: none;
   text-align: center;
   color: #FFFFFF;
+  transition: all 0.6s linear;
+}
+.hero .container .hero-info .btn:hover {
+  color: #181C29;
+  background-color: #FFFFFF;
 }
 
 .about .container {
@@ -414,7 +441,25 @@
   width: 56px;
   height: 56px;
   background-color: transparent;
+  cursor: default;
+}
+.slider .container .slider-btns .slider-btn svg {
+  stroke: rgba(255, 255, 255, 0.2509803922);
+  transition: all 0.3s linear;
+}
+.slider .container .slider-btns .slider-btn.active {
+  border: 1px solid #FFFFFF;
   cursor: pointer;
+  transition: all 0.5s linear;
+}
+.slider .container .slider-btns .slider-btn.active svg {
+  stroke: #FFFFFF;
+}
+.slider .container .slider-btns .slider-btn.active:hover {
+  background-color: #FFFFFF;
+}
+.slider .container .slider-btns .slider-btn.active:hover svg {
+  stroke: #FF4646;
 }
 
 .best-gifts .container {
@@ -454,22 +499,73 @@
   flex-wrap: wrap;
   gap: 12px;
 }
-.best-gifts .container .gift-cards-wrapper .git-card {
+.best-gifts .container .gift-cards-wrapper .gift-card {
   border-radius: 20px;
   width: 310px;
+  cursor: pointer;
+  /*   border-radius: 20px;
+  width: 310px;
+
+  .gift-card-image {
+      background-color: #ecf3f8;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      height: 230px;
+
+      img {
+          width: 100%;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+      }
+  }
+
+  .gift-card-info {
+      padding: 20px 20px 0 20px;
+      box-sizing: border-box;
+      height: 112px;
+      background-color: $white;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+
+      .gift-purpose {
+          font-size: 12px;
+          line-height: 130%;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: $purple;
+          display: inline-block;
+          margin-bottom: 8px;
+
+          &.health {
+              color: $green;
+          }
+
+          &.harmony {
+              color: $pink;
+          }
+      }
+
+      h3 {
+          font-size: 16px;
+          line-height: 152%;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: $dark;
+      }
+  } */
 }
-.best-gifts .container .gift-cards-wrapper .git-card .gift-card-image {
+.best-gifts .container .gift-cards-wrapper .gift-card .gift-card-image {
   background-color: #ecf3f8;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   height: 230px;
 }
-.best-gifts .container .gift-cards-wrapper .git-card .gift-card-image img {
+.best-gifts .container .gift-cards-wrapper .gift-card .gift-card-image img {
   width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-.best-gifts .container .gift-cards-wrapper .git-card .gift-card-info {
+.best-gifts .container .gift-cards-wrapper .gift-card .gift-card-info {
   padding: 20px 20px 0 20px;
   box-sizing: border-box;
   height: 112px;
@@ -477,7 +573,7 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.best-gifts .container .gift-cards-wrapper .git-card .gift-card-info .gift-purpose {
+.best-gifts .container .gift-cards-wrapper .gift-card .gift-card-info .gift-purpose {
   font-size: 12px;
   line-height: 130%;
   letter-spacing: 0.05em;
@@ -486,18 +582,22 @@
   display: inline-block;
   margin-bottom: 8px;
 }
-.best-gifts .container .gift-cards-wrapper .git-card .gift-card-info .gift-purpose.health {
+.best-gifts .container .gift-cards-wrapper .gift-card .gift-card-info .gift-purpose.health {
   color: #06A44F;
 }
-.best-gifts .container .gift-cards-wrapper .git-card .gift-card-info .gift-purpose.harmony {
+.best-gifts .container .gift-cards-wrapper .gift-card .gift-card-info .gift-purpose.harmony {
   color: #FF43F7;
 }
-.best-gifts .container .gift-cards-wrapper .git-card .gift-card-info h3 {
+.best-gifts .container .gift-cards-wrapper .gift-card .gift-card-info h3 {
   font-size: 16px;
   line-height: 152%;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #181C29;
+  transition: all 0.3s linear;
+}
+.best-gifts .container .gift-cards-wrapper .gift-card:hover .gift-card-info h3 {
+  color: #FF4646;
 }
 
 .cta .container {
@@ -542,6 +642,11 @@
   text-decoration: none;
   text-align: center;
   color: #FFFFFF;
+  transition: all 0.6s linear;
+}
+.cta .container .cta-info .btn:hover {
+  color: #181C29;
+  background-color: #FFFFFF;
 }
 .cta .container .cta-info .timer-wrapper {
   display: flex;

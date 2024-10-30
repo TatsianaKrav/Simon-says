@@ -24,7 +24,7 @@
 @mixin btn {
     padding: 20px 32px;
     border-radius: 20px;
- /*    width: 236px; */
+    /*    width: 236px; */
     background-color: $dark;
     border: none;
 
@@ -35,6 +35,12 @@
     text-decoration: none;
     text-align: center;
     color: $white;
+    transition: all 0.6s linear;
+
+    &:hover {
+        color: $dark;
+        background-color: $white;
+    }
 }
 
 @mixin section {
@@ -55,4 +61,68 @@
     text-transform: uppercase;
     text-align: center;
     color: $white;
+}
+
+@mixin gift-card {
+    border-radius: 20px;
+    width: 310px;
+    cursor: pointer;
+
+    .gift-card-image {
+        background-color: #ecf3f8;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        height: 230px;
+
+        img {
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+    }
+
+    .gift-card-info {
+        padding: 20px 20px 0 20px;
+        box-sizing: border-box;
+        height: 112px;
+        background-color: $white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        .gift-purpose {
+            font-size: 12px;
+            line-height: 130%;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: $purple;
+            display: inline-block;
+            margin-bottom: 8px;
+
+            &.health {
+                color: $green;
+            }
+
+            &.harmony {
+                color: $pink;
+            }
+        }
+
+        h3 {
+            font-size: 16px;
+            line-height: 152%;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: $dark;
+            transition: all 0.3s linear;
+        }
+    }
+
+    &:hover {
+        .gift-card-info {
+            h3 {
+                color: $primary;
+            }
+        }
+
+    }
 }

@@ -178,7 +178,31 @@
                 width: 56px;
                 height: 56px;
                 background-color: transparent;
-                cursor: pointer;
+                cursor: default;
+
+                svg {
+                    stroke: $white-40;
+                    transition: all .3s linear;
+                }
+
+                &.active {
+                    border: 1px solid $white;
+                    cursor: pointer;
+                    transition: all .5s linear;
+
+                    svg {
+                        stroke: $white;
+                    }
+
+                    &:hover {
+                        background-color: $white;
+
+                        svg {
+                            stroke: $primary;
+                        }
+
+                    }
+                }
             }
         }
     }
@@ -207,8 +231,10 @@
             flex-wrap: wrap;
             gap: 12px;
 
-            .git-card {
-                border-radius: 20px;
+            .gift-card {
+
+                @include gift-card();
+                /*   border-radius: 20px;
                 width: 310px;
 
                 .gift-card-image {
@@ -257,7 +283,7 @@
                         text-transform: uppercase;
                         color: $dark;
                     }
-                }
+                } */
             }
         }
     }

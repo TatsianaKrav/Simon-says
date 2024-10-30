@@ -88,4 +88,10 @@
   text-decoration: none;
   padding: 12px 20px;
   box-sizing: border-box;
+  transition: all 0.3s linear;
+}
+.header .container nav .menu .menu-item:hover a {
+  color: #FF4646;
+  background-color: rgba(255, 70, 70, 0.062745098);
+  border-radius: 12px;
 }/*# sourceMappingURL=header.css.map */
