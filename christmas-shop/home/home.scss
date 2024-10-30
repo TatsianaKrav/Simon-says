@@ -109,6 +109,85 @@
     }
 }
 
+.slider {
+    .container {
+        @include flex-column();
+        gap: 20px;
+        background-color: $primary;
+        overflow-x: hidden;
+
+        .slider-info {
+            h4 {
+                @include section();
+                margin-bottom: 12px
+            }
+
+            h2 {
+                @include title();
+            }
+        }
+
+        .sliders-wrapper {
+            @include flex();
+            gap: 20px;
+            flex-wrap: nowrap;
+            align-self: flex-start;
+
+            .slider-item {
+                @include flex();
+                gap: 20px;
+
+                span {
+                    font-size: 80px;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: $white;
+                }
+
+                .slider-image {
+                    border-radius: 20px;
+                    width: 200px;
+                    height: 200px;
+                    background-image: url("../assets/images/sliders/snowman.png");
+                    background-position: center;
+                    background-size: cover;
+                }
+
+                &:nth-child(2) {
+                    .slider-image {
+                        background-image: url("../assets/images/sliders/christmas-trees.png");
+                    }
+                }
+
+                &:nth-child(3) {
+                    .slider-image {
+                        background-image: url("../assets/images/sliders/christmas-tree-ball.png");
+                    }
+                }
+
+                &:last-child {
+                    background-image: url("../assets/images/sliders/fairytale-house.png");
+                }
+            }
+        }
+
+        .slider-btns {
+            @include flex();
+            gap: 20px;
+            align-self: flex-end;
+
+            .slider-btn {
+                border: 1px solid $white-40;
+                border-radius: 20px;
+                width: 56px;
+                height: 56px;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 .best-gifts {
     .container {
         @include flex-column();
