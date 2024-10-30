@@ -90,10 +90,16 @@
   box-sizing: border-box;
   transition: all 0.3s linear;
 }
-.header .container nav .menu .menu-item:hover a {
+.header .container nav .menu .menu-item:hover:not(.active) a {
   color: #FF4646;
   background-color: rgba(255, 70, 70, 0.062745098);
   border-radius: 12px;
+}
+.header .container nav .menu .menu-item.active a {
+  color: #FF4646;
+  background-color: rgba(255, 70, 70, 0.062745098);
+  border-radius: 12px;
+  cursor: default;
 }
 
 @font-face {

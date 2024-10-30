@@ -1,0 +1,15 @@
+@import "../styles/header/header", "../styles/footer/footer";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat-SemiBold, sans-serif;
+    padding: 60px 82px;
+    box-sizing: content-box;
+    background-position: center;
+    background-size: cover;
+}
