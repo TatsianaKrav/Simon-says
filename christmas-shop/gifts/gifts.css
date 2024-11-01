@@ -57,6 +57,8 @@
   font-size: 12px;
   line-height: 130%;
   letter-spacing: 0.05em;
+  padding: 12px 20px;
+  box-sizing: border-box;
   text-transform: uppercase;
 }
 .header .container .space {
@@ -84,10 +86,10 @@
   font-size: 12px;
   line-height: 130%;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-decoration: none;
   padding: 12px 20px;
   box-sizing: border-box;
+  text-transform: uppercase;
+  text-decoration: none;
   transition: all 0.3s linear;
 }
 .header .container nav .menu .menu-item:hover:not(.active) a {
@@ -150,6 +152,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 12px;
 }
 .footer .container .contacts .contact-card {
@@ -254,12 +257,11 @@ html {
   font-family: Montserrat-SemiBold, sans-serif;
   padding: 60px 82px;
   box-sizing: content-box;
-  background-position: center;
-  background-size: cover;
   background-image: url("../assets/images/bg/bg-garland.png");
   background-color: #FF4646;
-  background-position: center;
-  background-size: cover;
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .gifts .container h1 {
   font-size: 32px;
@@ -269,6 +271,36 @@ html {
   text-align: center;
   color: #FFFFFF;
   max-width: 426px;
+}
+.gifts .container .tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.gifts .container .tabs input {
+  display: none;
+}
+.gifts .container .tabs input:checked + label {
+  border-radius: 12px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1254901961);
+  cursor: default;
+}
+.gifts .container .tabs label {
+  color: #181C29;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.gifts .container .tabs label:hover {
+  background-color: rgba(255, 255, 255, 0.1254901961);
+  border-radius: 12px;
 }
 .gifts .container .gift-cards-wrapper {
   display: flex;

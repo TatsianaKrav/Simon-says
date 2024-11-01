@@ -14,12 +14,11 @@ html {
         font-family: Montserrat-SemiBold, sans-serif;
         padding: 60px 82px;
         box-sizing: content-box;
-        background-position: center;
-        background-size: cover;
         background-image: url("../assets/images/bg/bg-garland.png");
         background-color: $primary;
-        background-position: center;
-        background-size: cover;
+        background-position: top;
+        background-size: contain;
+        background-repeat: no-repeat;
 
         h1 {
             font-size: 32px;
@@ -29,6 +28,33 @@ html {
             text-align: center;
             color: $white;
             max-width: 426px;
+        }
+
+        .tabs {
+            @include flex();
+            gap: 8px;
+
+            input {
+                display: none;
+
+                &:checked+label {
+                    border-radius: 12px;
+                    padding: 12px 20px;
+                    background: $white-20;
+                    cursor: default;
+                }
+            }
+
+            label {
+                @include header-item();
+                color: $white;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $white-20;
+                    border-radius: 12px;          
+                }
+            }
         }
 
         .gift-cards-wrapper {

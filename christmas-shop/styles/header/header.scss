@@ -54,8 +54,6 @@
                     a {
                         @include header-item();
                         text-decoration: none;
-                        padding: 12px 20px;
-                        box-sizing: border-box;
                         transition: all .3s linear;
                     }
 
