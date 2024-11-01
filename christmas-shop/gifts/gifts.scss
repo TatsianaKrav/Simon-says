@@ -47,12 +47,14 @@ html {
 
             label {
                 @include header-item();
+                padding: 12px 20px;
+                box-sizing: border-box;
                 color: $white;
                 cursor: pointer;
 
                 &:hover {
                     background-color: $white-20;
-                    border-radius: 12px;          
+                    border-radius: 12px;
                 }
             }
         }

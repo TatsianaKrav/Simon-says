@@ -53,6 +53,8 @@
 
                     a {
                         @include header-item();
+                        padding: 12px 20px;
+                        box-sizing: border-box;
                         text-decoration: none;
                         transition: all .3s linear;
                     }
