@@ -243,7 +243,12 @@ html {
   scroll-behavior: smooth;
 }
 
-.container {
+.gifts .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   max-width: 1440px;
   margin: 0 auto;
   font-family: Montserrat-SemiBold, sans-serif;
@@ -251,4 +256,74 @@ html {
   box-sizing: content-box;
   background-position: center;
   background-size: cover;
+  background-image: url("../assets/images/bg/bg-garland.png");
+  background-color: #FF4646;
+  background-position: center;
+  background-size: cover;
+}
+.gifts .container h1 {
+  font-size: 32px;
+  line-height: 150%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
+  max-width: 426px;
+}
+.gifts .container .gift-cards-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.gifts .container .gift-cards-wrapper .gift-card {
+  border-radius: 20px;
+  width: 310px;
+  cursor: pointer;
+}
+.gifts .container .gift-cards-wrapper .gift-card .gift-card-image {
+  background-color: #ecf3f8;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 230px;
+}
+.gifts .container .gift-cards-wrapper .gift-card .gift-card-image img {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.gifts .container .gift-cards-wrapper .gift-card .gift-card-info {
+  padding: 20px 20px 0 20px;
+  box-sizing: border-box;
+  height: 112px;
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.gifts .container .gift-cards-wrapper .gift-card .gift-card-info .gift-purpose {
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4361FF;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.gifts .container .gift-cards-wrapper .gift-card .gift-card-info .gift-purpose.health {
+  color: #06A44F;
+}
+.gifts .container .gift-cards-wrapper .gift-card .gift-card-info .gift-purpose.harmony {
+  color: #FF43F7;
+}
+.gifts .container .gift-cards-wrapper .gift-card .gift-card-info h3 {
+  font-size: 16px;
+  line-height: 152%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #181C29;
+  transition: all 0.3s linear;
+}
+.gifts .container .gift-cards-wrapper .gift-card:hover .gift-card-info h3 {
+  color: #FF4646;
 }/*# sourceMappingURL=gifts.css.map */

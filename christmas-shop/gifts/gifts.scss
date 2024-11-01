@@ -4,12 +4,41 @@ html {
     scroll-behavior: smooth;
 }
 
-.container {
-    max-width: 1440px;
-    margin: 0 auto;
-    font-family: Montserrat-SemiBold, sans-serif;
-    padding: 60px 82px;
-    box-sizing: content-box;
-    background-position: center;
-    background-size: cover;
+
+.gifts {
+    .container {
+        @include flex-column();
+        gap: 20px;
+        max-width: 1440px;
+        margin: 0 auto;
+        font-family: Montserrat-SemiBold, sans-serif;
+        padding: 60px 82px;
+        box-sizing: content-box;
+        background-position: center;
+        background-size: cover;
+        background-image: url("../assets/images/bg/bg-garland.png");
+        background-color: $primary;
+        background-position: center;
+        background-size: cover;
+
+        h1 {
+            font-size: 32px;
+            line-height: 150%;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-align: center;
+            color: $white;
+            max-width: 426px;
+        }
+
+        .gift-cards-wrapper {
+            @include flex();
+            gap: 12px;
+            flex-wrap: wrap;
+
+            .gift-card {
+                @include gift-card();
+            }
+        }
+    }
 }
