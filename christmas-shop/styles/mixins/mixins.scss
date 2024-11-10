@@ -67,6 +67,7 @@
     border-radius: 20px;
     width: 310px;
     cursor: pointer;
+    background-color: $bg;
 
     .gift-card-image {
         background-color: #ecf3f8;
@@ -86,8 +87,7 @@
         box-sizing: border-box;
         height: 112px;
         background-color: $white;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        border-radius: 20px;
 
         .gift-purpose {
             font-size: 12px;

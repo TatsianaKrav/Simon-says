@@ -311,6 +311,7 @@ html {
   border-radius: 20px;
   width: 310px;
   cursor: pointer;
+  background-color: #ecf3f8;
 }
 .gifts .container .gift-cards-wrapper .gift-card .gift-card-image {
   background-color: #ecf3f8;
@@ -328,8 +329,7 @@ html {
   box-sizing: border-box;
   height: 112px;
   background-color: #FFFFFF;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
 }
 .gifts .container .gift-cards-wrapper .gift-card .gift-card-info .gift-purpose {
   font-size: 12px;
