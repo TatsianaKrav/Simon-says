@@ -125,3 +125,13 @@
         }
     }
 }
+
+@mixin burger {
+    content: "";
+    width: 20px;
+    height: 1px;
+    background-color: $dark;
+    position: absolute;
+    left: 10px;
+    transition: all 0.4s linear;
+}

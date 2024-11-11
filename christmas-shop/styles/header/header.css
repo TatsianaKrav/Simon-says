@@ -100,4 +100,40 @@
   background-color: rgba(255, 70, 70, 0.062745098);
   border-radius: 12px;
   cursor: default;
+}
+.header .container .burger {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+}
+.header .container .burger::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background-color: #181C29;
+  position: absolute;
+  left: 10px;
+  transition: all 0.4s linear;
+  top: 16px;
+}
+.header .container .burger::after {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background-color: #181C29;
+  position: absolute;
+  left: 10px;
+  transition: all 0.4s linear;
+  bottom: 16px;
+}
+.header .container .burger.opened::before {
+  transform: rotate(45deg);
+  top: 20px;
+}
+.header .container .burger.opened::after {
+  transform: rotate(-45deg);
+  bottom: 19px;
 }/*# sourceMappingURL=header.css.map */
