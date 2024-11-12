@@ -51,10 +51,11 @@ html {
                 box-sizing: border-box;
                 color: $white;
                 cursor: pointer;
+                border-radius: 12px;
+                transition: all 0.4s linear;
 
                 &:hover {
                     background-color: $white-20;
-                    border-radius: 12px;
                 }
             }
         }
@@ -69,4 +70,18 @@ html {
             }
         }
     }
+}
+
+.up-btn {
+    @include flex();
+    justify-content: center;
+    border: 1px solid #ff4646;
+    border-radius: 100px;
+    width: 56px;
+    height: 56px;
+    background: $white;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s linear;
 }

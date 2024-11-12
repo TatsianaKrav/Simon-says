@@ -106,6 +106,7 @@
   height: 40px;
   cursor: pointer;
   position: relative;
+  display: none;
 }
 .header .container .burger::before {
   content: "";
@@ -127,11 +128,13 @@
   transition: all 0.4s linear;
   bottom: 16px;
 }
-.header .container .burger.open::before {
+.header .container .burger.opened::before {
   transform: rotate(45deg);
+  top: 20px;
 }
-.header .container .burger.open::after {
+.header .container .burger.opened::after {
   transform: rotate(-45deg);
+  bottom: 19px;
 }
 
 @font-face {
