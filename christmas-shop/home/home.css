@@ -550,13 +550,20 @@ html {
   color: #181C29;
 }
 .main .about .container .about-image {
-  background-image: url("../assets/images/santa.png");
-  background-position: center;
-  background-size: cover;
   min-height: 528px;
   width: 50%;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  background-color: #FFFFFF;
+}
+.main .about .container .about-image .image-wrapper {
+  background-image: url("../assets/images/santa.png");
+  background-position: center;
+  background-size: cover;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  min-height: 528px;
+  border-radius: 20px;
 }
 .main .slider .container {
   display: flex;
