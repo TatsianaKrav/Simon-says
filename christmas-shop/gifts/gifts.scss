@@ -1,0 +1,87 @@
+@import "../styles/header/header", "../styles/footer/footer";
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.gifts {
+    .container {
+        @include flex-column();
+        gap: 20px;
+        max-width: 1440px;
+        margin: 0 auto;
+        font-family: Montserrat-SemiBold, sans-serif;
+        padding: 60px 82px;
+        box-sizing: content-box;
+        background-image: url("../assets/images/bg/bg-garland.png");
+        background-color: $primary;
+        background-position: top;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        h1 {
+            font-size: 32px;
+            line-height: 1.50em;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-align: center;
+            color: $white;
+            max-width: 426px;
+        }
+
+        .tabs {
+            @include flex();
+            gap: 8px;
+
+            input {
+                display: none;
+
+                &:checked+label {
+                    border-radius: 12px;
+                    padding: 12px 20px;
+                    background: $white-20;
+                    cursor: default;
+                }
+            }
+
+            label {
+                @include header-item();
+                padding: 12px 20px;
+                box-sizing: border-box;
+                color: $white;
+                cursor: pointer;
+                border-radius: 12px;
+                transition: all 0.4s linear;
+
+                &:hover {
+                    background-color: $white-20;
+                }
+            }
+        }
+
+        .gift-cards-wrapper {
+            @include flex();
+            gap: 12px;
+            flex-wrap: wrap;
+
+            .gift-card {
+                @include gift-card();
+            }
+        }
+    }
+}
+
+.up-btn {
+    @include flex();
+    justify-content: center;
+    border: 1px solid #ff4646;
+    border-radius: 100px;
+    width: 56px;
+    height: 56px;
+    background: $white;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s linear;
+}

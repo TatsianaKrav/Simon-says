@@ -1,0 +1,109 @@
+@import "../fonts/fonts", "../colors/colors", "../mixins/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat-SemiBold, sans-serif;
+    padding: 60px 82px;
+    box-sizing: content-box;
+}
+
+.footer {
+    .container {
+        @include flex-column();
+        gap: 60px;
+
+        .contacts {
+            @include flex();
+            flex-wrap: wrap;
+            gap: 12px;
+
+            .contact-card {
+                @include flex-column();
+                gap: 12px;
+                padding: 20px;
+                box-sizing: border-box;
+                border-radius: 20px;
+                width: 417px;
+                background: $bg;
+                text-decoration: none;
+
+                .contact {
+                    font-size: 24px;
+                    line-height: 152%;
+                    letter-spacing: 0.16em;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: $dark;
+                    transition: all 0.3s linear;
+                }
+
+                span {
+                    font-size: 16px;
+                    line-height: 152%;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: $dark;
+                    transition: all 0.3s linear;
+                }
+
+                &:hover span {
+                    color: $primary;
+                }
+            }
+        }
+
+        .footer-info {
+            @include flex-column();
+            gap: 12px;
+
+            .socials {
+                @include flex();
+                gap: 12px;
+
+                a {
+                    @include flex-column();
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+
+                    svg {
+                        transition: all .3s linear;
+                        stroke: #181C29;
+                    }
+
+                    &:hover svg {
+                        stroke: $primary;
+                    }
+                }
+            }
+
+            p {
+                font-family: Montserrat-Regular, sans-serif;
+                font-size: 16px;
+                line-height: 148%;
+                text-align: center;
+                color: $dark;
+            }
+
+            a {
+                @include section();
+                color: $dark;
+                font-weight: 400;
+                text-decoration: none;
+                transition: all 0.3s linear;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+}

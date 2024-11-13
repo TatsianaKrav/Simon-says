@@ -1,0 +1,138 @@
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: Allura-Regular;
+  src: url(../assets/fonts/Allura-Regular.otf);
+}
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: Allura-Regular;
+  src: url(../assets/fonts/Allura-Regular.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: Montserrat-SemiBold, sans-serif;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 82px;
+  box-sizing: content-box;
+}
+.header .container .logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 20px;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.header .container .logo img {
+  width: 24px;
+}
+.header .container .logo span {
+  color: #181C29;
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.header .container .space {
+  width: 12px;
+  height: 12px;
+}
+.header .container nav {
+  flex-shrink: 0;
+}
+.header .container nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  list-style: none;
+}
+.header .container nav .menu .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+}
+.header .container nav .menu .menu-item a {
+  color: #181C29;
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.3s linear;
+}
+.header .container nav .menu .menu-item:hover:not(.active) a {
+  color: #FF4646;
+  background-color: rgba(255, 70, 70, 0.062745098);
+  border-radius: 12px;
+}
+.header .container nav .menu .menu-item.active a {
+  color: #FF4646;
+  background-color: rgba(255, 70, 70, 0.062745098);
+  border-radius: 12px;
+  cursor: default;
+}
+.header .container .burger {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  display: none;
+}
+.header .container .burger::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background-color: #181C29;
+  position: absolute;
+  left: 10px;
+  transition: all 0.4s linear;
+  top: 16px;
+}
+.header .container .burger::after {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background-color: #181C29;
+  position: absolute;
+  left: 10px;
+  transition: all 0.4s linear;
+  bottom: 16px;
+}
+.header .container .burger.opened::before {
+  transform: rotate(45deg);
+  top: 20px;
+}
+.header .container .burger.opened::after {
+  transform: rotate(-45deg);
+  bottom: 19px;
+}/*# sourceMappingURL=header.css.map */

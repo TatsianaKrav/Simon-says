@@ -1,0 +1,112 @@
+@import "../fonts/fonts", "../colors/colors", "../mixins/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat-SemiBold, sans-serif;
+}
+
+.header {
+    .container {
+        @include flex();
+        padding: 12px 82px;
+        box-sizing: content-box;
+
+        .logo {
+            @include flex();
+            gap: 8px;
+            padding: 8px 20px;
+            text-decoration: none;
+            box-sizing: border-box;
+
+            img {
+                width: 24px;
+            }
+
+            span {
+                @include header-item();
+            }
+        }
+
+        .space {
+            width: 12px;
+            height: 12px;
+        }
+
+        nav {
+            flex-shrink: 0;
+
+            .menu {
+                @include flex();
+                gap: 8px;
+                list-style: none;
+
+                .menu-item {
+                    @include flex();
+                    justify-content: center;
+
+                    a {
+                        @include header-item();
+                        padding: 12px 20px;
+                        box-sizing: border-box;
+                        text-decoration: none;
+                        transition: all .3s linear;
+                    }
+
+                    &:hover:not(.active) {
+                        a {
+                            color: $primary;
+                            background-color: $primary-10;
+                            border-radius: 12px;
+                        }
+                    }
+
+                    &.active {
+                        a {
+                            color: $primary;
+                            background-color: $primary-10;
+                            border-radius: 12px;
+                            cursor: default;
+                        }
+                    }
+                }
+            }
+        }
+
+        .burger {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            position: relative;
+            display: none;
+
+            &::before {
+                @include burger();
+                top: 16px;
+            }
+
+            &::after {
+                @include burger();
+                bottom: 16px;
+            }
+
+            &.opened {
+                &::before {
+                    transform: rotate(45deg);
+                    top: 20px;
+                }
+
+                &::after {
+                    transform: rotate(-45deg);
+                    bottom: 19px;
+                }
+            }
+        }
+    }
+}
