@@ -16,7 +16,7 @@
 @mixin header-item {
     color: $dark;
     font-size: 12px;
-    line-height: 130%;
+    line-height: 1.3em;
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
@@ -29,7 +29,7 @@
     border: none;
 
     font-size: 12px;
-    line-height: 130%;
+    line-height: 1.3em;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
@@ -47,7 +47,7 @@
     font-family: Allura-Regular, sans-serif;
     font-weight: 400;
     font-size: 24px;
-    line-height: 100%;
+    line-height: 1em;
     letter-spacing: 0.05em;
     text-align: center;
     color: $white;
@@ -56,7 +56,7 @@
 @mixin title {
     font-family: Montserrat-SemiBold, sans-serif;
     font-size: 24px;
-    line-height: 152%;
+    line-height: 1.52em;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     text-align: center;
@@ -91,7 +91,7 @@
 
         .gift-purpose {
             font-size: 12px;
-            line-height: 130%;
+            line-height: 1.3em;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             color: $purple;
@@ -109,7 +109,7 @@
 
         h3 {
             font-size: 16px;
-            line-height: 152%;
+            line-height: 1.52em;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: $dark;

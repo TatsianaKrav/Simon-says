@@ -55,7 +55,7 @@
 .header .container .logo span {
   color: #181C29;
   font-size: 12px;
-  line-height: 130%;
+  line-height: 1.3em;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -82,7 +82,7 @@
 .header .container nav .menu .menu-item a {
   color: #181C29;
   font-size: 12px;
-  line-height: 130%;
+  line-height: 1.3em;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 12px 20px;
