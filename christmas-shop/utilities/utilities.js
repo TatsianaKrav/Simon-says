@@ -7,15 +7,14 @@ export function createElement(tagName, className = "", text = "") {
 }
 
 const upBtn = document.querySelector(".up-btn");
-upBtn.style.display = 'none';
+if (upBtn) upBtn.style.display = 'none';
 
-window.addEventListener("scroll", function () {
-    const screenHeight = this.document.documentElement.clientHeight;
-
+/* window.addEventListener("scroll", function () {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    console.log(scrollY);
+    if (!upBtn) return;
+
     scrollY > 0 ? upBtn.style.display = 'flex' : upBtn.style.display = 'none';
-});
+}); */
 
 /* window.addEventListener('resize', function() {
     const новаяШирина = window.innerWidth;
