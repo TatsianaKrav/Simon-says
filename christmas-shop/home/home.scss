@@ -5,13 +5,12 @@ html {
 }
 
 .container {
+    @include bg();
     max-width: 1440px;
     margin: 0 auto;
     font-family: Montserrat-SemiBold, sans-serif;
     padding: 60px 82px;
     box-sizing: content-box;
-    background-position: center;
-    background-size: cover;
 }
 
 .main {
@@ -106,9 +105,8 @@ html {
 
 
                 .image-wrapper {
+                    @include bg();
                     background-image: url('../assets/images/santa.png');
-                    background-position: center;
-                    background-size: cover;
                     border-top-right-radius: 20px;
                     border-bottom-right-radius: 20px;
                     min-height: 528px;
@@ -121,6 +119,8 @@ html {
     .slider {
         .container {
             @include flex-column();
+            @include bg();
+            background-image: url('../assets/images/bg/bg-snow.png');
             gap: 20px;
             background-color: $primary;
             overflow-x: hidden;
@@ -154,12 +154,11 @@ html {
                     }
 
                     .slider-image {
+                        @include bg();
                         border-radius: 20px;
                         width: 200px;
                         height: 200px;
                         background-image: url("../assets/images/sliders/snowman.png");
-                        background-position: center;
-                        background-size: cover;
                     }
 
                     &:nth-child(2) {
@@ -235,6 +234,7 @@ html {
 
             .best-gifts-title {
                 @include title();
+                line-height: 1.4em;
                 margin-bottom: 20px;
             }
 
