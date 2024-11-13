@@ -432,13 +432,14 @@ html {
 }
 
 .container {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   max-width: 1440px;
   margin: 0 auto;
   font-family: Montserrat-SemiBold, sans-serif;
   padding: 60px 82px;
   box-sizing: content-box;
-  background-position: center;
-  background-size: cover;
 }
 
 .main .hero .container {
@@ -557,9 +558,10 @@ html {
   background-color: #FFFFFF;
 }
 .main .about .container .about-image .image-wrapper {
-  background-image: url("../assets/images/santa.png");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/santa.png");
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   min-height: 528px;
@@ -570,6 +572,10 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/bg/bg-snow.png");
   gap: 20px;
   background-color: #FF4646;
   overflow-x: hidden;
@@ -614,12 +620,13 @@ html {
   color: #FFFFFF;
 }
 .main .slider .container .sliders-wrapper .slider-item .slider-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 20px;
   width: 200px;
   height: 200px;
   background-image: url("../assets/images/sliders/snowman.png");
-  background-position: center;
-  background-size: cover;
 }
 .main .slider .container .sliders-wrapper .slider-item:nth-child(2) .slider-image {
   background-image: url("../assets/images/sliders/christmas-trees.png");
@@ -690,6 +697,7 @@ html {
   text-transform: uppercase;
   text-align: center;
   color: #FFFFFF;
+  line-height: 1.4em;
   margin-bottom: 20px;
 }
 .main .best-gifts .container .gift-cards-wrapper {

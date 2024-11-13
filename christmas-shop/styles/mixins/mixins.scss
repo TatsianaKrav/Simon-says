@@ -136,3 +136,8 @@
     transition: all 0.4s linear;
 }
 
+@mixin bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
