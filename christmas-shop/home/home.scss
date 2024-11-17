@@ -58,59 +58,64 @@ html {
             background-image: url('../assets/images/bg/bg-snow.png');
             background-color: $primary;
 
-            .about-info {
-                width: 50%;
-                padding: 100px 60px;
-                box-sizing: border-box;
+            .about-wrapper {
+                @include flex();
+                justify-content: center;
                 background-color: $white;
-                border-top-left-radius: 20px;
-                border-bottom-left-radius: 20px;
+                width: 100%;
+                border-radius: 20px;
+
+                .about-info {
+                    width: 50%;
+                    padding: 100px 60px;
+                    box-sizing: border-box;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
 
 
-                .info-wrapper {
-                    @include flex-column();
-                    align-items: flex-start;
-                    gap: 20px;
-                    max-width: 426px;
-                    padding: 60px 0;
+                    .info-wrapper {
+                        @include flex-column();
+                        align-items: flex-start;
+                        gap: 20px;
+                        max-width: 426px;
+                        padding: 60px 0;
 
-                    h4 {
-                        @include section();
-                        color: $primary;
-                    }
+                        h4 {
+                            @include section();
+                            color: $primary;
+                        }
 
-                    .about-title {
-                        font-size: 24px;
-                        line-height: 1.52em;
-                        letter-spacing: 0.16em;
-                        text-transform: uppercase;
-                        color: $dark;
-                    }
+                        .about-title {
+                            font-size: 24px;
+                            line-height: 1.52em;
+                            letter-spacing: 0.16em;
+                            text-transform: uppercase;
+                            color: $dark;
+                        }
 
-                    .about-description {
-                        font-family: Montserrat-Regular, sans-serif;
-                        font-size: 16px;
-                        line-height: 1.48em;
-                        color: $dark;
+                        .about-description {
+                            font-family: Montserrat-Regular, sans-serif;
+                            font-size: 16px;
+                            line-height: 1.48em;
+                            color: $dark;
+                        }
                     }
                 }
-            }
 
-            .about-image {
-                min-height: 528px;
-                width: 50%;
-                border-top-right-radius: 20px;
-                border-bottom-right-radius: 20px;
-                background-color: $white;
-
-
-                .image-wrapper {
-                    @include bg();
-                    background-image: url('../assets/images/santa.png');
-                    border-top-right-radius: 20px;
-                    border-bottom-right-radius: 20px;
-                    min-height: 528px;
+                .about-image {
+                    width: 50%;
                     border-radius: 20px;
+                    background-color: $white;
+                    align-self: stretch;
+                    background-size: 100% 100%;
+
+
+                    .image-wrapper {
+                        @include bg();
+                        background-image: url('../assets/images/santa.png');
+                        height: 100%;
+                        border-radius: 20px;
+                    }
                 }
             }
         }
