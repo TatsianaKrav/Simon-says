@@ -37,10 +37,17 @@
     color: $white;
     transition: all 0.6s linear;
 
-    &:hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            color: $dark;
+            background-color: $white;
+        }
+    }
+
+    /*  &:hover {
         color: $dark;
         background-color: $white;
-    }
+    } */
 }
 
 @mixin section {
@@ -117,13 +124,23 @@
         }
     }
 
-    &:hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            .gift-card-info {
+                h3 {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    /*  &:hover {
         .gift-card-info {
             h3 {
                 color: $primary;
             }
         }
-    }
+    } */
 }
 
 @mixin burger {
