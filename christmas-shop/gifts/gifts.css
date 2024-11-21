@@ -356,25 +356,6 @@
   }
 }
 
-/* @media screen and (max-width: 1438px) {
-    .footer {
-        .container {
-            .contacts {
-                @include flex();
-                flex-wrap: wrap;
-
-                .contact-card {
-                    width: 100%;
-
-                    .contact {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
-}
- */
 html {
   scroll-behavior: smooth;
 }

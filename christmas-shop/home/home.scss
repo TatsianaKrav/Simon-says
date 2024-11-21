@@ -211,14 +211,24 @@ html {
                             stroke: $white;
                         }
 
-                        &:hover {
+                        @media (hover: hover) and (pointer: fine) {
+                            &:hover {
+                                background-color: $white;
+
+                                svg {
+                                    stroke: $primary;
+                                }
+                            }
+                        }
+
+                        /* &:hover {
                             background-color: $white;
 
                             svg {
                                 stroke: $primary;
                             }
 
-                        }
+                        } */
                     }
                 }
             }
@@ -331,6 +341,28 @@ html {
     }
 }
 
+
+@media screen and (max-width: 950px) {
+
+    .main {
+        .about {
+            .container {
+                padding: 60px 8px;
+                box-sizing: border-box;
+
+                .about-wrapper {
+                    .about-info {
+                        padding: 46px 60px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
 @media screen and (max-width: 768px) {
 
     .container {
@@ -342,6 +374,35 @@ html {
         .cta {
             .container {
                 padding: 120px 8px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 676px) {
+    .main {
+        .about {
+            .container {
+                .about-wrapper {
+                    @include flex-column();
+
+                    .about-info {
+                        @include flex();
+                        justify-content: center;
+                        padding: 60px 20px;
+                        width: 100%;
+
+                        .info-wrapper {
+                            padding: 0;
+                            max-width: 324px;
+                        }
+                    }
+
+                    .about-image {
+                        height: 528px;
+                        width: 100%;
+                    }
+                }
             }
         }
     }

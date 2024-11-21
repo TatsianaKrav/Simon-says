@@ -356,25 +356,6 @@
   }
 }
 
-/* @media screen and (max-width: 1438px) {
-    .footer {
-        .container {
-            .contacts {
-                @include flex();
-                flex-wrap: wrap;
-
-                .contact-card {
-                    width: 100%;
-
-                    .contact {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
-}
- */
 @font-face {
   font-family: Montserrat-Regular;
   src: url(../assets/fonts/Montserrat-Regular.ttf);
@@ -766,15 +747,25 @@ html {
   border: 1px solid #FFFFFF;
   cursor: pointer;
   transition: all 0.5s linear;
+  /* &:hover {
+      background-color: $white;
+
+      svg {
+          stroke: $primary;
+      }
+
+  } */
 }
 .main .slider .container .slider-btns .slider-btn.active svg {
   stroke: #FFFFFF;
 }
-.main .slider .container .slider-btns .slider-btn.active:hover {
-  background-color: #FFFFFF;
-}
-.main .slider .container .slider-btns .slider-btn.active:hover svg {
-  stroke: #FF4646;
+@media (hover: hover) and (pointer: fine) {
+  .main .slider .container .slider-btns .slider-btn.active:hover {
+    background-color: #FFFFFF;
+  }
+  .main .slider .container .slider-btns .slider-btn.active:hover svg {
+    stroke: #FF4646;
+  }
 }
 .main .best-gifts .container {
   display: flex;
@@ -966,6 +957,16 @@ html {
   background-color: rgba(255, 255, 255, 0.2509803922);
 }
 
+@media screen and (max-width: 950px) {
+  .main .about .container {
+    padding: 60px 8px;
+    box-sizing: border-box;
+  }
+  .main .about .container .about-wrapper .about-info {
+    padding: 46px 60px;
+    box-sizing: border-box;
+  }
+}
 @media screen and (max-width: 768px) {
   .container {
     padding: 60px 8px;
@@ -973,5 +974,29 @@ html {
   }
   .main .cta .container {
     padding: 120px 8px;
+  }
+}
+@media screen and (max-width: 676px) {
+  .main .about .container .about-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .main .about .container .about-wrapper .about-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+    padding: 60px 20px;
+    width: 100%;
+  }
+  .main .about .container .about-wrapper .about-info .info-wrapper {
+    padding: 0;
+    max-width: 324px;
+  }
+  .main .about .container .about-wrapper .about-image {
+    height: 528px;
+    width: 100%;
   }
 }/*# sourceMappingURL=home.css.map */
