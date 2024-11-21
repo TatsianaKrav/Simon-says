@@ -330,3 +330,19 @@ html {
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        padding: 60px 8px;
+        box-sizing: border-box;
+    }
+
+    .main {
+        .cta {
+            .container {
+                padding: 120px 8px;
+            }
+        }
+    }
+}

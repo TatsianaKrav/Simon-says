@@ -50,6 +50,20 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+@media screen and (max-width: 1438px) {
+  .footer .container .contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .footer .container .contacts .contact-card {
+    width: 100%;
+  }
+  .footer .container .contacts .contact-card .contact {
+    width: 100%;
+  }
+}
 .footer .container .contacts .contact-card {
   display: flex;
   flex-direction: column;
@@ -61,6 +75,9 @@
   border-radius: 20px;
   background: #ecf3f8;
   text-decoration: none;
+  /* &:hover span {
+      color: $primary;
+  } */
 }
 .footer .container .contacts .contact-card .contact {
   font-size: 24px;
@@ -81,8 +98,15 @@
   color: #181C29;
   transition: all 0.3s linear;
 }
-.footer .container .contacts .contact-card:hover span {
-  color: #FF4646;
+@media screen and (max-width: 435px) {
+  .footer .container .contacts .contact-card span {
+    max-width: 324px;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .footer .container .contacts .contact-card:hover span {
+    color: #FF4646;
+  }
 }
 .footer .container .footer-info {
   display: flex;
@@ -105,13 +129,18 @@
   justify-content: center;
   width: 40px;
   height: 40px;
+  /*   &:hover svg {
+      stroke: $primary;
+  } */
 }
 .footer .container .footer-info .socials a svg {
   transition: all 0.3s linear;
   stroke: #181C29;
 }
-.footer .container .footer-info .socials a:hover svg {
-  stroke: #FF4646;
+@media (hover: hover) and (pointer: fine) {
+  .footer .container .footer-info .socials a:hover svg {
+    stroke: #FF4646;
+  }
 }
 .footer .container .footer-info p {
   font-family: Montserrat-Regular, sans-serif;
@@ -132,7 +161,12 @@
   font-weight: 400;
   text-decoration: none;
   transition: all 0.3s linear;
+  /* &:hover {
+      color: $primary;
+  } */
 }
-.footer .container .footer-info a:hover {
-  color: #FF4646;
+@media (hover: hover) and (pointer: fine) {
+  .footer .container .footer-info a:hover {
+    color: #FF4646;
+  }
 }/*# sourceMappingURL=footer.css.map */

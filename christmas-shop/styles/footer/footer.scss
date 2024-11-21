@@ -25,6 +25,19 @@
             flex-wrap: wrap;
             gap: 12px;
 
+            @media screen and (max-width: 1438px) {
+                @include flex();
+                flex-wrap: wrap;
+
+                .contact-card {
+                    width: 100%;
+
+                    .contact {
+                        width: 100%;
+                    }
+                }
+            }
+
             .contact-card {
                 @include flex-column();
                 gap: 12px;
@@ -53,11 +66,22 @@
                     text-align: center;
                     color: $dark;
                     transition: all 0.3s linear;
+
+                    @media screen and (max-width: 435px) {
+                        max-width: 324px;
+                    }
                 }
 
-                &:hover span {
-                    color: $primary;
+                @media (hover: hover) and (pointer: fine) {
+
+                    &:hover span {
+                        color: $primary;
+                    }
                 }
+
+                /* &:hover span {
+                    color: $primary;
+                } */
             }
         }
 
@@ -80,9 +104,15 @@
                         stroke: #181C29;
                     }
 
-                    &:hover svg {
-                        stroke: $primary;
+                    @media (hover: hover) and (pointer: fine) {
+                        &:hover svg {
+                            stroke: $primary;
+                        }
                     }
+
+                    /*   &:hover svg {
+                        stroke: $primary;
+                    } */
                 }
             }
 
@@ -101,10 +131,17 @@
                 text-decoration: none;
                 transition: all 0.3s linear;
 
-                &:hover {
-                    color: $primary;
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        color: $primary;
+                    }
                 }
+
+                /* &:hover {
+                    color: $primary;
+                } */
             }
         }
     }
 }
+
