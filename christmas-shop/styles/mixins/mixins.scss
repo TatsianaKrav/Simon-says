@@ -24,7 +24,6 @@
 @mixin btn {
     padding: 20px 32px;
     border-radius: 20px;
-    /*    width: 236px; */
     background-color: $dark;
     border: none;
 
@@ -43,11 +42,6 @@
             background-color: $white;
         }
     }
-
-    /*  &:hover {
-        color: $dark;
-        background-color: $white;
-    } */
 }
 
 @mixin section {
@@ -133,14 +127,6 @@
             }
         }
     }
-
-    /*  &:hover {
-        .gift-card-info {
-            h3 {
-                color: $primary;
-            }
-        }
-    } */
 }
 
 @mixin burger {

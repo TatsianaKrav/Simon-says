@@ -260,9 +260,6 @@
   border-radius: 20px;
   background: #ecf3f8;
   text-decoration: none;
-  /* &:hover span {
-      color: $primary;
-  } */
 }
 .footer .container .contacts .contact-card .contact {
   font-size: 24px;
@@ -314,9 +311,6 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  /*   &:hover svg {
-      stroke: $primary;
-  } */
 }
 .footer .container .footer-info .socials a svg {
   transition: all 0.3s linear;
@@ -346,9 +340,6 @@
   font-weight: 400;
   text-decoration: none;
   transition: all 0.3s linear;
-  /* &:hover {
-      color: $primary;
-  } */
 }
 @media (hover: hover) and (pointer: fine) {
   .footer .container .footer-info a:hover {
@@ -445,8 +436,10 @@
   color: #181C29;
   transition: all 0.3s linear;
 }
-.modal-wrapper .modal-window:hover .gift-card-info h3 {
-  color: #FF4646;
+@media (hover: hover) and (pointer: fine) {
+  .modal-wrapper .modal-window:hover .gift-card-info h3 {
+    color: #FF4646;
+  }
 }
 .modal-wrapper .modal-window .gift-card-image {
   height: 230px;
@@ -566,7 +559,6 @@ html {
 .main .hero .container .hero-info .btn {
   padding: 20px 32px;
   border-radius: 20px;
-  /*    width: 236px; */
   background-color: #181C29;
   border: none;
   font-size: 12px;
@@ -578,9 +570,11 @@ html {
   color: #FFFFFF;
   transition: all 0.6s linear;
 }
-.main .hero .container .hero-info .btn:hover {
-  color: #181C29;
-  background-color: #FFFFFF;
+@media (hover: hover) and (pointer: fine) {
+  .main .hero .container .hero-info .btn:hover {
+    color: #181C29;
+    background-color: #FFFFFF;
+  }
 }
 .main .about .container {
   display: flex;
@@ -747,14 +741,6 @@ html {
   border: 1px solid #FFFFFF;
   cursor: pointer;
   transition: all 0.5s linear;
-  /* &:hover {
-      background-color: $white;
-
-      svg {
-          stroke: $primary;
-      }
-
-  } */
 }
 .main .slider .container .slider-btns .slider-btn.active svg {
   stroke: #FFFFFF;
@@ -852,8 +838,10 @@ html {
   color: #181C29;
   transition: all 0.3s linear;
 }
-.main .best-gifts .container .gift-cards-wrapper .gift-card:hover .gift-card-info h3 {
-  color: #FF4646;
+@media (hover: hover) and (pointer: fine) {
+  .main .best-gifts .container .gift-cards-wrapper .gift-card:hover .gift-card-info h3 {
+    color: #FF4646;
+  }
 }
 .main .cta .container {
   display: flex;
@@ -888,7 +876,6 @@ html {
 .main .cta .container .cta-info .btn {
   padding: 20px 32px;
   border-radius: 20px;
-  /*    width: 236px; */
   background-color: #181C29;
   border: none;
   font-size: 12px;
@@ -900,9 +887,11 @@ html {
   color: #FFFFFF;
   transition: all 0.6s linear;
 }
-.main .cta .container .cta-info .btn:hover {
-  color: #181C29;
-  background-color: #FFFFFF;
+@media (hover: hover) and (pointer: fine) {
+  .main .cta .container .cta-info .btn:hover {
+    color: #181C29;
+    background-color: #FFFFFF;
+  }
 }
 .main .cta .container .cta-info .timer-wrapper {
   display: flex;

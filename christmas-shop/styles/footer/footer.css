@@ -75,9 +75,6 @@
   border-radius: 20px;
   background: #ecf3f8;
   text-decoration: none;
-  /* &:hover span {
-      color: $primary;
-  } */
 }
 .footer .container .contacts .contact-card .contact {
   font-size: 24px;
@@ -129,9 +126,6 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  /*   &:hover svg {
-      stroke: $primary;
-  } */
 }
 .footer .container .footer-info .socials a svg {
   transition: all 0.3s linear;
@@ -161,9 +155,6 @@
   font-weight: 400;
   text-decoration: none;
   transition: all 0.3s linear;
-  /* &:hover {
-      color: $primary;
-  } */
 }
 @media (hover: hover) and (pointer: fine) {
   .footer .container .footer-info a:hover {

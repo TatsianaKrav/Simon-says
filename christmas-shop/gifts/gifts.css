@@ -260,9 +260,6 @@
   border-radius: 20px;
   background: #ecf3f8;
   text-decoration: none;
-  /* &:hover span {
-      color: $primary;
-  } */
 }
 .footer .container .contacts .contact-card .contact {
   font-size: 24px;
@@ -314,9 +311,6 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  /*   &:hover svg {
-      stroke: $primary;
-  } */
 }
 .footer .container .footer-info .socials a svg {
   transition: all 0.3s linear;
@@ -346,9 +340,6 @@
   font-weight: 400;
   text-decoration: none;
   transition: all 0.3s linear;
-  /* &:hover {
-      color: $primary;
-  } */
 }
 @media (hover: hover) and (pointer: fine) {
   .footer .container .footer-info a:hover {
@@ -414,9 +405,6 @@ html {
   cursor: pointer;
   border-radius: 12px;
   transition: all 0.4s linear;
-  /*  &:hover {
-      background-color: $white-20;
-  } */
 }
 @media (hover: hover) and (pointer: fine) {
   .gifts .container .tabs label:hover {
@@ -435,6 +423,13 @@ html {
   width: 310px;
   cursor: pointer;
   background-color: #ecf3f8;
+  /*  &:hover {
+      .gift-card-info {
+          h3 {
+              color: $primary;
+          }
+      }
+  } */
 }
 .gifts .container .gift-cards-wrapper .gift-card .gift-card-image {
   background-color: #ecf3f8;
@@ -477,8 +472,10 @@ html {
   color: #181C29;
   transition: all 0.3s linear;
 }
-.gifts .container .gift-cards-wrapper .gift-card:hover .gift-card-info h3 {
-  color: #FF4646;
+@media (hover: hover) and (pointer: fine) {
+  .gifts .container .gift-cards-wrapper .gift-card:hover .gift-card-info h3 {
+    color: #FF4646;
+  }
 }
 
 .up-btn {
