@@ -414,9 +414,14 @@ html {
   cursor: pointer;
   border-radius: 12px;
   transition: all 0.4s linear;
+  /*  &:hover {
+      background-color: $white-20;
+  } */
 }
-.gifts .container .tabs label:hover {
-  background-color: rgba(255, 255, 255, 0.1254901961);
+@media (hover: hover) and (pointer: fine) {
+  .gifts .container .tabs label:hover {
+    background-color: rgba(255, 255, 255, 0.1254901961);
+  }
 }
 .gifts .container .gift-cards-wrapper {
   display: flex;
@@ -490,4 +495,29 @@ html {
   right: 0;
   bottom: 0;
   transition: all 0.3s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 60px 8px;
+    box-sizing: border-box;
+  }
+  .gifts .container {
+    padding: 60px 8px;
+  }
+  .gifts .container .gift-cards-wrapper {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 490px) {
+  .gifts .container .tabs {
+    justify-content: center;
+    gap: 0;
+  }
+  .gifts .container .tabs input:checked + label {
+    padding: 12px 8px;
+  }
+  .gifts .container .tabs label {
+    padding: 12px 8px;
+  }
 }/*# sourceMappingURL=gifts.css.map */
