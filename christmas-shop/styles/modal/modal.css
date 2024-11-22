@@ -43,13 +43,6 @@
   width: 310px;
   cursor: pointer;
   background-color: #ecf3f8;
-  /*  &:hover {
-      .gift-card-info {
-          h3 {
-              color: $primary;
-          }
-      }
-  } */
   width: 400px;
   position: relative;
 }
