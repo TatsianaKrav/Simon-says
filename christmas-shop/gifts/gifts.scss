@@ -55,8 +55,10 @@ html {
                 border-radius: 12px;
                 transition: all 0.4s linear;
 
-                &:hover {
-                    background-color: $white-20;
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        background-color: $white-20;
+                    }
                 }
             }
         }
@@ -85,4 +87,45 @@ html {
     right: 0;
     bottom: 0;
     transition: all 0.3s linear;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        padding: 60px 8px;
+        box-sizing: border-box;
+    }
+
+    .gifts {
+        .container {
+            padding: 60px 8px;
+
+            .gift-cards-wrapper {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .gifts {
+        .container {
+            .tabs {
+                justify-content: center;
+                gap: 0;
+
+                input {
+                    &:checked+label {
+                        padding: 12px 8px;
+                    }
+                }
+
+
+                label {
+                    padding: 12px 8px;
+                }
+            }
+        }
+    }
 }

@@ -43,6 +43,13 @@
   width: 310px;
   cursor: pointer;
   background-color: #ecf3f8;
+  /*  &:hover {
+      .gift-card-info {
+          h3 {
+              color: $primary;
+          }
+      }
+  } */
   width: 400px;
   position: relative;
 }
@@ -87,8 +94,10 @@
   color: #181C29;
   transition: all 0.3s linear;
 }
-.modal-wrapper .modal-window:hover .gift-card-info h3 {
-  color: #FF4646;
+@media (hover: hover) and (pointer: fine) {
+  .modal-wrapper .modal-window:hover .gift-card-info h3 {
+    color: #FF4646;
+  }
 }
 .modal-wrapper .modal-window .gift-card-image {
   height: 230px;
