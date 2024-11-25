@@ -412,6 +412,11 @@ html {
   gap: 12px;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 1117px) {
+  .gifts .container .gift-cards-wrapper {
+    justify-content: center;
+  }
+}
 .gifts .container .gift-cards-wrapper .gift-card {
   border-radius: 20px;
   width: 310px;
@@ -488,9 +493,6 @@ html {
   }
   .gifts .container {
     padding: 60px 8px;
-  }
-  .gifts .container .gift-cards-wrapper {
-    justify-content: center;
   }
 }
 @media screen and (max-width: 490px) {
