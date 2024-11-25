@@ -255,6 +255,9 @@
   background: #ecf3f8;
   text-decoration: none;
 }
+.footer .container .contacts .contact-card:nth-child(2) img {
+  position: static !important;
+}
 .footer .container .contacts .contact-card .contact {
   font-size: 24px;
   line-height: 1.52em;
