@@ -68,6 +68,11 @@ html {
             gap: 12px;
             flex-wrap: wrap;
 
+            @media screen and (max-width: 1117px) {
+
+                justify-content: center;
+            }
+
             .gift-card {
                 @include gift-card();
             }
@@ -90,6 +95,7 @@ html {
 }
 
 
+
 @media screen and (max-width: 768px) {
 
     .container {
@@ -100,10 +106,6 @@ html {
     .gifts {
         .container {
             padding: 60px 8px;
-
-            .gift-cards-wrapper {
-                justify-content: center;
-            }
         }
     }
 }
