@@ -47,6 +47,12 @@
                 background: $bg;
                 text-decoration: none;
 
+                &:nth-child(2) {
+                    img {
+                        position: static !important;
+                    }
+                }
+
                 .contact {
                     font-size: 24px;
                     line-height: 1.52em;
