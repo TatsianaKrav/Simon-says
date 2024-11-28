@@ -10,7 +10,7 @@ html {
     margin: 0 auto;
     font-family: Montserrat-SemiBold, sans-serif;
     padding: 60px 82px;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 .main {
@@ -263,7 +263,7 @@ html {
         .container {
             @include flex-column();
             padding: 120px 82px;
-            box-sizing: content-box;
+            box-sizing: border-box;
             background-image: url('../assets/images/bg/bg-snow.png'), url('../assets/images/bg/bg-forest.png');
             background-color: $primary;
             border-radius: 0 0 20px 20px;
