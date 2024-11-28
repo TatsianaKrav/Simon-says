@@ -16,7 +16,7 @@
     .container {
         @include flex();
         padding: 12px 82px;
-        box-sizing: content-box;
+        box-sizing: border-box;
 
         .logo {
             @include flex();

@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 82px;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 .header .container .logo {
   display: flex;
@@ -211,7 +211,7 @@
   margin: 0 auto;
   font-family: Montserrat-SemiBold, sans-serif;
   padding: 60px 82px;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 .footer .container {
@@ -358,7 +358,7 @@ html {
   margin: 0 auto;
   font-family: Montserrat-SemiBold, sans-serif;
   padding: 60px 82px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   background-image: url("../assets/images/bg/bg-garland.png");
   background-color: #FF4646;
   background-position: top;

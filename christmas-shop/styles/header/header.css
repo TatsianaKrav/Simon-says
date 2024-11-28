@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 82px;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 .header .container .logo {
   display: flex;
