@@ -5,6 +5,7 @@ import { renderCards } from "../utilities/utilities.js";
 let curretWidthScreen = document.documentElement.clientWidth;
 
 const upBtn = document.querySelector(".up-btn");
+const tabs = document.querySelectorAll('input');
 const giftCardsWrapp = document.querySelector('.gift-cards-wrapper');
 
 init();
@@ -12,6 +13,7 @@ init();
 function init() {
     handleBurger();
     renderCards(giftCardsWrapp, gifts);
+    switchCategory();
 
     if (curretWidthScreen <= 768) {
         handleUpBtn();
@@ -30,6 +32,21 @@ window.addEventListener('resize', function () {
         upBtn.style.opacity = '0';
     }
 });
+
+function switchCategory() {
+
+    tabs.forEach(tab => {
+        tab.addEventListener('change', function (e) {
+            if (tab.checked) {
+                const category = e.target.nextElementSibling.innerText;
+
+                let chosenGifts = gifts.filter(gift => gift.category.toUpperCase() === category);
+                chosenGifts = chosenGifts.length > 0 ? chosenGifts : [...gifts];
+                renderCards(giftCardsWrapp, chosenGifts);
+            }
+        })
+    })
+}
 
 function handleUpBtn() {
     window.addEventListener("scroll", function () {
