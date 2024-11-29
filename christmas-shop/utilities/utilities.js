@@ -9,6 +9,21 @@ export function createElement(tagName, className = "", text = "") {
 const upBtn = document.querySelector(".up-btn");
 if (upBtn) upBtn.style.display = 'none';
 
+
+export function navigate(links) {
+    links.forEach(link => {
+        link.addEventListener('click', (e) => goTo(e, link));
+    })
+}
+
+
+function goTo(e, link) {
+    e.preventDefault();
+    setTimeout(() => {
+        window.location = link.href;
+    }, 600);
+}
+
 /* window.addEventListener("scroll", function () {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
     if (!upBtn) return;
