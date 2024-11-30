@@ -105,10 +105,6 @@ export function renderCard(card, modalFlag) {
                                     </svg>
                                 `
 
-            /*   for (let i = 0; i < snowflakesAmountRed; i++) {
-                  snowflakes.insertAdjacentHTML('beforeend', snowflake);
-              }
-   */
             for (let i = 0; i < 5; i++) {
                 if (i < snowflakesAmountRed) {
                     snowflakes.insertAdjacentHTML('beforeend', snowflake);
@@ -136,6 +132,31 @@ export function renderCard(card, modalFlag) {
     }
 
     return giftCard;
+}
+
+export function getCurrentTime(date, timerID, daysEl, hoursEl, minEl, secEl) {
+    const currentDate = new Date().getTime();
+    const diffInMs = date - currentDate;
+
+    if (diffInMs <= 0) {
+        clearInterval(timerID);
+        daysEl.innerText = '0';
+        hoursEl.innerText = '0';
+        minEl.innerText = '0';
+        secEl.innerText = '0';
+    }
+
+    const days = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    const hoursMs = diffInMs % (1000 * 60 * 60 * 24);
+    const hours = Math.floor(hoursMs / 3600000);
+    const minMs = hoursMs % 3600000;
+    const min = Math.floor(minMs / 60000);
+    const sec = Math.floor(minMs % 60000 / 1000);
+
+    daysEl.innerText = days;
+    hoursEl.innerText = hours;
+    minEl.innerText = min;
+    secEl.innerText = sec;
 }
 
 function getRandom(amount, length) {
