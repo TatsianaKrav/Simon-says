@@ -969,7 +969,26 @@ html {
   background-color: rgba(255, 255, 255, 0.2509803922);
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 915px) {
+  .container {
+    padding: 60px 8px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main .about .container {
+    padding: 60px 8px;
+    box-sizing: border-box;
+  }
+  .main .about .container .about-wrapper .about-info {
+    padding: 46px 60px;
+    box-sizing: border-box;
+  }
+  .main .cta .container {
+    padding: 120px 8px;
+  }
+}
+@media screen and (max-width: 676px) {
   .main .about .container .about-wrapper {
     display: flex;
     flex-direction: column;
@@ -991,22 +1010,5 @@ html {
   .main .about .container .about-wrapper .about-image {
     height: 528px;
     width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 60px 8px;
-    box-sizing: border-box;
-  }
-  .main .about .container {
-    padding: 60px 8px;
-    box-sizing: border-box;
-  }
-  .main .about .container .about-wrapper .about-info {
-    padding: 46px 60px;
-    box-sizing: border-box;
-  }
-  .main .cta .container {
-    padding: 120px 8px;
   }
 }/*# sourceMappingURL=home.css.map */
