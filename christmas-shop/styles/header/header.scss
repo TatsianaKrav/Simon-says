@@ -128,12 +128,12 @@
                 visibility: hidden;
                 z-index: 4;
                 width: 100%;
-                height: calc(100dvh - 64px);
+                height: calc(100dvh - 63px);
                 margin: 0;
-                top: 64px;
+                top: 63px;
                 right: -100%;
                 background-color: $white;
-                transition: all .6s linear;
+                transition: all .5s linear;
 
                 .menu {
                     @include flex-column();
