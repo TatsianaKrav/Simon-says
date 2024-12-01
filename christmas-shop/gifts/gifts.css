@@ -594,7 +594,7 @@ html {
   gap: 12px;
   flex-wrap: wrap;
 }
-@media screen and (max-width: 1117px) {
+@media screen and (max-width: 1439px) {
   .gifts .container .gift-cards-wrapper {
     justify-content: center;
   }
@@ -669,7 +669,7 @@ html {
   transition: all 0.3s linear;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 915px) {
   .container {
     padding: 60px 8px;
     box-sizing: border-box;

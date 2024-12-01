@@ -16,6 +16,8 @@ window.addEventListener('resize', () => {
     if (sreenWidth <= 768) {
         navigate(links);
     }
+
+    hideMenu();
 })
 
 
