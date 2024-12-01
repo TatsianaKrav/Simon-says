@@ -146,6 +146,7 @@ html {
                 gap: 20px;
                 flex-wrap: nowrap;
                 align-self: flex-start;
+                transition: all 0.5s linear;
 
                 .slider-item {
                     @include flex();
@@ -179,7 +180,9 @@ html {
                     }
 
                     &:last-child {
-                        background-image: url("../assets/images/sliders/fairytale-house.png");
+                        .slider-image {
+                            background-image: url("../assets/images/sliders/fairytale-house.png");
+                        }
                     }
                 }
             }
@@ -334,43 +337,6 @@ html {
 
 
 @media screen and (max-width: 950px) {
-
-    .main {
-        .about {
-            .container {
-                padding: 60px 8px;
-                box-sizing: border-box;
-
-                .about-wrapper {
-                    .about-info {
-                        padding: 46px 60px;
-                        box-sizing: border-box;
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-
-@media screen and (max-width: 768px) {
-
-    .container {
-        padding: 60px 8px;
-        box-sizing: border-box;
-    }
-
-    .main {
-        .cta {
-            .container {
-                padding: 120px 8px;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 676px) {
     .main {
         .about {
             .container {
@@ -394,6 +360,39 @@ html {
                         width: 100%;
                     }
                 }
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        padding: 60px 8px;
+        box-sizing: border-box;
+    }
+
+    .main {
+
+        .about {
+            .container {
+                padding: 60px 8px;
+                box-sizing: border-box;
+
+                .about-wrapper {
+                    .about-info {
+                        padding: 46px 60px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+
+        .cta {
+            .container {
+                padding: 120px 8px;
             }
         }
     }

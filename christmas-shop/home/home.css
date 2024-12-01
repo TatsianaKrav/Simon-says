@@ -709,6 +709,7 @@ html {
   gap: 20px;
   flex-wrap: nowrap;
   align-self: flex-start;
+  transition: all 0.5s linear;
 }
 .main .slider .container .sliders-wrapper .slider-item {
   display: flex;
@@ -737,7 +738,7 @@ html {
 .main .slider .container .sliders-wrapper .slider-item:nth-child(3) .slider-image {
   background-image: url("../assets/images/sliders/christmas-tree-ball.png");
 }
-.main .slider .container .sliders-wrapper .slider-item:last-child {
+.main .slider .container .sliders-wrapper .slider-item:last-child .slider-image {
   background-image: url("../assets/images/sliders/fairytale-house.png");
 }
 .main .slider .container .slider-btns {
@@ -969,25 +970,6 @@ html {
 }
 
 @media screen and (max-width: 950px) {
-  .main .about .container {
-    padding: 60px 8px;
-    box-sizing: border-box;
-  }
-  .main .about .container .about-wrapper .about-info {
-    padding: 46px 60px;
-    box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 60px 8px;
-    box-sizing: border-box;
-  }
-  .main .cta .container {
-    padding: 120px 8px;
-  }
-}
-@media screen and (max-width: 676px) {
   .main .about .container .about-wrapper {
     display: flex;
     flex-direction: column;
@@ -1009,5 +991,22 @@ html {
   .main .about .container .about-wrapper .about-image {
     height: 528px;
     width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 60px 8px;
+    box-sizing: border-box;
+  }
+  .main .about .container {
+    padding: 60px 8px;
+    box-sizing: border-box;
+  }
+  .main .about .container .about-wrapper .about-info {
+    padding: 46px 60px;
+    box-sizing: border-box;
+  }
+  .main .cta .container {
+    padding: 120px 8px;
   }
 }/*# sourceMappingURL=home.css.map */
