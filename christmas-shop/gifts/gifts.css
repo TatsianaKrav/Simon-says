@@ -48,6 +48,7 @@
   padding: 8px 20px;
   text-decoration: none;
   box-sizing: border-box;
+  z-index: 5;
 }
 .header .container .logo img {
   width: 24px;
@@ -110,6 +111,7 @@
   cursor: pointer;
   position: relative;
   display: none;
+  z-index: 5;
 }
 .header .container .burger::before {
   content: "";
@@ -155,10 +157,11 @@
     visibility: hidden;
     z-index: 4;
     width: 100%;
-    height: calc(100dvh - 63px);
+    height: 100dvh;
     margin: 0;
-    top: 63px;
+    top: 0;
     right: -100%;
+    padding-top: 36px;
     background-color: #FFFFFF;
     transition: all 0.5s linear;
   }
