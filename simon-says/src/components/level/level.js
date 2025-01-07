@@ -3,7 +3,7 @@ import { ElementCreator } from "../../utilities/elementCreator.js";
 
 export class Level extends ElementCreator {
     constructor() {
-        super('div', 'levels');
+        super('div', 'levels', [], 'Choose level: ');
         this.create();
     }
 
