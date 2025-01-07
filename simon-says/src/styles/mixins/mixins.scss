@@ -1,0 +1,12 @@
+@mixin flex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin selector() {
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}

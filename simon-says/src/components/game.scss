@@ -1,0 +1,83 @@
+@import '../styles/mixins/mixins.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    @include flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 25px;
+
+    .game-choice {
+        @include flex;
+        gap: 50px;
+
+        .levels {
+            font-size: 24px;
+
+            select {
+                @include selector();
+            }
+        }
+
+        .rounds {
+            font-size: 24px;
+
+            select {
+                @include selector();
+            }
+        }
+    }
+
+    .current-game-info {
+        @include flex();
+        gap: 15px;
+        font-size: 18px;
+    }
+
+    .input-wrapper {
+        input {
+            padding: 5px;
+        }
+    }
+
+    .keyboard-wrapp {
+        @include flex();
+        flex-wrap: wrap;
+        gap: 0.5em;
+        max-width: 50%;
+
+        .char {
+            font-size: 18px;
+            outline: none;
+            border: none;
+            width: 45px;
+            height: 45px;
+            background-color: #fbe4b7;
+            cursor: pointer;
+            padding: 5px;
+            font-weight: bold;
+        }
+    }
+
+    .buttons-wrap {
+        @include flex();
+
+        .btn {
+            width: 150px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            font-size: 18px;
+            background-color: #fbe4b7;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
+        }
+    }
+}

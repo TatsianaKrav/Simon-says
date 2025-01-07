@@ -7,7 +7,7 @@ export class Round extends ElementCreator {
     }
 
     create() {
-        const selector = new ElementCreator('select', 'rounds');
+        const selector = new ElementCreator('select', '');
 
         for (let i = 0; i < 5; i++) {
             const option = new ElementCreator('option', '', [{ value: i + 1 }], `Round ${i + 1}`);

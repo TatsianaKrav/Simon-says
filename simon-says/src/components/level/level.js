@@ -8,7 +8,7 @@ export class Level extends ElementCreator {
     }
 
     create() {
-        const selector = new ElementCreator('select', 'levels');
+        const selector = new ElementCreator('select', '');
         const option1 = new ElementCreator('option', '', [{ value: 'Easy' }, { selected: 'selected' }], 'Easy');
         const option2 = new ElementCreator('option', '', [{ value: 'Medium' }], 'Medium');
         const option3 = new ElementCreator('option', '', [{ value: 'Hard' }], 'Hard');
