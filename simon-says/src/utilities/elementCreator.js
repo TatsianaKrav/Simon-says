@@ -8,7 +8,6 @@ export class ElementCreator {
     this.element.innerText = innerText;
   }
 
-
   setClasses(className) {
     if (Array.isArray(className)) {
       className.forEach(name => this.element.classList.add(name));
