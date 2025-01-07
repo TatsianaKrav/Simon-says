@@ -42,4 +42,9 @@ export class ElementCreator {
       throw new Error('parent not instanceof HTMLElement or ElementCreator');
     }
   }
+
+  getElement() {
+    return this.element;
+  }
+
 }
