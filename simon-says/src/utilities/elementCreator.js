@@ -46,8 +46,8 @@ export class ElementCreator {
     return this.element;
   }
 
-  getNodeElem() {
-
+  getInnerText() {
+    return this.element.innerText;
   }
 
   setCallback(event, cb) {

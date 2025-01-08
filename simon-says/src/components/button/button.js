@@ -4,27 +4,47 @@ import { highlightBtn } from "../../utilities/highlightBtn.js";
 
 export class Button extends ElementCreator {
 
+    currentSeq;
+    chars = document.getElementsByClassName('char');
+
     constructor(btnContent) {
         super('button', 'btn', []);
         this.element.innerText = btnContent;
+        this.startHandler();
 
-        if (btnContent === 'Start') {
-            this.element.addEventListener('click', this.startGame);
+    }
+
+    startHandler() {
+        if (this.element.innerText === 'Start') {
+            this.element.addEventListener('click', (e) => this.startGame(e));
         }
     }
 
-    startGame() {
-        const levelValue = document.querySelector('select').value;
-        /*   const levelValue = 'Hard'; */
-        const roundValue = document.querySelectorAll('select')[1].value;
-        /*  const roundValue = 3; */
+    repeatHandler() {
+        this.handleSeq(1);
+    }
 
-        const currentSeq = random(levelValue, roundValue);
-        const chars = document.getElementsByClassName('char');
+    startGame(e) {
+        if (this.element.innerText === 'Repeat the sequence') {
+            this.repeatHandler();
+            return;
+        };
+
+
+        const levelValue = document.querySelector('select').value;
+        const roundValue = document.querySelectorAll('select')[1].value;
+
+        this.currentSeq = random(levelValue, roundValue);
 
         let count = 1;
-        currentSeq.forEach((el) => {
-            Array.from(chars).forEach(async char => {
+        this.handleSeq(count);
+
+        this.element.innerText = 'Repeat the sequence';
+    }
+
+    handleSeq(count) {
+        this.currentSeq.forEach((el) => {
+            Array.from(this.chars).forEach(async char => {
                 if (char.innerText == el) {
                     highlightBtn(count, char);
                     count++;
