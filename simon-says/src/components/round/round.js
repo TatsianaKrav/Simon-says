@@ -23,6 +23,7 @@ export class Round extends ElementCreator {
         this.setCallback('change', (e) => {
             const val = e.target.value;
             this.configureState(val);
+            this.configureBtns();
         });
     }
 
@@ -34,5 +35,21 @@ export class Round extends ElementCreator {
         const levelVal = currLevel.innerText.match(reg);
         const newRound = new RoundCounter(levelVal, val);
         currRound.replaceWith(newRound.getElement());
+    }
+
+    configureBtns() {
+        const repeatBtn = document.querySelector('.btn.repeat');
+        const nextBtn = document.querySelector('.btn.next');
+
+        if (repeatBtn) {
+            repeatBtn.classList.remove('repeat');
+            repeatBtn.classList.add('start');
+            repeatBtn.innerText = 'Start';
+        }
+
+
+        if (nextBtn) {
+            nextBtn.remove();
+        }
     }
 }

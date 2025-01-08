@@ -21,6 +21,7 @@ export class Level extends ElementCreator {
             const val = e.target.value;
             this.configureState(val);
             this.configureKeyboard(val);
+            this.configureBtns();
         });
     }
 
@@ -36,4 +37,22 @@ export class Level extends ElementCreator {
         const newLevel = new RoundCounter(val, parseInt(currRound.innerText.match(/\d+/)));
         currLevel.replaceWith(newLevel.getElement());
     }
+
+    configureBtns() {
+        const repeatBtn = document.querySelector('.btn.repeat');
+        const nextBtn = document.querySelector('.btn.next');
+
+        if (repeatBtn) {
+            repeatBtn.classList.remove('repeat');
+            repeatBtn.classList.add('start');
+            repeatBtn.innerText = 'Start';
+        }
+
+
+        if (nextBtn) {
+            nextBtn.remove();
+        }
+    }
 }
+
+//make baseSelector class

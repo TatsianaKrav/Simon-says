@@ -7,9 +7,10 @@ export class Button extends ElementCreator {
     currentSeq;
     chars = document.getElementsByClassName('char');
 
-    constructor(btnContent) {
+    constructor(btnContent, className) {
         super('button', 'btn', []);
         this.element.innerText = btnContent;
+        this.element.classList.add(className);
         this.startHandler();
 
     }
@@ -30,7 +31,6 @@ export class Button extends ElementCreator {
             return;
         };
 
-
         const levelValue = document.querySelector('select').value;
         const roundValue = document.querySelectorAll('select')[1].value;
 
@@ -40,6 +40,9 @@ export class Button extends ElementCreator {
         this.handleSeq(count);
 
         this.element.innerText = 'Repeat the sequence';
+        this.element.classList.remove('start');
+        this.element.classList.add('repeat');
+        this.createNextBtn();
     }
 
     handleSeq(count) {
@@ -52,6 +55,12 @@ export class Button extends ElementCreator {
                 }
             })
         })
+    }
+
+    createNextBtn() {
+        const wrap = document.querySelector('.buttons-wrap');
+        const nextBtn = new Button('Next', 'next');
+        wrap.append(nextBtn.getElement());
     }
 }
 

@@ -23,7 +23,7 @@ export class App extends ElementCreator {
         const keyboard = new VirtKeyboard('Easy');
 
         const buttons = new ElementCreator('div', 'buttons-wrap');
-        const startGameBtn = new Button('Start');
+        const startGameBtn = new Button('Start', 'start');
         buttons.append(startGameBtn);
 
         this.append(gameChoice, currentGameInfo, input, keyboard, buttons);
