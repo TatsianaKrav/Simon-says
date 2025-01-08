@@ -24,6 +24,7 @@ export class Round extends ElementCreator {
             const val = e.target.value;
             this.configureState(val);
             this.configureBtns();
+            this.configureInput();
         });
     }
 
@@ -47,9 +48,13 @@ export class Round extends ElementCreator {
             repeatBtn.innerText = 'Start';
         }
 
-
         if (nextBtn) {
             nextBtn.remove();
         }
+    }
+
+    configureInput() {
+        const input = document.querySelector('input');
+        input.value = '';
     }
 }

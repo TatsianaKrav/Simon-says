@@ -22,6 +22,7 @@ export class Level extends ElementCreator {
             this.configureState(val);
             this.configureKeyboard(val);
             this.configureBtns();
+            this.configureInput();
         });
     }
 
@@ -48,10 +49,14 @@ export class Level extends ElementCreator {
             repeatBtn.innerText = 'Start';
         }
 
-
         if (nextBtn) {
             nextBtn.remove();
         }
+    }
+
+    configureInput() {
+        const input = document.querySelector('input');
+        input.value = '';
     }
 }
 
