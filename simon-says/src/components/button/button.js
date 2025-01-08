@@ -49,7 +49,7 @@ export class Button extends ElementCreator {
         this.currentSeq.forEach((el) => {
             Array.from(this.chars).forEach(async char => {
                 if (char.innerText == el) {
-                    highlightBtn(count, char);
+                    highlightBtn(count, char, this.currentSeq.length);
                     count++;
                     char.classList.remove('highlight');
                 }
