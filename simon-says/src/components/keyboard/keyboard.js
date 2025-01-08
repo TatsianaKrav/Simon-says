@@ -1,11 +1,16 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
+import { easyLevel, mediumLevel, hardLevel } from '../../utilities/keyboardVar.js';
 
 export class VirtKeyboard extends ElementCreator {
-    easyLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    mediumLevel =
-        ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-            'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    hardLevel = this.easyLevel.concat(this.mediumLevel);
+    easyLevel = easyLevel;
+    mediumLevel = mediumLevel;
+    hardLevel = hardLevel;
+
+    /*     easyLevel = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        mediumLevel =
+            ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+                'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        hardLevel = this.easyLevel.concat(this.mediumLevel); */
 
     constructor(level) {
         super('div', 'keyboard-wrapp');
