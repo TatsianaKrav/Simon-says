@@ -1,4 +1,5 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
+import { RoundCounter } from "../counter/roundCounter.js";
 
 export class Round extends ElementCreator {
     constructor() {
@@ -18,5 +19,20 @@ export class Round extends ElementCreator {
         }
 
         this.append(selector.element);
+
+        this.setCallback('change', (e) => {
+            const val = e.target.value;
+            this.configureState(val);
+        });
+    }
+
+    configureState(val) {
+        const currRound = document.querySelector('.current-game-info');
+        const currLevel = document.querySelector('.current-level');
+        const arr = ['Easy', 'Medium', 'Hard'];
+        const reg = new RegExp(arr.join('|'), 'i');
+        const levelVal = currLevel.innerText.match(reg);
+        const newRound = new RoundCounter(levelVal, val);
+        currRound.replaceWith(newRound.getElement());
     }
 }

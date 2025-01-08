@@ -46,4 +46,16 @@ export class ElementCreator {
     return this.element;
   }
 
+  getNodeElem() {
+
+  }
+
+  setCallback(event, cb) {
+    this.element.addEventListener(event, cb);
+  }
+
+  removeContent() {
+    this.element.innerHTML = '';
+  }
+
 }

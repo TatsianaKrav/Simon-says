@@ -18,9 +18,9 @@ export class App extends ElementCreator {
         const rounds = new Round();
         gameChoice.append(levels, rounds);
 
-        const currentGameInfo = new RoundCounter('easy', 1);
+        const currentGameInfo = new RoundCounter('Easy', 1);
         const input = new UserInput();
-        const keyboard = new VirtKeyboard('easy');
+        const keyboard = new VirtKeyboard('Easy');
 
         const buttons = new ElementCreator('div', 'buttons-wrap');
         const startGameBtn = new Button('Start');
