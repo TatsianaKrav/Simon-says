@@ -71,6 +71,9 @@
 .container .keyboard-wrapp .char.highlight {
   background-color: red;
 }
+.container .keyboard-wrapp .char.clicked {
+  background-color: rgb(0, 255, 76);
+}
 .container .buttons-wrap {
   display: flex;
   align-items: center;

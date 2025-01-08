@@ -1,24 +1,31 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
-import { easyLevel, mediumLevel, hardLevel } from '../../utilities/keyboardVar.js';
+import { highlightChar } from "../../utilities/highlightBtn.js";
+import { easyLevel, mediumLevel, hardLevel } from "../../utilities/keyboardVar.js";
 
 export class VirtKeyboard extends ElementCreator {
-    easyLevel = easyLevel;
-    mediumLevel = mediumLevel;
-    hardLevel = hardLevel;
-
     constructor(level) {
         super('div', 'keyboard-wrapp');
         this.create(level);
     }
 
     create(level) {
-        const currentLevel = level === 'Easy' ? this.easyLevel : level === 'Medium' ?
-            this.mediumLevel : this.hardLevel;
-
+        const currentLevel = level === 'Easy' ? easyLevel : level === 'Medium' ? mediumLevel : hardLevel;
+        /*  const currentLevel = setCurrentKeyboard(level); */
 
         for (let i = 0; i < currentLevel.length; i++) {
             const char = new ElementCreator('button', 'char', [], currentLevel[i]);
             this.append(char);
+
+            char.setCallback('click', (e) => this.handleChar(e));
         }
+    }
+
+    handleChar(e) {
+        const btn = e.target;
+        const val = e.target.innerText;
+        const input = document.querySelector('input');
+        input.value += val;
+
+        highlightChar(btn);
     }
 }

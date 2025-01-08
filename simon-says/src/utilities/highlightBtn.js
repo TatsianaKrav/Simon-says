@@ -45,3 +45,14 @@ export function highlightBtn(i, el, dur = 1) {
 /* function disable(event) {
     event.preventDefault();
 } */
+
+export function highlightChar(btn) {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            btn.classList.add('clicked');
+            resolve();
+        }, 100);
+    })
+
+    promise.then(setTimeout(() => { btn.classList.remove('clicked') }, 400));
+}

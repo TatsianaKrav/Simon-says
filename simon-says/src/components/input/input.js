@@ -1,4 +1,5 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
+import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, hardLevel, mediumLevel } from "../../utilities/keyboardVar.js";
 
 export class UserInput extends ElementCreator {
@@ -18,9 +19,6 @@ export class UserInput extends ElementCreator {
     }
 
     //disable до старта и во время имитации
-    //подсвечивать
-    //добавить вирт клав
-
     keyboardHandler(input) {
         document.addEventListener('keydown', (e) => {
             const currentLevel = document.querySelector('select').value;
@@ -36,7 +34,16 @@ export class UserInput extends ElementCreator {
             val = isNaN(parseInt(val)) ? val.toUpperCase() : +val;
 
             if (!this.currentKeyboard.includes(val)) return;
-            input.getElement().value += e.key;
+            input.getElement().value += val;
+
+            const chars = document.querySelectorAll('.char');
+            const btn = Array.from(chars).find(char => char.innerText === val);
+
+            Array.from(chars).forEach(char => {
+                if (char.innerText == val) {
+                    highlightChar(char);
+                }
+            });
         })
     }
 }
