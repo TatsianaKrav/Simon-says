@@ -21,6 +21,9 @@ export class VirtKeyboard extends ElementCreator {
     }
 
     handleChar(e) {
+        const startBtn = document.querySelector('.start');
+        if (startBtn) return;
+
         const btn = e.target;
         const val = e.target.innerText;
         const input = document.querySelector('input');

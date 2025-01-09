@@ -3,14 +3,13 @@ export function highlightBtn(i, el, dur = 1) {
     const selectors = document.querySelectorAll('select');
     Array.from(btns).forEach(btn => btn.disabled = 'true');
     Array.from(selectors).forEach(select => select.disabled = 'true');
-    /*   Array.from(btns).forEach(btn => btn.addEventListener('click', (e) => disable.bind(null, e))); */
-
 
     let promise = new Promise((resolve, reject) => {
+        document.addEventListener('keydown', (e) => { return false });
+
         setTimeout(() => {
             el.classList.add('highlight');
             resolve();
-            console.log(el.innerText);
         }, 300 * i)
     })
 
@@ -27,24 +26,7 @@ export function highlightBtn(i, el, dur = 1) {
             Array.from(selectors).forEach(select => select.removeAttribute('disabled'));
         }, 300 * dur);
     })
-
-    /*  promise.then(result => {
-         let promise2 = new Promise((resolve, reject) => {
-             setTimeout(() => {
-                 el.classList.remove('highlight');
-                 resolve();
-             }, 500);
-         })
- 
-         promise2.then(setTimeout(() => {
-             Array.from(btns).forEach(btn => btn.removeAttribute('disabled'));
-         }, 600))
-     }) */
 }
-
-/* function disable(event) {
-    event.preventDefault();
-} */
 
 export function highlightChar(btn) {
     const promise = new Promise((resolve, reject) => {

@@ -12,15 +12,20 @@ export class UserInput extends ElementCreator {
 
     create() {
         const input = new ElementCreator('input');
-        input.setAttributes([{ 'readonly': 'true' }]);
+        input.setAttributes([{ 'readonly': '' }]);
         this.append(input);
 
         this.keyboardHandler(input);
     }
 
-    //disable до старта и во время имитации
     keyboardHandler(input) {
         document.addEventListener('keydown', (e) => {
+            const startBtn = document.querySelector('.start');
+            if (startBtn) return;
+
+            const levelSelector = document.querySelector('select');
+            if (levelSelector.disabled) return;
+
             const currentLevel = document.querySelector('select').value;
             if (currentLevel === 'Easy') {
                 this.currentKeyboard = [...easyLevel];
