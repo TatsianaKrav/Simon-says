@@ -8,19 +8,20 @@ import { RoundCounter } from "./counter/roundCounter.js";
 
 export class App extends ElementCreator {
 
-    constructor() {
+    constructor(value) {
         super('div', 'container');
+        this.value = value;
     }
 
     createView() {
         const gameChoice = new ElementCreator('div', 'game-choice');
-        const levels = new Level();
+        const levels = new Level(this.value);
         const rounds = new Round();
         gameChoice.append(levels, rounds);
 
-        const currentGameInfo = new RoundCounter('Easy', 1);
+        const currentGameInfo = new RoundCounter(this.value, 1);
         const input = new UserInput();
-        const keyboard = new VirtKeyboard('Easy');
+        const keyboard = new VirtKeyboard(this.value);
 
         const buttons = new ElementCreator('div', 'buttons-wrap');
         const startGameBtn = new Button('Start', 'start');

@@ -1,8 +1,15 @@
 export function checkInput(string) {
     let arr = string.split('');
-    arr = arr.map(el => +el);
-    const currSeq = JSON.parse(localStorage.getItem('currSeq'));
+    arr = arr.map(el => {
+        if (!isNaN(parseInt(el))) {
+            return +el;
+        };
 
+        return el;
+    });
+
+
+    const currSeq = JSON.parse(localStorage.getItem('currSeq'));
 
     if (arr.length === currSeq.length) {
         const result = JSON.stringify(arr) === JSON.stringify(currSeq) ? 'correct' : 'error';
@@ -11,7 +18,7 @@ export function checkInput(string) {
 
 
     for (let i = 0; i < arr.length; i++) {
-        if (+arr[i] !== currSeq[i]) {
+        if (arr[i] !== currSeq[i]) {
             return 'error';
         }
     }

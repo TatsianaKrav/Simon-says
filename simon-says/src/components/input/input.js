@@ -31,8 +31,8 @@ export class UserInput extends ElementCreator {
                 return;
             }
 
-            const levelSelector = document.querySelector('select');
-            if (levelSelector.disabled) return;
+         /*    const levelSelector = document.querySelector('select');
+            if (levelSelector.disabled) return; */
 
             const currentLevel = document.querySelector('select').value;
             if (currentLevel === 'Easy') {

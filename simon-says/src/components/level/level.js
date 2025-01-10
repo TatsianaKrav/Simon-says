@@ -4,17 +4,33 @@ import { VirtKeyboard } from "../keyboard/keyboard.js";
 
 
 export class Level extends ElementCreator {
-    constructor() {
+    constructor(value) {
         super('div', 'levels', [], 'Choose level: ');
+        this.value = value;
         this.create();
     }
 
     create() {
         const selector = new ElementCreator('select', '');
-        const option1 = new ElementCreator('option', '', [{ value: 'Easy' }, { selected: 'selected' }], 'Easy');
+        const levelOptions = ['Easy', 'Medium', 'Hard'];
+
+
+        for (let i = 0; i < 3; i++) {
+            const option = new ElementCreator('option', '', [{ value: levelOptions[i] }], levelOptions[i]);
+
+            if (levelOptions[i] === this.value) {
+                option.setAttributes([{ selected: 'selected' }]);
+            }
+            selector.append(option);
+        }
+
+
+        /* const option1 = new ElementCreator('option', '', [{ value: 'Easy' }, { selected: 'selected' }], 'Easy');
         const option2 = new ElementCreator('option', '', [{ value: 'Medium' }], 'Medium');
         const option3 = new ElementCreator('option', '', [{ value: 'Hard' }], 'Hard');
-        selector.append(option1, option2, option3);
+        selector.append(option1, option2, option3); */
+
+
         this.append(selector.element);
 
         this.setCallback('change', (e) => {
