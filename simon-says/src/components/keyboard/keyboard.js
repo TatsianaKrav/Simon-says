@@ -1,7 +1,7 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, mediumLevel, hardLevel } from "../../utilities/keyboardVar.js";
-import { checkInput, showResult } from "../../utilities/result.js";
+import { checkInput, showResult, checkResult } from "../../utilities/result.js";
 
 export class VirtKeyboard extends ElementCreator {
     constructor(level) {
@@ -46,5 +46,7 @@ export class VirtKeyboard extends ElementCreator {
         const currSeq = JSON.parse(localStorage.getItem('currSeq'));
         console.log(currSeq);
         showResult(result2, input, currSeq.length);
+
+        checkResult(result2, currSeq.length);
     }
 }

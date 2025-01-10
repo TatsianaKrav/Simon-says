@@ -25,6 +25,7 @@ export class Button extends ElementCreator {
     repeatHandler() {
         const input = document.querySelector('input');
         input.value = '';
+        this.setClasses('clicked');
         this.handleSeq(1);
     }
 
@@ -53,6 +54,7 @@ export class Button extends ElementCreator {
     }
 
     handleSeq(count) {
+
         this.currentSeq.forEach((el) => {
             Array.from(this.chars).forEach(async char => {
                 if (char.innerText == el) {

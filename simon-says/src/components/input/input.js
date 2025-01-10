@@ -1,7 +1,7 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, hardLevel, mediumLevel } from "../../utilities/keyboardVar.js";
-import { checkInput, showResult } from "../../utilities/result.js";
+import { checkInput, showResult, checkResult } from "../../utilities/result.js";
 
 export class UserInput extends ElementCreator {
     currentKeyboard;
@@ -31,8 +31,8 @@ export class UserInput extends ElementCreator {
                 return;
             }
 
-         /*    const levelSelector = document.querySelector('select');
-            if (levelSelector.disabled) return; */
+            const levelSelector = document.querySelectorAll('select')[1];
+            if (levelSelector.disabled) return;
 
             const currentLevel = document.querySelector('select').value;
             if (currentLevel === 'Easy') {
@@ -61,6 +61,8 @@ export class UserInput extends ElementCreator {
             const result2 = checkInput(input.getElement().value);
             const currSeq = JSON.parse(localStorage.getItem('currSeq'));
             showResult(result2, input, currSeq.length);
+
+            checkResult(result2, currSeq.length);
         })
     }
 }
