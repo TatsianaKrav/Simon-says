@@ -22,6 +22,8 @@ export class Button extends ElementCreator {
     }
 
     repeatHandler() {
+        const input = document.querySelector('input');
+        input.value = '';
         this.handleSeq(1);
     }
 
@@ -35,6 +37,7 @@ export class Button extends ElementCreator {
         const roundValue = document.querySelectorAll('select')[1].value;
 
         this.currentSeq = random(levelValue, roundValue);
+        localStorage.setItem('currSeq', JSON.stringify(this.currentSeq));
 
         let count = 1;
         this.handleSeq(count);

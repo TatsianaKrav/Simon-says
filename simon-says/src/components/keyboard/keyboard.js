@@ -1,6 +1,7 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, mediumLevel, hardLevel } from "../../utilities/keyboardVar.js";
+import { checkInput } from "../../utilities/result.js";
 
 export class VirtKeyboard extends ElementCreator {
     constructor(level) {
@@ -27,8 +28,25 @@ export class VirtKeyboard extends ElementCreator {
         const btn = e.target;
         const val = e.target.innerText;
         const input = document.querySelector('input');
+
+
+        const result = checkInput(input.value);
+        if (result && result === 'error') {
+            return;
+        } else if (result && result === 'correct') {
+            return;
+        }
+
         input.value += val;
 
+
         highlightChar(btn);
+
+        const result2 = checkInput(input.value);
+        if (result2 === 'error') {
+            console.log('error');
+        } else if (result2 === 'correct') {
+            console.log('correct');
+        }
     }
 }

@@ -1,6 +1,7 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, hardLevel, mediumLevel } from "../../utilities/keyboardVar.js";
+import { checkInput } from "../../utilities/result.js";
 
 export class UserInput extends ElementCreator {
     currentKeyboard;
@@ -22,6 +23,13 @@ export class UserInput extends ElementCreator {
         document.addEventListener('keydown', (e) => {
             const startBtn = document.querySelector('.start');
             if (startBtn) return;
+
+            const result = checkInput(input.getElement().value);
+            if (result && result === 'error') {
+                return;
+            } else if (result && result === 'correct') {
+                return;
+            }
 
             const levelSelector = document.querySelector('select');
             if (levelSelector.disabled) return;
@@ -49,6 +57,13 @@ export class UserInput extends ElementCreator {
                     highlightChar(char);
                 }
             });
+
+            const result2 = checkInput(input.getElement().value);
+            if (result2 === 'error') {
+                console.log('error');
+            } else if (result2 === 'correct') {
+                console.log('correct');
+            }
         })
     }
 }
