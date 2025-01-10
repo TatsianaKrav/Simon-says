@@ -1,7 +1,7 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, hardLevel, mediumLevel } from "../../utilities/keyboardVar.js";
-import { checkInput } from "../../utilities/result.js";
+import { checkInput, showResult } from "../../utilities/result.js";
 
 export class UserInput extends ElementCreator {
     currentKeyboard;
@@ -59,11 +59,8 @@ export class UserInput extends ElementCreator {
             });
 
             const result2 = checkInput(input.getElement().value);
-            if (result2 === 'error') {
-                console.log('error');
-            } else if (result2 === 'correct') {
-                console.log('correct');
-            }
+            const currSeq = JSON.parse(localStorage.getItem('currSeq'));
+            showResult(result2, input, currSeq.length);
         })
     }
 }

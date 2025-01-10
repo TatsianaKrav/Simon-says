@@ -49,6 +49,12 @@
   font-size: 20px;
   outline: none;
 }
+.container .input-wrapper input.correct {
+  background-color: rgb(133, 231, 133);
+}
+.container .input-wrapper input.wrong {
+  background-color: rgb(238, 135, 135);
+}
 .container .keyboard-wrapp {
   display: flex;
   align-items: center;

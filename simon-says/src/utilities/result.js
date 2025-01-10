@@ -18,4 +18,19 @@ export function checkInput(string) {
 
 }
 
+
+export function showResult(result, input, count) {
+    const inp = input instanceof HTMLElement ? input : input.getElement();
+
+    setTimeout(() => {
+        if (result === 'error') {
+            inp.value = "It's wrong";
+            inp.classList.toggle('wrong');
+        } else if (result === 'correct') {
+            inp.value = "It's correct";
+            inp.classList.toggle('correct');
+        }
+    }, 300 * count);
+}
+
 //class Result - check result -> disable input -> show message
