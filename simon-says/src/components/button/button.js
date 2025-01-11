@@ -12,8 +12,6 @@ export class Button extends ElementCreator {
         super('button', 'btn', []);
         this.element.innerText = btnContent;
         this.element.classList.add(className);
-        this.startHandler();
-
     }
 
     startHandler() {
@@ -52,7 +50,7 @@ export class Button extends ElementCreator {
         this.element.innerText = 'Repeat the sequence';
         this.element.classList.remove('start');
         this.element.classList.add('repeat');
-        this.createNewGameBtn();
+       /*  this.createNewGameBtn(); */
     }
 
     handleSeq(count) {
@@ -68,7 +66,7 @@ export class Button extends ElementCreator {
         })
     }
 
-    createNewGameBtn() {
+    /* createNewGameBtn() {
         const wrap = document.querySelector('.buttons-wrap');
         const newGameBtn = new Button('new Game', 'next');
         wrap.append(newGameBtn.getElement());
@@ -83,7 +81,7 @@ export class Button extends ElementCreator {
         document.body.innerHTML = '';
         const app = new App(currentLevel);
         app.createView();
-    }
+    } */
 }
 
 
