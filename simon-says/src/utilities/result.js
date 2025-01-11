@@ -1,4 +1,4 @@
-import { Button } from "../components/button/button.js";
+import { NextBtn } from "../components/button/nextBtn.js";
 
 export function checkInput(string) {
     let arr = string.split('');
@@ -41,7 +41,7 @@ export function checkResult(ans, dur) {
         } else {
             setTimeout(() => {
                 repeatBtn.parentElement.removeChild(repeatBtn);
-                const nextBtn = new Button('Next', 'next');
+                const nextBtn = new NextBtn('Next', 'next');
                 nextBtn.prepandTo(btnWrap);
             }, 300 * dur);
         }

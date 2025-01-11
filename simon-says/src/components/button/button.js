@@ -18,18 +18,20 @@ export class Button extends ElementCreator {
 
     startHandler() {
         if (this.element.innerText === 'Start') {
-            this.element.addEventListener('click', (e) => this.startGame(e));
+            this.element.addEventListener('click', () => this.startGame());
         }
     }
 
     repeatHandler() {
         const input = document.querySelector('input');
         input.value = '';
+        input.classList.remove('wrong');
+        input.classList.remove('correct');
         this.setClasses('clicked');
         this.handleSeq(1);
     }
 
-    startGame(e) {
+    startGame() {
         if (this.element.innerText === 'Repeat the sequence') {
             this.repeatHandler();
             return;
@@ -82,12 +84,6 @@ export class Button extends ElementCreator {
         const app = new App(currentLevel);
         app.createView();
     }
-
-    /*  createNextBtn() {
-         const wrap = document.querySelector('.buttons-wrap');
-         const nextBtn = new Button('Next', 'next');
-         wrap.append(nextBtn.getElement());
-     } */
 }
 
 
