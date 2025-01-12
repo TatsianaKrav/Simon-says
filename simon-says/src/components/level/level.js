@@ -30,7 +30,7 @@ export class Level extends ElementCreator {
             const val = e.target.value;
             this.configureState(val);
             this.configureKeyboard(val);
-            this.configureBtns();
+           /*  this.configureBtns(); */
             this.configureInput();
         });
     }
@@ -67,3 +67,5 @@ export class Level extends ElementCreator {
         input.value = '';
     }
 }
+
+//make baseSelector class
