@@ -1,9 +1,11 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, mediumLevel, hardLevel } from "../../utilities/keyboardVar.js";
-import { checkInput, showResult, checkResult } from "../../utilities/result.js";
+import { Result } from "../../utilities/result.js";
 
 export class VirtKeyboard extends ElementCreator {
+    result = new Result;
+
     constructor(level) {
         super('div', 'keyboard-wrapp');
         this.create(level);
@@ -30,7 +32,7 @@ export class VirtKeyboard extends ElementCreator {
         const input = document.querySelector('input');
 
 
-        const result = checkInput(input.value);
+        const result = this.result.checkInput(input.value);
         if (result && result === 'error') {
             return;
         } else if (result && result === 'correct') {
@@ -42,11 +44,11 @@ export class VirtKeyboard extends ElementCreator {
 
         highlightChar(btn);
 
-        const result2 = checkInput(input.value);
+        const result2 = this.result.checkInput(input.value);
         const currSeq = JSON.parse(localStorage.getItem('currSeq'));
         console.log(currSeq);
-        showResult(result2, input, currSeq.length);
+        this.result.showResult(result2, input, currSeq.length);
 
-        checkResult(result2, currSeq.length);
+        this.result.checkResult(result2, currSeq.length);
     }
 }

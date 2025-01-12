@@ -1,10 +1,11 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
 import { easyLevel, hardLevel, mediumLevel } from "../../utilities/keyboardVar.js";
-import { checkInput, showResult, checkResult } from "../../utilities/result.js";
+import { Result } from "../../utilities/result.js";
 
 export class UserInput extends ElementCreator {
     currentKeyboard;
+    result = new Result();
 
     constructor() {
         super('div', 'input-wrapper');
@@ -24,7 +25,7 @@ export class UserInput extends ElementCreator {
             const startBtn = document.querySelector('.start');
             if (startBtn) return;
 
-            const result = checkInput(input.getElement().value);
+            const result = this.result.checkInput(input.getElement().value);
             if (result && result === 'error') {
                 return;
             } else if (result && result === 'correct') {
@@ -58,11 +59,11 @@ export class UserInput extends ElementCreator {
                 }
             });
 
-            const result2 = checkInput(input.getElement().value);
+            const result2 = this.result.checkInput(input.getElement().value);
             const currSeq = JSON.parse(localStorage.getItem('currSeq'));
-            showResult(result2, input, currSeq.length);
+            this.result.showResult(result2, input, currSeq.length);
 
-            checkResult(result2, currSeq.length);
+            this.result.checkResult(result2, currSeq.length);
         })
     }
 }
