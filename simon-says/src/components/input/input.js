@@ -6,6 +6,8 @@ import { Result } from "../../utilities/result.js";
 export class UserInput extends ElementCreator {
     currentKeyboard;
     result = new Result();
+    pressedBtns = [];
+    val;
 
     constructor() {
         super('div', 'input-wrapper');
@@ -21,49 +23,62 @@ export class UserInput extends ElementCreator {
     }
 
     keyboardHandler(input) {
+        let flag = false;
+
         document.addEventListener('keydown', (e) => {
-            const startBtn = document.querySelector('.start');
-            if (startBtn) return;
 
-            const result = this.result.checkInput(input.getElement().value);
-            if (result && result === 'error') {
-                return;
-            } else if (result && result === 'correct') {
-                return;
-            }
+            if (!flag) {
+                flag = true;
 
-            const levelSelector = document.querySelectorAll('select')[1];
-            if (levelSelector.disabled) return;
+                const chars = document.querySelectorAll('.char');
+                const startBtn = document.querySelector('.start');
+                if (startBtn) return;
 
-            const currentLevel = document.querySelector('select').value;
-            if (currentLevel === 'Easy') {
-                this.currentKeyboard = [...easyLevel];
-            } else if (currentLevel === 'Medium') {
-                this.currentKeyboard = [...mediumLevel];
-            } else if (currentLevel === 'Hard') {
-                this.currentKeyboard = [...hardLevel];
-            }
-
-            let val = e.key;
-            val = isNaN(parseInt(val)) ? val.toUpperCase() : +val;
-
-            if (!this.currentKeyboard.includes(val)) return;
-            input.getElement().value += val;
-
-            const chars = document.querySelectorAll('.char');
-            const btn = Array.from(chars).find(char => char.innerText === val);
-
-            Array.from(chars).forEach(char => {
-                if (char.innerText == val) {
-                    highlightChar(char);
+                const result = this.result.checkInput(input.getElement().value);
+                if (result && result === 'error') {
+                    return;
+                } else if (result && result === 'correct') {
+                    return;
                 }
-            });
 
-            const result2 = this.result.checkInput(input.getElement().value);
-            const currSeq = JSON.parse(localStorage.getItem('currSeq'));
-            this.result.showResult(result2, input, currSeq.length);
+                const levelSelector = document.querySelectorAll('select')[1];
+                if (levelSelector.disabled) return;
 
-            this.result.checkResult(result2, currSeq.length);
+                const currentLevel = document.querySelector('select').value;
+                if (currentLevel === 'Easy') {
+                    this.currentKeyboard = [...easyLevel];
+                } else if (currentLevel === 'Medium') {
+                    this.currentKeyboard = [...mediumLevel];
+                } else if (currentLevel === 'Hard') {
+                    this.currentKeyboard = [...hardLevel];
+                }
+
+                this.val = e.key;
+                this.val = isNaN(parseInt(this.val)) ? this.val.toUpperCase() : +this.val;
+                this.pressedBtns.push(this.val);
+                console.log(this.pressedBtns);
+                if (!this.currentKeyboard.includes(this.val)) return;
+
+                input.getElement().value += this.val;
+
+                Array.from(chars).forEach(char => {
+                    if (char.innerText == this.val) {
+                        highlightChar(char);
+                    }
+                });
+
+                const result2 = this.result.checkInput(input.getElement().value);
+                const currSeq = JSON.parse(localStorage.getItem('currSeq'));
+                this.result.showResult(result2, input, currSeq.length);
+
+                this.result.checkResult(result2, currSeq.length);
+            }
+        })
+
+        document.addEventListener('keyup', (e) => {
+            setTimeout(() => {
+                flag = false;
+            }, 100)
         })
     }
 }

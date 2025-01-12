@@ -5,7 +5,10 @@ export function highlightBtn(i, el, dur = 1) {
     selector.setAttribute('disabled', '');
 
     let promise = new Promise((resolve, reject) => {
-        document.addEventListener('keydown', (e) => { return false });
+        document.addEventListener('keydown', (e) => {
+            e.preventDefault();
+            return;
+        });
 
         setTimeout(() => {
             el.classList.add('highlight');

@@ -41,7 +41,8 @@ export class Result {
                 }, 300 * dur)
             } else {
                 setTimeout(() => {
-                    repeatBtn.parentElement.removeChild(repeatBtn);
+                   /*  repeatBtn.parentElement.removeChild(repeatBtn); */
+                    repeatBtn.remove();
                     const nextBtn = new NextBtn();
                     nextBtn.prependTo(btnWrap);
                 }, 300 * dur);
