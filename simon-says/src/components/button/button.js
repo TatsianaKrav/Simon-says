@@ -26,12 +26,11 @@ export class Button extends ElementCreator {
 
     startGame(currentSeq) {
         localStorage.setItem('currSeq', JSON.stringify(currentSeq));
-
-        let count = 1;
-        this.handleSeq(currentSeq, count);
+        this.handleSeq(currentSeq);
     }
 
-    handleSeq(currentSeq, count) {
+    handleSeq(currentSeq) {
+        let count = 1;
         console.log(currentSeq);
 
         currentSeq.forEach((el) => {

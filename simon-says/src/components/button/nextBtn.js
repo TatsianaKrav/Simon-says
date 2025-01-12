@@ -1,6 +1,6 @@
 import { cleanInput } from "../../utilities/cleanInput.js";
 import { Button } from "./button.js";
-import { random } from "../../utilities/randomSequence.js";
+import { getCurrentSeq } from "../../utilities/randomSequence.js";
 import { RoundCounter } from "../counter/roundCounter.js";
 import { RepeatBtn } from "./repeatBtn.js";
 
@@ -19,6 +19,8 @@ export class NextBtn extends Button {
 
     startGame() {
         cleanInput();
+
+        //update round in select
         const rounds = document.getElementsByClassName('rounds')[0];
         let currentRound = +rounds.value;
 
@@ -30,7 +32,7 @@ export class NextBtn extends Button {
             }
         });
 
-
+        //update current round
         const currRound = document.querySelector('.current-round');
         if (++currentRound === 6) {
             currentRound = 1;
@@ -38,15 +40,11 @@ export class NextBtn extends Button {
         const newRound = new RoundCounter(currentRound);
         currRound.replaceWith(newRound.getElement());
 
-        //in function
-        const level = document.querySelector('select');
-        level.setAttribute('disabled', '');
-        const levelValue = level.value;
-        const roundValue = document.querySelectorAll('select')[1].value;
-        const currentSeq = random(levelValue, roundValue);
-        this.handleSeq(currentSeq, 1);
+        const currentSeq = getCurrentSeq();
+        localStorage.setItem('currSeq', JSON.stringify(currentSeq));
+        this.handleSeq(currentSeq);
 
-        const repeatBtn = new RepeatBtn(); // current round 
+        const repeatBtn = new RepeatBtn();
         const parent = this.getParent();
         this.removeElement();
         repeatBtn.prepandTo(parent);

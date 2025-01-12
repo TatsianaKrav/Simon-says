@@ -1,5 +1,18 @@
 import { easyLevel, mediumLevel, hardLevel } from "./keyboardVar.js";
 
+export function getCurrentSeq() {
+    const level = document.querySelector('select');
+    if (level) {
+        level.setAttribute('disabled', '');
+        const levelValue = level.value;
+        const roundValue = document.querySelectorAll('select')[1].value;
+        const currentSeq = random(levelValue, roundValue);
+        return currentSeq;
+    } else {
+        throw new Error('No select found');
+    }
+}
+
 export function random(level, round) {
     let arr = [];
     let currentLevel;

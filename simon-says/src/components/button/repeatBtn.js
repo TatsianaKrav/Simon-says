@@ -17,6 +17,6 @@ export class RepeatBtn extends Button {
         this.setClasses('clicked');
 
         const currentSeq = JSON.parse(localStorage.getItem('currSeq'));
-        this.handleSeq(currentSeq, 1);
+        this.handleSeq(currentSeq);
     }
 }
