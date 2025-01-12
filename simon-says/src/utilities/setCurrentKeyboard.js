@@ -1,15 +1,14 @@
 import { easyLevel, hardLevel, mediumLevel } from "./keyboardVar";
 
 export function setCurrentKeyboard(level) {
-    let chars = [];
 
     if (level === 'Easy') {
-        chars = [...easyLevel];
+        return easyLevel;
     } else if (level === 'Medium') {
-        chars = [...mediumLevel];
+        return mediumLevel;
     } else if (level === 'Hard') {
-        chars = [...hardLevel];
+        return hardLevel;
     }
 
-    return chars;
+    return false;
 }

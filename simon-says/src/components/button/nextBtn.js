@@ -1,4 +1,4 @@
-import { cleanInput } from "../../utilities/cleanInput.js";
+import { clearInput } from "../../utilities/cleanInput.js";
 import { Button } from "./button.js";
 import { getCurrentSeq } from "../../utilities/randomSequence.js";
 import { RoundCounter } from "../counter/roundCounter.js";
@@ -18,7 +18,7 @@ export class NextBtn extends Button {
 
 
     startGame() {
-        cleanInput();
+        clearInput();
 
         //update round in select
         const rounds = document.getElementsByClassName('rounds')[0];
@@ -47,6 +47,6 @@ export class NextBtn extends Button {
         const repeatBtn = new RepeatBtn();
         const parent = this.getParent();
         this.removeElement();
-        repeatBtn.prepandTo(parent);
+        repeatBtn.prependTo(parent);
     }
 }

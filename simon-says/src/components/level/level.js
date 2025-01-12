@@ -1,6 +1,5 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { LevelCounter } from "../counter/levelCounter.js";
-import { RoundCounter } from "../counter/roundCounter.js";
 import { VirtKeyboard } from "../keyboard/keyboard.js";
 
 
@@ -25,13 +24,6 @@ export class Level extends ElementCreator {
             selector.append(option);
         }
 
-
-        /* const option1 = new ElementCreator('option', '', [{ value: 'Easy' }, { selected: 'selected' }], 'Easy');
-        const option2 = new ElementCreator('option', '', [{ value: 'Medium' }], 'Medium');
-        const option3 = new ElementCreator('option', '', [{ value: 'Hard' }], 'Hard');
-        selector.append(option1, option2, option3); */
-
-
         this.append(selector.element);
 
         this.setCallback('change', (e) => {
@@ -50,11 +42,6 @@ export class Level extends ElementCreator {
     }
 
     configureState(val) {
-        /*  const currLevel = document.querySelector('.current-game-info');
-         const currRound = document.querySelector('.current-round');
-         const newLevel = new RoundCounter(val, parseInt(currRound.innerText.match(/\d+/)));
-         currLevel.replaceWith(newLevel.getElement()); */
-
         const currLevel = document.querySelector('.current-level');
         const newLevel = new LevelCounter(val);
         currLevel.replaceWith(newLevel.getElement());
@@ -80,5 +67,3 @@ export class Level extends ElementCreator {
         input.value = '';
     }
 }
-
-//make baseSelector class

@@ -29,14 +29,6 @@ export class Round extends ElementCreator {
     }
 
     configureState(val) {
-        /*  const currRound = document.querySelector('.current-game-info');
-         const currLevel = document.querySelector('.current-level');
-         const arr = ['Easy', 'Medium', 'Hard'];
-         const reg = new RegExp(arr.join('|'), 'i');
-         const levelVal = currLevel.innerText.match(reg);
-         const newRound = new RoundCounter(levelVal, val);
-         currRound.replaceWith(newRound.getElement()); */
-
         const currRound = document.querySelector('.current-round');
         const newRound = new RoundCounter(val);
         currRound.replaceWith(newRound.getElement());

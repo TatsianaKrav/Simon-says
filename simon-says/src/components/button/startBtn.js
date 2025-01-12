@@ -1,5 +1,4 @@
 import { Button } from "./button.js";
-import { App } from "../app.js";
 import { RepeatBtn } from "./repeatBtn.js";
 import { NewGameBtn } from "./newGameBtn.js";
 
@@ -12,34 +11,21 @@ export class StartBtn extends Button {
 
     startHandler() {
         super.startHandler();
-        /*        this.setCallback('click', this.createNewGameBtn.bind(this, this.parent)); */
         this.setCallback('click', (() => {
-            this.createRepeatBtn(this.parent);
-            this.createNewGameBtn(this.parent);
+            this.createRepeatBtn();
+            this.createNewGameBtn();
         }));
     }
 
-    createRepeatBtn(parent) {
+    createRepeatBtn() {
         const repeatBtn = new RepeatBtn();
         this.removeElement();
-        parent.append(repeatBtn);
+        this.parent.append(repeatBtn);
     }
 
 
-    createNewGameBtn(parent) {
-        /*   const newGameBtn = new Button('New Game', 'new-game'); */
+    createNewGameBtn() {
         const newGameBtn = new NewGameBtn();
-        parent.append(newGameBtn);
-
-        /* newGameBtn.setCallback('click', this.startNewGame); */
+        this.parent.append(newGameBtn);
     }
-
-  /*   startNewGame() {
-        const level = document.querySelector('select');
-        const currentLevel = level.value;
-
-        document.body.innerHTML = '';  
-        const app = new App(currentLevel);
-        app.createView();
-    } */
 }

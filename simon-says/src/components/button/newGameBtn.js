@@ -16,12 +16,10 @@ export class NewGameBtn extends Button {
         const level = document.querySelector('select');
         const currentLevel = level.value;
 
-        document.body.innerHTML = ''; //!!!!!!!!
+        const children = document.body.children;
+        Array.from(children).forEach(child => child.remove());
 
-        /* const children = document.body.children;
-        Array.from(children).forEach(child => child.remove()); */
-
-        const app = new App(currentLevel);
-        app.createView();
+        const app = new App();
+        app.createView(currentLevel);
     }
 }

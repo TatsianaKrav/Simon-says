@@ -41,8 +41,8 @@ export function checkResult(ans, dur) {
         } else {
             setTimeout(() => {
                 repeatBtn.parentElement.removeChild(repeatBtn);
-                const nextBtn = new NextBtn('Next', 'next');
-                nextBtn.prepandTo(btnWrap);
+                const nextBtn = new NextBtn();
+                nextBtn.prependTo(btnWrap);
             }, 300 * dur);
         }
 

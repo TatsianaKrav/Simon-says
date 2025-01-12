@@ -52,7 +52,7 @@ export class ElementCreator {
     });
   }
 
-  prepandTo(parent) {
+  prependTo(parent) {
     if (parent instanceof HTMLElement || parent instanceof ElementCreator) {
       parent.prepend(this.element);
     } else {
