@@ -22,7 +22,7 @@ export function highlightBtn(i, el, dur = 1) {
 
     promise.then(result => {
         setTimeout(() => {
-            /*    Array.from(btns).forEach(btn => btn.removeAttribute('disabled')); */
+            const btns = document.querySelectorAll('button');
             Array.from(btns).forEach(btn => {
                 if (!btn.classList.contains('clicked')) {
                     btn.removeAttribute('disabled')

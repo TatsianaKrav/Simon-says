@@ -1,6 +1,7 @@
 import { Button } from "./button.js";
 import { App } from "../app.js";
 import { RepeatBtn } from "./repeatBtn.js";
+import { NewGameBtn } from "./newGameBtn.js";
 
 export class StartBtn extends Button {
     constructor(parent) {
@@ -26,18 +27,19 @@ export class StartBtn extends Button {
 
 
     createNewGameBtn(parent) {
-        const newGameBtn = new Button('New Game', 'new-game');
+        /*   const newGameBtn = new Button('New Game', 'new-game'); */
+        const newGameBtn = new NewGameBtn();
         parent.append(newGameBtn);
 
-        newGameBtn.setCallback('click', this.startNewGame);
+        /* newGameBtn.setCallback('click', this.startNewGame); */
     }
 
-    startNewGame() {
+  /*   startNewGame() {
         const level = document.querySelector('select');
         const currentLevel = level.value;
 
-        document.body.innerHTML = '';
+        document.body.innerHTML = '';  
         const app = new App(currentLevel);
         app.createView();
-    }
+    } */
 }

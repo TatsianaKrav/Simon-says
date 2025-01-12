@@ -2,7 +2,8 @@ import { Button } from "./button.js";
 
 export class RepeatBtn extends Button {
     constructor() {
-        super('Repeat the sequence', 'repeat')
+        super('Repeat the sequence', 'repeat');
+        this.setAttributes([{ 'disabled': '' }]);
         this.repeatHandler();
     }
 
