@@ -1,11 +1,10 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { random } from "../../utilities/randomSequence.js";
 import { highlightBtn } from "../../utilities/highlightBtn.js";
-import { App } from "../app.js";
 
 export class Button extends ElementCreator {
 
-    currentSeq;
+    /*   currentSeq; */
     chars = document.getElementsByClassName('char');
 
     constructor(btnContent, className) {
@@ -15,50 +14,57 @@ export class Button extends ElementCreator {
     }
 
     startHandler() {
-        if (this.element.innerText === 'Start') {
-            this.element.addEventListener('click', () => this.startGame());
-        }
+        /*         this.element.addEventListener('click', () => this.startGame()); */
+        this.element.addEventListener('click', () => {
+            const level = document.querySelector('select');
+            level.setAttribute('disabled', '');
+            const levelValue = level.value;
+            const roundValue = document.querySelectorAll('select')[1].value;
+            const currentSeq = random(levelValue, roundValue);
+
+            this.startGame(currentSeq);
+        });
     }
 
-    repeatHandler() {
-        const input = document.querySelector('input');
-        input.value = '';
-        input.classList.remove('wrong');
-        input.classList.remove('correct');
-        this.setClasses('clicked');
-        this.handleSeq(1);
-    }
+    /*  repeatHandler() {
+         const input = document.querySelector('input');
+         input.value = '';
+         input.classList.remove('wrong');
+         input.classList.remove('correct');
+         this.setClasses('clicked');
+         this.handleSeq(1);
+     } */
 
-    startGame() {
-        if (this.element.innerText === 'Repeat the sequence') {
-            this.repeatHandler();
-            return;
-        };
+    startGame(currentSeq) {
+        /*  if (this.element.innerText === 'Repeat the sequence') {
+             this.repeatHandler();
+             return;
+         }; */
 
-        const level = document.querySelector('select');
+        /* const level = document.querySelector('select');
         level.setAttribute('disabled', '');
         const levelValue = level.value;
         const roundValue = document.querySelectorAll('select')[1].value;
 
-        this.currentSeq = random(levelValue, roundValue);
-        console.log(this.currentSeq);
-        localStorage.setItem('currSeq', JSON.stringify(this.currentSeq));
+        this.currentSeq = random(levelValue, roundValue); */
+        console.log(currentSeq);
+        localStorage.setItem('currSeq', JSON.stringify(currentSeq));
 
         let count = 1;
-        this.handleSeq(count);
+        this.handleSeq(currentSeq, count);
 
-        this.element.innerText = 'Repeat the sequence';
-        this.element.classList.remove('start');
-        this.element.classList.add('repeat');
-       /*  this.createNewGameBtn(); */
+        /*   this.element.innerText = 'Repeat the sequence';
+          this.element.classList.remove('start');
+          this.element.classList.add('repeat'); */
+        /*  this.createNewGameBtn(); */
     }
 
-    handleSeq(count) {
+    handleSeq(currentSeq, count) {
 
-        this.currentSeq.forEach((el) => {
+        currentSeq.forEach((el) => {
             Array.from(this.chars).forEach(async char => {
                 if (char.innerText == el) {
-                    highlightBtn(count, char, this.currentSeq.length);
+                    highlightBtn(count, char, currentSeq.length);
                     count++;
                     char.classList.remove('highlight');
                 }

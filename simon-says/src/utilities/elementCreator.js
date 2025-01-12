@@ -42,6 +42,16 @@ export class ElementCreator {
     }
   }
 
+  prepend(...children) {
+    children.forEach((child) => {
+      if (child instanceof HTMLElement) {
+        this.element.prepend(child);
+      } else if (child instanceof ElementCreator) {
+        this.element.prepend(child.element);
+      }
+    });
+  }
+
   prepandTo(parent) {
     if (parent instanceof HTMLElement || parent instanceof ElementCreator) {
       parent.prepend(this.element);
@@ -64,6 +74,10 @@ export class ElementCreator {
 
   removeContent() {
     this.element.innerHTML = '';
+  }
+
+  removeElement() {
+    this.element.remove();
   }
 
 }

@@ -1,5 +1,6 @@
 import { Button } from "./button.js";
 import { App } from "../app.js";
+import { RepeatBtn } from "./repeatBtn.js";
 
 export class StartBtn extends Button {
     constructor(parent) {
@@ -10,8 +11,19 @@ export class StartBtn extends Button {
 
     startHandler() {
         super.startHandler();
-        this.setCallback('click', this.createNewGameBtn.bind(this, this.parent));
+        /*        this.setCallback('click', this.createNewGameBtn.bind(this, this.parent)); */
+        this.setCallback('click', (() => {
+            this.createRepeatBtn(this.parent);
+            this.createNewGameBtn(this.parent);
+        }));
     }
+
+    createRepeatBtn(parent) {
+        const repeatBtn = new RepeatBtn();
+        this.removeElement();
+        parent.append(repeatBtn);
+    }
+
 
     createNewGameBtn(parent) {
         const newGameBtn = new Button('New Game', 'new-game');
