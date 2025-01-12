@@ -1,4 +1,4 @@
-import { clearInput } from "../../utilities/cleanInput.js";
+import { clearInput } from "../../utilities/clearInput.js";
 import { Button } from "./button.js";
 import { getCurrentSeq } from "../../utilities/randomSequence.js";
 import { RoundCounter } from "../counter/roundCounter.js";

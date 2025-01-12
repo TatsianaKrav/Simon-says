@@ -43,6 +43,10 @@ export class Button extends ElementCreator {
             })
         })
     }
+
+    enableBtn() {
+        this.removeAttributes('disabled');
+    }
 }
 
 

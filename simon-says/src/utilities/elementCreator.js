@@ -24,6 +24,11 @@ export class ElementCreator {
       Object.entries(attr).forEach(([key, value]) => this.element.setAttribute(key, value)));
   }
 
+  removeAttributes(...attributes) {
+    if (!attributes) return;
+    attributes.forEach(attr => this.element.removeAttribute(attr));
+  }
+
   append(...children) {
     children.forEach((child) => {
       if (child instanceof HTMLElement) {

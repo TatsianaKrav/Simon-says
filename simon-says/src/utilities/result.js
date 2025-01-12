@@ -1,4 +1,5 @@
 import { NextBtn } from "../components/button/nextBtn.js";
+import { Popup } from "../components/popup/popup.js";
 
 export function checkInput(string) {
     let arr = string.split('');
@@ -34,8 +35,9 @@ export function checkResult(ans, dur) {
         if (currentRound.value == 5) {
 
             setTimeout(() => {
-                console.log('game over');
+                /*  console.log('game over'); */
                 repeatBtn.setAttribute('disabled', '');
+                endGame();
                 return;
             }, 300 * dur)
         } else {
@@ -48,7 +50,8 @@ export function checkResult(ans, dur) {
 
     } else if (ans === 'error') {
         if (repeatBtn.classList.contains('clicked')) {
-            console.log('game over');
+            /* console.log('game over'); */
+            endGame(ans);
             repeatBtn.setAttribute('disabled', '');
         }
     }
@@ -67,5 +70,19 @@ export function showResult(result, input, count) {
             inp.classList.toggle('correct');
         }
     }, 300 * count);
+}
+
+function endGame(result) {
+    console.log('game over');
+    //disable round
+    //disable input keyboard
+    //disable btns
+    //active new game
+
+    const popup = new Popup(result);
+
+
+    const container = document.getElementsByClassName('container')[0];
+    popup.appendTo(container);
 }
 
