@@ -101,9 +101,35 @@
     }
 }
 
-@keyframes highlight {
 
-    100% {
-        background-color: red;
+.popup-wrapper {
+    @include flex();
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    padding: 20px;
+    z-index: 10;
+    border: 2px solid black;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s linear;
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .modal {
+        @include flex();
+        flex-direction: column;
+        max-width: 800px;
+        padding: 100px;
+        border-radius: 15px;
+        background: #f3ecec;
+        gap: 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 35px;
     }
 }

@@ -9,6 +9,6 @@ export class PopupBtn extends NewGameBtn {
     startNewGame() {
         super.startNewGame();
         const parent = this.getParent();
-        parent.remove(); // remove class
+        parent.classList.remove('open');
     }
 }

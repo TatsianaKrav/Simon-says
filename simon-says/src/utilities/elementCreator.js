@@ -18,6 +18,10 @@ export class ElementCreator {
     return;
   }
 
+  removeClasses(...className) {
+    className.forEach(name => this.element.classList.remove(name));
+  }
+
   setAttributes(attributes) {
     if (!attributes) return;
     attributes.forEach(attr =>

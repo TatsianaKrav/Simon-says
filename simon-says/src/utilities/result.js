@@ -73,16 +73,12 @@ export function showResult(result, input, count) {
 }
 
 function endGame(result) {
-    console.log('game over');
-    //disable round
-    //disable input keyboard
-    //disable btns
-    //active new game
-
     const popup = new Popup(result);
 
+    setTimeout(() => {
+        popup.setClasses('open');
+    }, 500);
 
-    const container = document.getElementsByClassName('container')[0];
-    popup.appendTo(container);
+    popup.appendTo(document.body);
 }
 
