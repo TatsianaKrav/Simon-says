@@ -1,10 +1,10 @@
 import { Level } from "./level/level.js";
 import { ElementCreator } from "../utilities/elementCreator.js";
-import { Round } from "./round/round.js";
 import { UserInput } from "./input/input.js";
 import { VirtKeyboard } from "./keyboard/keyboard.js";
 import { StartBtn } from "./button/startBtn.js";
 import { CounterWrapp } from "./counter/counterWrapp.js";
+import { GameChoice } from "./gameChoice/gameChoice.js";
 
 export class App extends ElementCreator {
 
@@ -13,11 +13,7 @@ export class App extends ElementCreator {
     }
 
     createView(value) {
-        const gameChoice = new ElementCreator('div', 'game-choice');
-        const levels = new Level(value);
-        const rounds = new Round();
-        gameChoice.append(levels, rounds);
-
+        const gameChoice = new GameChoice(value);
         const currentGameInfo = new CounterWrapp(value, 1);
         const input = new UserInput();
         const keyboard = new VirtKeyboard(value);

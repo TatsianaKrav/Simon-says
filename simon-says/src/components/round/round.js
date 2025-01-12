@@ -1,64 +1,29 @@
-import { ElementCreator } from "../../utilities/elementCreator.js";
 import { RoundCounter } from "../counter/roundCounter.js";
 import { RepeatBtn } from "../button/repeatBtn.js"
-import { clearInput } from "../../utilities/clearInput.js"
 import { getCurrentSeq } from "../../utilities/randomSequence.js"
 import { highlightBtn } from "../../utilities/highlightBtn.js";
+import { Selector } from "../selector.js/selector.js";
+import { NewGameBtn } from "../button/newGameBtn.js";
 
-export class Round extends ElementCreator {
+export class Round extends Selector {
     constructor() {
-        super('div', 'rounds-wrapp', [], 'Choose round: ');
-        this.create();
+        super('rounds');
     }
 
-    create() {
-        const selector = new ElementCreator('select', 'rounds');
-
-        for (let i = 0; i < 5; i++) {
-            const option = new ElementCreator('option', '', [{ value: i + 1 }], `Round ${i + 1}`);
-            if (i === 0) {
-                option.setAttributes([{ selected: 'selected' }]);
-            }
-            selector.append(option);
-        }
-
-        this.append(selector.element);
+    setHandler() {
+        super.setHandler();
 
         this.setCallback('change', (e) => {
-            const val = e.target.value;
-            this.configureState(val);
-            /*   this.configureBtns(); */
-            this.configureInput();
+            const startBtn = document.getElementsByClassName('start')[0];
+            if (startBtn) return;
             this.startNextRound();
+
         });
     }
-
     configureState(val) {
         const currRound = document.querySelector('.current-round');
         const newRound = new RoundCounter(val);
         currRound.replaceWith(newRound.getElement());
-    }
-
-    configureBtns() {
-        const repeatBtn = document.querySelector('.btn.repeat');
-        const nextBtn = document.querySelector('.btn.next');
-
-        if (repeatBtn) {
-            repeatBtn.classList.remove('repeat');
-            repeatBtn.classList.add('start');
-            repeatBtn.innerText = 'Start';
-        }
-
-        if (nextBtn) {
-            nextBtn.remove();
-        }
-    }
-
-    configureInput() {
-        const input = document.querySelector('input');
-        input.value = '';
-
-        clearInput();
     }
 
     startNextRound() {
@@ -83,6 +48,11 @@ export class Round extends ElementCreator {
         const parent = document.getElementsByClassName('buttons-wrap')[0];
         btn.remove();
         repeatBtn.prependTo(parent);
-    }
 
+        const newGameBtn = document.getElementsByClassName('new-game')[0];
+        if (!newGameBtn) {
+            const newGameBtn = new NewGameBtn();
+            newGameBtn.prependTo(parent);
+        }
+    }
 }

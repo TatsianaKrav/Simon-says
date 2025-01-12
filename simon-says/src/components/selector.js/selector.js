@@ -1,14 +1,14 @@
 import { clearInput } from "../../utilities/clearInput.js";
 import { ElementCreator } from "../../utilities/elementCreator.js";
+import { LevelCounter } from "../counter/levelCounter.js";
 
 export class Selector extends ElementCreator {
     constructor(className) {
         super('select');
         this.setClasses(className);
-        this.create();
     }
 
-    create(options, value) { //['Easy', 'Medium', 'Hard']; [1, 2, 3, 4, 5];
+    create(options, value) {
         for (let i = 0; i < options.length; i++) {
             const option = new ElementCreator('option', '', [{ value: options[i] }], options[i]);
             if (options[i] === value) {
@@ -18,25 +18,20 @@ export class Selector extends ElementCreator {
         }
 
         this.setHandler();
-
-        return this;
     }
 
     setHandler() {
         this.setCallback('change', (e) => {
-            this.configureInput();
+            const val = e.target.value;
+            clearInput();
+            this.configureState(val);
         });
     }
 
-    configureInput() {
-      /*   const input = document.querySelector('input');
-        input.value = ''; */
-        clearInput();
+    configureState(val) {
+        const currLevel = document.querySelector('.current-level');
+        const newLevel = new LevelCounter(val);
+        currLevel.replaceWith(newLevel.getElement());
     }
-
 }
 
-//  const val = e.target.value;
-// configureState(val);
-// this.configureKeyboard(val); for level
-// imitation for round
