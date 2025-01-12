@@ -5,6 +5,7 @@ import { UserInput } from "./input/input.js";
 import { VirtKeyboard } from "./keyboard/keyboard.js";
 import { RoundCounter } from "./counter/roundCounter.js";
 import { StartBtn } from "./button/startBtn.js";
+import { CounterWrapp } from "./counter/counterWrapp.js";
 
 export class App extends ElementCreator {
 
@@ -19,7 +20,8 @@ export class App extends ElementCreator {
         const rounds = new Round();
         gameChoice.append(levels, rounds);
 
-        const currentGameInfo = new RoundCounter(this.value, 1);
+        /*  const currentGameInfo = new RoundCounter(this.value, 1); */
+        const currentGameInfo = new CounterWrapp(this.value, 1);
         const input = new UserInput();
         const keyboard = new VirtKeyboard(this.value);
 

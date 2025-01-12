@@ -1,17 +1,18 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
+import { LevelCounter } from "../counter/levelCounter.js";
 import { RoundCounter } from "../counter/roundCounter.js";
 import { VirtKeyboard } from "../keyboard/keyboard.js";
 
 
 export class Level extends ElementCreator {
     constructor(value) {
-        super('div', 'levels', [], 'Choose level: ');
+        super('div', 'levels-wrapp', [], 'Choose level: ');
         this.value = value;
         this.create();
     }
 
     create() {
-        const selector = new ElementCreator('select', '');
+        const selector = new ElementCreator('select', 'levels');
         const levelOptions = ['Easy', 'Medium', 'Hard'];
 
 
@@ -49,9 +50,13 @@ export class Level extends ElementCreator {
     }
 
     configureState(val) {
-        const currLevel = document.querySelector('.current-game-info');
-        const currRound = document.querySelector('.current-round');
-        const newLevel = new RoundCounter(val, parseInt(currRound.innerText.match(/\d+/)));
+        /*  const currLevel = document.querySelector('.current-game-info');
+         const currRound = document.querySelector('.current-round');
+         const newLevel = new RoundCounter(val, parseInt(currRound.innerText.match(/\d+/)));
+         currLevel.replaceWith(newLevel.getElement()); */
+
+        const currLevel = document.querySelector('.current-level');
+        const newLevel = new LevelCounter(val);
         currLevel.replaceWith(newLevel.getElement());
     }
 

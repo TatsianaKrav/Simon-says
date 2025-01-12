@@ -68,6 +68,10 @@ export class ElementCreator {
     return this.element.innerText;
   }
 
+  setInnerText(text) {
+    this.element.innerText = text;
+  }
+
   setCallback(event, cb) {
     this.element.addEventListener(event, cb);
   }
@@ -78,6 +82,10 @@ export class ElementCreator {
 
   removeElement() {
     this.element.remove();
+  }
+
+  getParent() {
+    return this.element.parentNode;
   }
 
 }
