@@ -1,3 +1,4 @@
+import { cleanInput } from "../../utilities/cleanInput.js";
 import { Button } from "./button.js";
 
 export class RepeatBtn extends Button {
@@ -12,10 +13,7 @@ export class RepeatBtn extends Button {
     }
 
     startGame() {
-        const input = document.querySelector('input');
-        input.value = '';
-        input.classList.remove('wrong');
-        input.classList.remove('correct');
+        cleanInput();
         this.setClasses('clicked');
 
         const currentSeq = JSON.parse(localStorage.getItem('currSeq'));

@@ -3,12 +3,12 @@ import { RoundCounter } from "../counter/roundCounter.js";
 
 export class Round extends ElementCreator {
     constructor() {
-        super('div', 'rounds', [], 'Choose round: ');
+        super('div', 'rounds-wrapp', [], 'Choose round: ');
         this.create();
     }
 
     create() {
-        const selector = new ElementCreator('select', '');
+        const selector = new ElementCreator('select', 'rounds');
 
         for (let i = 0; i < 5; i++) {
             const option = new ElementCreator('option', '', [{ value: i + 1 }], `Round ${i + 1}`);

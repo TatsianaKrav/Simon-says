@@ -28,10 +28,10 @@
   border-radius: 5px;
   outline: none;
 }
-.container .game-choice .rounds {
+.container .game-choice .rounds-wrapp {
   font-size: 24px;
 }
-.container .game-choice .rounds select {
+.container .game-choice .rounds-wrapp select {
   font-size: 18px;
   padding: 5px;
   border-radius: 5px;
