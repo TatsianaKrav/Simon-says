@@ -10,7 +10,7 @@ export function highlightBtn(i, el, dur = 1) {
         setTimeout(() => {
             el.classList.add('highlight');
             resolve();
-        }, 500 * i)
+        }, 700 * i)
     })
 
 
@@ -29,7 +29,7 @@ export function highlightBtn(i, el, dur = 1) {
                 }
             });
             selector.removeAttribute('imit');
-        }, 500 * dur);
+        }, 800 * dur);
     })
 }
 

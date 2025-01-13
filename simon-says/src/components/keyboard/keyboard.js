@@ -18,23 +18,13 @@ export class VirtKeyboard extends ElementCreator {
             const char = new ElementCreator('button', 'char', [], currentLevel[i]);
             this.append(char);
 
-            char.setCallback('mousedown', (e) => this.handleChar(e));
-            char.setCallback('mouseup', this.disable);
-
-            /* char.setCallback('touchstart', (e) => this.handleChar(e));
-            char.setCallback('touchend', this.disable); */
+            char.setCallback('click', (e) => this.handleChar(e));
         }
-    }
-
-    disable() {
-        const selector = document.getElementsByClassName('levels')[0];
-        selector.removeAttribute('imit');
     }
 
     handleChar(e) {
         const selector = document.getElementsByClassName('levels')[0];
         if (selector.getAttribute('imit')) return;
-        selector.setAttribute('imit', 'active');
 
         const startBtn = document.querySelector('.start');
         if (startBtn) return;

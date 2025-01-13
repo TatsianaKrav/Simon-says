@@ -1,12 +1,11 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
-import { easyLevel, hardLevel, mediumLevel } from "../../utilities/keyboardVar.js";
 import { Result } from "../../utilities/result.js";
+import { setCurrentKeyboard } from "../../utilities/setCurrentKeyboard.js";
 
 export class UserInput extends ElementCreator {
     currentKeyboard;
     result = new Result();
-    pressedBtns = [];
     val;
 
     constructor() {
@@ -43,20 +42,12 @@ export class UserInput extends ElementCreator {
 
                 const selector = document.getElementsByClassName('levels')[0];
                 if (selector.getAttribute('imit')) return;
-                selector.setAttribute('imit', 'active');
 
                 const currentLevel = document.querySelector('select').value;
-                if (currentLevel === 'Easy') {
-                    this.currentKeyboard = [...easyLevel];
-                } else if (currentLevel === 'Medium') {
-                    this.currentKeyboard = [...mediumLevel];
-                } else if (currentLevel === 'Hard') {
-                    this.currentKeyboard = [...hardLevel];
-                }
+                this.currentKeyboard = setCurrentKeyboard(currentLevel);
 
                 this.val = e.key;
                 this.val = isNaN(parseInt(this.val)) ? this.val.toUpperCase() : +this.val;
-                this.pressedBtns.push(this.val);
                 if (!this.currentKeyboard.includes(this.val)) return;
 
                 input.getElement().value += this.val;
@@ -75,9 +66,6 @@ export class UserInput extends ElementCreator {
         })
 
         document.addEventListener('keyup', (e) => {
-            const selector = document.getElementsByClassName('levels')[0];
-            selector.removeAttribute('imit', 'active');
-
             setTimeout(() => {
                 flag = false;
             }, 100)
