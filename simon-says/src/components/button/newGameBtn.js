@@ -1,6 +1,5 @@
 import { Button } from "./button.js";
 import { App } from "../app.js";
-import { ElementCreator } from "../../utilities/elementCreator.js";
 
 export class NewGameBtn extends Button {
     constructor() {

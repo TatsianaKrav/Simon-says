@@ -1,4 +1,4 @@
-import { easyLevel, hardLevel, mediumLevel } from "./keyboardVar";
+import { easyLevel, hardLevel, mediumLevel } from "./keyboardVar.js";
 
 export function setCurrentKeyboard(level) {
 
@@ -9,6 +9,4 @@ export function setCurrentKeyboard(level) {
     } else if (level === 'Hard') {
         return hardLevel;
     }
-
-    return false;
 }

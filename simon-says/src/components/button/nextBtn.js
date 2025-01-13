@@ -19,20 +19,6 @@ export class NextBtn extends Button {
 
     startGame() {
         clearInput();
-
-        //update round in select
-       /*  const rounds = document.getElementsByClassName('rounds')[0];
-        let currentRound = +rounds.value;
-
-        Array.from(rounds.options).forEach(option => {
-            option.removeAttribute('selected');
-
-            if (currentRound === (Number(option.value) - 1)) {
-                option.setAttribute('selected', '');
-            }
-        }); */
-
-        //update current round
         const currRound = document.querySelector('.current-round');
         let roundValue = parseInt(currRound.innerText.match(/\d+/));
 
