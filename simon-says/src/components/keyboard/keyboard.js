@@ -21,6 +21,9 @@ export class VirtKeyboard extends ElementCreator {
 
             char.setCallback('mousedown', (e) => this.handleChar(e));
             char.setCallback('mouseup', this.disable);
+
+            char.setCallback('touchstart', (e) => this.handleChar(e));
+            char.setCallback('touchend', this.disable);
         }
     }
 
