@@ -55,7 +55,6 @@ export class VirtKeyboard extends ElementCreator {
 
         const result2 = this.result.checkInput(input.value);
         const currSeq = JSON.parse(localStorage.getItem('currSeq'));
-        console.log(currSeq);
         this.result.showResult(result2, input, currSeq.length);
 
         this.result.checkResult(result2, currSeq.length);

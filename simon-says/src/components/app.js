@@ -4,7 +4,7 @@ import { UserInput } from "./input/input.js";
 import { VirtKeyboard } from "./keyboard/keyboard.js";
 import { StartBtn } from "./button/startBtn.js";
 import { CounterWrapp } from "./counter/counterWrapp.js";
-import { GameChoice } from "./gameChoice/gameChoice.js";
+
 
 export class App extends ElementCreator {
 
@@ -13,7 +13,8 @@ export class App extends ElementCreator {
     }
 
     createView(value) {
-        const gameChoice = new GameChoice(value);
+        /*   const gameChoice = new GameChoice(value); */
+        const levels = new Level(value);
         const currentGameInfo = new CounterWrapp(value, 1);
         const input = new UserInput();
         const keyboard = new VirtKeyboard(value);
@@ -22,7 +23,7 @@ export class App extends ElementCreator {
         const startGameBtn = new StartBtn(buttons);
         buttons.append(startGameBtn);
 
-        this.append(gameChoice, currentGameInfo, input, keyboard, buttons);
+        this.append(levels, currentGameInfo, input, keyboard, buttons);
         this.prependTo(document.body);
     }
 }
