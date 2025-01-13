@@ -1,6 +1,22 @@
+@font-face {
+  font-family: "Supreme";
+  src: url("../../static/Supreme.otf");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../static/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../../static/Montserrat-Bold.ttf");
+}
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: rgb(134, 121, 121);
 }
 
 .container {
@@ -12,48 +28,54 @@
   max-width: 1240px;
   margin: 0 auto;
   padding: 25px;
+  font-family: Supreme, sans-serif;
 }
-.container .game-choice {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-}
-.container .game-choice .levels-wrapp {
+.container .game-name {
   font-size: 24px;
+  color: #07e2f1;
 }
-.container .game-choice .levels-wrapp select {
+.container .levels-wrapp {
   font-size: 18px;
+}
+.container .levels-wrapp .levels {
   padding: 5px;
   border-radius: 5px;
   outline: none;
+  font-family: Supreme, sans-serif;
+  font-size: 14px;
+  background-color: #fbe4b7;
 }
-.container .game-choice .rounds-wrapp {
-  font-size: 24px;
-}
-.container .game-choice .rounds-wrapp select {
-  font-size: 18px;
-  padding: 5px;
-  border-radius: 5px;
-  outline: none;
+.container .levels-wrapp .levels option {
+  font-size: 14px;
 }
 .container .current-game-info {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  font-size: 18px;
+  font-size: 16px;
+}
+.container .current-game-info .current-level .level-value {
+  color: #07e2f1;
+}
+.container .current-game-info .current-round .round-value {
+  color: #07e2f1;
 }
 .container .input-wrapper input {
+  font-family: Montserrat-Bold, sans-serif;
   padding: 5px;
   font-size: 20px;
   outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  background-color: #fbe4b7;
 }
 .container .input-wrapper input.correct {
-  background-color: rgb(133, 231, 133);
+  background-color: #07e2f1;
 }
 .container .input-wrapper input.wrong {
-  background-color: rgb(238, 135, 135);
+  background-color: #ee8787;
 }
 .container .keyboard-wrapp {
   display: flex;
@@ -64,6 +86,7 @@
   max-width: 50%;
 }
 .container .keyboard-wrapp .char {
+  font-family: Montserrat, sans-serif;
   font-size: 18px;
   outline: none;
   border: none;
@@ -72,11 +95,12 @@
   background-color: #fbe4b7;
   cursor: pointer;
   padding: 5px;
+  border-radius: 5px;
   font-weight: bold;
   transition: all 0.3s linear;
 }
 .container .keyboard-wrapp .char.highlight {
-  background-color: red;
+  background-color: #07e2f1;
 }
 .container .keyboard-wrapp .char.clicked {
   background-color: rgb(0, 255, 76);
@@ -88,14 +112,16 @@
 }
 .container .buttons-wrap .btn {
   width: 150px;
+  height: 45px;
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid gray;
-  font-size: 18px;
+  font-size: 14px;
   background-color: #fbe4b7;
   outline: none;
   cursor: pointer;
   text-align: center;
+  font-family: Supreme, sans-serif;
 }
 
 .popup-wrapper {
@@ -129,5 +155,24 @@
   gap: 20px;
   box-sizing: border-box;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 30px;
+}
+.popup-wrapper .modal .modal-info .modal-content.correct {
+  color: #07e2f1;
+}
+.popup-wrapper .modal .modal-info .modal-content.wrong {
+  color: #ee8787;
+}
+.popup-wrapper .new-game {
+  width: 150px;
+  height: 45px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 14px;
+  background-color: #fbe4b7;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: Supreme, sans-serif;
 }/*# sourceMappingURL=game.css.map */

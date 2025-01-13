@@ -20,8 +20,6 @@ export class Button extends ElementCreator {
             const levelValue = level.value;
             const round = document.getElementsByClassName('current-round')[0];
             const roundValue = parseInt(round.innerText.match(/\d+/));
-            console.log(roundValue);
-            /*  const roundValue = document.querySelectorAll('select')[1].value; */
             const currentSeq = random(levelValue, roundValue);
 
             this.startGame(currentSeq);

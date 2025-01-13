@@ -5,8 +5,20 @@
 }
 
 @mixin selector() {
-    font-size: 18px;
     padding: 5px;
     border-radius: 5px;
     outline: none;
+}
+
+@mixin btn {
+    width: 150px;
+    height: 45px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 14px;
+    background-color: #fbe4b7;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
 }

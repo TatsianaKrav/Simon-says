@@ -13,7 +13,7 @@ export class App extends ElementCreator {
     }
 
     createView(value) {
-        /*   const gameChoice = new GameChoice(value); */
+        const gameName = new ElementCreator('div', 'game-name', [], 'Simon says');
         const levels = new Level(value);
         const currentGameInfo = new CounterWrapp(value, 1);
         const input = new UserInput();
@@ -23,7 +23,7 @@ export class App extends ElementCreator {
         const startGameBtn = new StartBtn(buttons);
         buttons.append(startGameBtn);
 
-        this.append(levels, currentGameInfo, input, keyboard, buttons);
+        this.append(gameName, levels, currentGameInfo, input, keyboard, buttons);
         this.prependTo(document.body);
     }
 }

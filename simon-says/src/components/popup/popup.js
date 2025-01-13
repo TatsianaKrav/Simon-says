@@ -11,9 +11,13 @@ export class Popup extends ElementCreator {
     create() {
         const modal = new ElementCreator('div', 'modal');
 
-        const modalInfo = new ElementCreator('div', 'modal-info');
-        const content = this.content === 'error' ? 'Game over, you loose' : 'Game over, you win';
-        modalInfo.setInnerText(content);
+        const modalInfo = new ElementCreator('div', 'modal-info', [], 'Game over, ');
+
+        const content = this.content === 'error' ? 'you loose' : 'you win';
+        const modalContent = new ElementCreator('span', 'modal-content', [], content);
+        content === 'you loose' ? modalContent.setClasses('wrong') : modalContent.setClasses('correct');
+
+        modalInfo.append(modalContent);
 
         const newGameBtn = new NewGameBtn();
         newGameBtn.enableBtn();

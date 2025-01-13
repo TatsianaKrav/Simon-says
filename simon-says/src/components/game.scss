@@ -1,8 +1,31 @@
 @import '../styles/mixins/mixins.scss';
 
+@font-face {
+    font-family: 'Supreme';
+    src: url('../../static/Supreme.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../static/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../../static/Montserrat-Bold.ttf');
+}
+
+$blue-color: #07e2f1;
+$red-color: #ee8787;
+$bg-color: #fbe4b7;
+
 * {
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-color: rgb(134, 121, 121)
 }
 
 .container {
@@ -12,46 +35,64 @@
     max-width: 1240px;
     margin: 0 auto;
     padding: 25px;
+    font-family: Supreme, sans-serif;
 
-    .game-choice {
-        @include flex;
-        gap: 50px;
+    .game-name {
+        font-size: 24px;
+        color: $blue-color;
+    }
 
-        .levels-wrapp {
-            font-size: 24px;
+    .levels-wrapp {
+        font-size: 18px;
 
-            select {
-                @include selector();
-            }
-        }
+        .levels {
+            @include selector();
+            font-family: Supreme, sans-serif;
+            font-size: 14px;
+            background-color: $bg-color;
 
-        .rounds-wrapp {
-            font-size: 24px;
-
-            select {
-                @include selector();
+            option {
+                font-size: 14px;
             }
         }
     }
+
 
     .current-game-info {
         @include flex();
         gap: 15px;
-        font-size: 18px;
+        font-size: 16px;
+
+        .current-level {
+            .level-value {
+                color: $blue-color;
+            }
+        }
+
+        .current-round {
+            .round-value {
+                color: $blue-color;
+            }
+        }
     }
 
     .input-wrapper {
         input {
+            font-family: Montserrat-Bold, sans-serif;
             padding: 5px;
             font-size: 20px;
             outline: none;
+            border: none;
+            border-radius: 5px;
+            width: 200px;
+            background-color: $bg-color;
 
             &.correct {
-                background-color: rgb(133, 231, 133)
+                background-color: $blue-color;
             }
 
             &.wrong {
-                background-color: rgb(238, 135, 135);
+                background-color: $red-color;
             }
         }
     }
@@ -63,6 +104,7 @@
         max-width: 50%;
 
         .char {
+            font-family: Montserrat, sans-serif;
             font-size: 18px;
             outline: none;
             border: none;
@@ -71,11 +113,12 @@
             background-color: #fbe4b7;
             cursor: pointer;
             padding: 5px;
+            border-radius: 5px;
             font-weight: bold;
             transition: all 0.3s linear;
 
             &.highlight {
-                background-color: red;
+                background-color: $blue-color;
             }
 
             &.clicked {
@@ -88,15 +131,8 @@
         @include flex();
 
         .btn {
-            width: 150px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: 1px solid gray;
-            font-size: 18px;
-            background-color: #fbe4b7;
-            outline: none;
-            cursor: pointer;
-            text-align: center;
+            @include btn();
+            font-family: Supreme, sans-serif;
         }
     }
 }
@@ -130,6 +166,23 @@
         gap: 20px;
         box-sizing: border-box;
         cursor: pointer;
-        font-size: 35px;
+        font-size: 30px;
+
+        .modal-info {
+            .modal-content {
+                &.correct {
+                    color: $blue-color;
+                }
+
+                &.wrong {
+                    color: $red-color;
+                }
+            }
+        }
+    }
+
+    .new-game {
+        @include btn();
+        font-family: Supreme, sans-serif;
     }
 }
