@@ -136,7 +136,11 @@ body {
         @include flex();
         flex-wrap: wrap;
         gap: 0.5em;
-        max-width: 85%;
+        max-width: 50%;
+
+        @media screen and (max-width: 767px) {
+            max-width: 80%;
+        }
 
         .char {
             font-family: Montserrat, sans-serif;

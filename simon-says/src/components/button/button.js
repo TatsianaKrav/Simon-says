@@ -36,11 +36,11 @@ export class Button extends ElementCreator {
         console.log(`Current sequence: ${currentSeq}`);
 
         currentSeq.forEach((el) => {
-            Array.from(this.chars).forEach(async char => {
+            Array.from(this.chars).forEach(char => {
                 if (char.innerText == el) {
                     highlightBtn(count, char, currentSeq.length);
                     count++;
-                    char.classList.remove('highlight');
+                  /*   char.classList.remove('highlight'); */
                 }
             })
         })

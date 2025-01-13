@@ -124,7 +124,12 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5em;
-  max-width: 85%;
+  max-width: 50%;
+}
+@media screen and (max-width: 767px) {
+  .container .keyboard-wrapp {
+    max-width: 80%;
+  }
 }
 .container .keyboard-wrapp .char {
   font-family: Montserrat, sans-serif;
