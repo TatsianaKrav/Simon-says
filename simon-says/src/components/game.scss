@@ -37,13 +37,31 @@ body {
     padding: 25px;
     font-family: Supreme, sans-serif;
 
+    @media screen and (max-width: 767px) {
+        .container {
+            gap: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        gap: 1rem;
+    }
+
     .game-name {
         font-size: 24px;
         color: $blue-color;
+
+        @media screen and (max-width: 569px) {
+            font-size: 20px;
+        }
     }
 
     .levels-wrapp {
         font-size: 18px;
+
+        @media screen and (max-width: 569px) {
+            font-size: 14px;
+        }
 
         .levels {
             @include selector();
@@ -51,8 +69,16 @@ body {
             font-size: 14px;
             background-color: $bg-color;
 
+            @media screen and (max-width: 569px) {
+                font-size: 12px;
+            }
+
             option {
                 font-size: 14px;
+
+                @media screen and (max-width: 569px) {
+                    font-size: 10px;
+                }
             }
         }
     }
@@ -60,8 +86,13 @@ body {
 
     .current-game-info {
         @include flex();
+        flex-wrap: wrap;
         gap: 15px;
         font-size: 16px;
+
+        @media screen and (max-width: 569px) {
+            font-size: 12px;
+        }
 
         .current-level {
             .level-value {
@@ -87,6 +118,10 @@ body {
             width: 200px;
             background-color: $bg-color;
 
+            @media screen and (max-width: 569px) {
+                font-size: 16px;
+            }
+
             &.correct {
                 background-color: $blue-color;
             }
@@ -101,7 +136,7 @@ body {
         @include flex();
         flex-wrap: wrap;
         gap: 0.5em;
-        max-width: 50%;
+        max-width: 85%;
 
         .char {
             font-family: Montserrat, sans-serif;
@@ -117,6 +152,18 @@ body {
             font-weight: bold;
             transition: all 0.3s linear;
 
+            @media screen and (max-width: 569px) {
+                font-size: 14px;
+                width: 40px;
+                height: 40px;
+            }
+
+            @media screen and (max-width: 520px) {
+                font-size: 14px;
+                width: 35px;
+                height: 35px;
+            }
+
             &.highlight {
                 background-color: $blue-color;
             }
@@ -129,6 +176,8 @@ body {
 
     .buttons-wrap {
         @include flex();
+        gap: 15px;
+        flex-wrap: wrap;
 
         .btn {
             @include btn();
@@ -159,8 +208,8 @@ body {
     .modal {
         @include flex();
         flex-direction: column;
-        max-width: 800px;
-        padding: 100px;
+        max-width: 70%;
+        padding: 2.5em;
         border-radius: 15px;
         background: #f3ecec;
         gap: 20px;
@@ -168,8 +217,18 @@ body {
         cursor: pointer;
         font-size: 30px;
 
+        @media screen and (max-width: 569px) {
+            font-size: 26px;
+        }
+
+        @media screen and (max-width: 520px) {
+            font-size: 20px;
+        }
+
         .modal-info {
             .modal-content {
+                @include flex();
+
                 &.correct {
                     color: $blue-color;
                 }

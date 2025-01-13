@@ -21,4 +21,13 @@
     outline: none;
     cursor: pointer;
     text-align: center;
+
+    @media screen and (max-width: 569px) {
+        font-size: 12px;
+    }
+
+    @media screen and (max-width: 520px) {
+        height: 40px;
+        font-size: 11px;
+    }
 }

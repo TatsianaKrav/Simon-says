@@ -33,7 +33,7 @@ export class Button extends ElementCreator {
 
     handleSeq(currentSeq) {
         let count = 1;
-        console.log(currentSeq);
+        console.log(`Current sequence: ${currentSeq}`);
 
         currentSeq.forEach((el) => {
             Array.from(this.chars).forEach(async char => {

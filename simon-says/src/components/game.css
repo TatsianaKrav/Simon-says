@@ -30,12 +30,32 @@ body {
   padding: 25px;
   font-family: Supreme, sans-serif;
 }
+@media screen and (max-width: 767px) {
+  .container .container {
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container {
+    gap: 1rem;
+  }
+}
 .container .game-name {
   font-size: 24px;
   color: #07e2f1;
 }
+@media screen and (max-width: 569px) {
+  .container .game-name {
+    font-size: 20px;
+  }
+}
 .container .levels-wrapp {
   font-size: 18px;
+}
+@media screen and (max-width: 569px) {
+  .container .levels-wrapp {
+    font-size: 14px;
+  }
 }
 .container .levels-wrapp .levels {
   padding: 5px;
@@ -45,15 +65,31 @@ body {
   font-size: 14px;
   background-color: #fbe4b7;
 }
+@media screen and (max-width: 569px) {
+  .container .levels-wrapp .levels {
+    font-size: 12px;
+  }
+}
 .container .levels-wrapp .levels option {
   font-size: 14px;
+}
+@media screen and (max-width: 569px) {
+  .container .levels-wrapp .levels option {
+    font-size: 10px;
+  }
 }
 .container .current-game-info {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
   font-size: 16px;
+}
+@media screen and (max-width: 569px) {
+  .container .current-game-info {
+    font-size: 12px;
+  }
 }
 .container .current-game-info .current-level .level-value {
   color: #07e2f1;
@@ -71,6 +107,11 @@ body {
   width: 200px;
   background-color: #fbe4b7;
 }
+@media screen and (max-width: 569px) {
+  .container .input-wrapper input {
+    font-size: 16px;
+  }
+}
 .container .input-wrapper input.correct {
   background-color: #07e2f1;
 }
@@ -83,7 +124,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5em;
-  max-width: 50%;
+  max-width: 85%;
 }
 .container .keyboard-wrapp .char {
   font-family: Montserrat, sans-serif;
@@ -99,6 +140,20 @@ body {
   font-weight: bold;
   transition: all 0.3s linear;
 }
+@media screen and (max-width: 569px) {
+  .container .keyboard-wrapp .char {
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container .keyboard-wrapp .char {
+    font-size: 14px;
+    width: 35px;
+    height: 35px;
+  }
+}
 .container .keyboard-wrapp .char.highlight {
   background-color: #07e2f1;
 }
@@ -109,6 +164,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 .container .buttons-wrap .btn {
   width: 150px;
@@ -122,6 +179,17 @@ body {
   cursor: pointer;
   text-align: center;
   font-family: Supreme, sans-serif;
+}
+@media screen and (max-width: 569px) {
+  .container .buttons-wrap .btn {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container .buttons-wrap .btn {
+    height: 40px;
+    font-size: 11px;
+  }
 }
 
 .popup-wrapper {
@@ -148,14 +216,29 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  max-width: 800px;
-  padding: 100px;
+  max-width: 70%;
+  padding: 2.5em;
   border-radius: 15px;
   background: #f3ecec;
   gap: 20px;
   box-sizing: border-box;
   cursor: pointer;
   font-size: 30px;
+}
+@media screen and (max-width: 569px) {
+  .popup-wrapper .modal {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .popup-wrapper .modal {
+    font-size: 20px;
+  }
+}
+.popup-wrapper .modal .modal-info .modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .popup-wrapper .modal .modal-info .modal-content.correct {
   color: #07e2f1;
@@ -175,4 +258,15 @@ body {
   cursor: pointer;
   text-align: center;
   font-family: Supreme, sans-serif;
+}
+@media screen and (max-width: 569px) {
+  .popup-wrapper .new-game {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .popup-wrapper .new-game {
+    height: 40px;
+    font-size: 11px;
+  }
 }/*# sourceMappingURL=game.css.map */
