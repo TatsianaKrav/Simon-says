@@ -1,7 +1,7 @@
 import { ElementCreator } from "../../utilities/elementCreator.js";
 import { highlightChar } from "../../utilities/highlightBtn.js";
-import { easyLevel, mediumLevel, hardLevel } from "../../utilities/keyboardVar.js";
 import { Result } from "../../utilities/result.js";
+import { setCurrentKeyboard } from '../../utilities/setCurrentKeyboard.js'
 
 export class VirtKeyboard extends ElementCreator {
     result = new Result;
@@ -12,8 +12,7 @@ export class VirtKeyboard extends ElementCreator {
     }
 
     create(level) {
-        const currentLevel = level === 'Easy' ? easyLevel : level === 'Medium' ? mediumLevel : hardLevel;
-        /*  const currentLevel = setCurrentKeyboard(level); */
+        const currentLevel = setCurrentKeyboard(level);
 
         for (let i = 0; i < currentLevel.length; i++) {
             const char = new ElementCreator('button', 'char', [], currentLevel[i]);
@@ -34,6 +33,7 @@ export class VirtKeyboard extends ElementCreator {
 
     handleChar(e) {
         const selector = document.getElementsByClassName('levels')[0];
+        if (selector.getAttribute('imit')) return;
         selector.setAttribute('imit', 'active');
 
         const startBtn = document.querySelector('.start');

@@ -43,6 +43,7 @@ export class UserInput extends ElementCreator {
 
                 const selector = document.getElementsByClassName('levels')[0];
                 if (selector.getAttribute('imit')) return;
+                selector.setAttribute('imit', 'active');
 
                 const currentLevel = document.querySelector('select').value;
                 if (currentLevel === 'Easy') {
@@ -74,6 +75,9 @@ export class UserInput extends ElementCreator {
         })
 
         document.addEventListener('keyup', (e) => {
+            const selector = document.getElementsByClassName('levels')[0];
+            selector.removeAttribute('imit', 'active');
+
             setTimeout(() => {
                 flag = false;
             }, 100)
