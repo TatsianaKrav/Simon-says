@@ -78,6 +78,7 @@ export class Result {
 
         setTimeout(() => {
             popup.setClasses('open');
+            document.body.style.overflowY = 'hidden';
         }, 500);
 
         popup.appendTo(document.body);

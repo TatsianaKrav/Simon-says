@@ -1,5 +1,6 @@
 import { Button } from "./button.js";
 import { App } from "../app.js";
+import { ElementCreator } from "../../utilities/elementCreator.js";
 
 export class NewGameBtn extends Button {
     constructor() {
@@ -15,6 +16,12 @@ export class NewGameBtn extends Button {
     startNewGame() {
         const level = document.querySelector('select');
         const currentLevel = level.value;
+        const parent = this.getParent().parentNode;
+
+        if (parent) {
+            parent.classList.remove('open');
+            document.body.style.overflowY = 'auto';
+        }
 
         const children = document.body.children;
         Array.from(children).forEach(child => child.remove());
