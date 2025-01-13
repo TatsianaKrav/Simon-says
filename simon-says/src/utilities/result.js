@@ -29,10 +29,13 @@ export class Result {
     checkResult(ans, dur) {
         const repeatBtn = document.querySelector('.btn.repeat');
         const btnWrap = document.querySelector('.buttons-wrap');
-        const currentRound = document.querySelectorAll('select')[1];
+        /* const currentRound = document.querySelectorAll('select')[1]; */
+
+        const round = document.getElementsByClassName('current-round')[0];
+        const roundValue = parseInt(round.innerText.match(/\d+/));
 
         if (ans === 'correct') {
-            if (currentRound.value == 5) {
+            if (roundValue == 5) {
 
                 setTimeout(() => {
                     repeatBtn.setAttribute('disabled', '');

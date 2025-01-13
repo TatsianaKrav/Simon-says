@@ -5,7 +5,10 @@ export function getCurrentSeq() {
     if (level) {
         level.setAttribute('disabled', '');
         const levelValue = level.value;
-        const roundValue = document.querySelectorAll('select')[1].value;
+        /*  const roundValue = document.querySelectorAll('select')[1].value; */
+        const round = document.getElementsByClassName('current-round')[0];
+        const roundValue = parseInt(round.innerText.match(/\d+/));
+        
         const currentSeq = random(levelValue, roundValue);
         return currentSeq;
     } else {

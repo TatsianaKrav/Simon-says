@@ -5,6 +5,7 @@ import { highlightBtn } from "../../utilities/highlightBtn.js";
 export class Button extends ElementCreator {
 
     chars = document.getElementsByClassName('char');
+    highlighted = false;
 
     constructor(btnContent, className) {
         super('button', 'btn', []);
@@ -17,7 +18,10 @@ export class Button extends ElementCreator {
             const level = document.querySelector('select');
             level.setAttribute('disabled', '');
             const levelValue = level.value;
-            const roundValue = document.querySelectorAll('select')[1].value;
+            const round = document.getElementsByClassName('current-round')[0];
+            const roundValue = parseInt(round.innerText.match(/\d+/));
+            console.log(roundValue);
+            /*  const roundValue = document.querySelectorAll('select')[1].value; */
             const currentSeq = random(levelValue, roundValue);
 
             this.startGame(currentSeq);

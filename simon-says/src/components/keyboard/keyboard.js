@@ -19,11 +19,12 @@ export class VirtKeyboard extends ElementCreator {
             const char = new ElementCreator('button', 'char', [], currentLevel[i]);
             this.append(char);
 
-            char.setCallback('click', (e) => this.handleChar(e));
+            char.setCallback('mousedown', (e) => this.handleChar(e));
         }
     }
 
     handleChar(e) {
+
         const startBtn = document.querySelector('.start');
         if (startBtn) return;
 

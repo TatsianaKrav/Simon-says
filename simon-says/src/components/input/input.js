@@ -41,8 +41,11 @@ export class UserInput extends ElementCreator {
                     return;
                 }
 
-                const levelSelector = document.querySelectorAll('select')[1];
-                if (levelSelector.disabled) return;
+                /*  const levelSelector = document.querySelectorAll('select')[1];
+                 if (levelSelector.disabled) return; */
+
+                const selector = document.getElementsByClassName('levels')[0];
+                if (selector.getAttribute('imit')) return;
 
                 const currentLevel = document.querySelector('select').value;
                 if (currentLevel === 'Easy') {
@@ -56,7 +59,6 @@ export class UserInput extends ElementCreator {
                 this.val = e.key;
                 this.val = isNaN(parseInt(this.val)) ? this.val.toUpperCase() : +this.val;
                 this.pressedBtns.push(this.val);
-                console.log(this.pressedBtns);
                 if (!this.currentKeyboard.includes(this.val)) return;
 
                 input.getElement().value += this.val;

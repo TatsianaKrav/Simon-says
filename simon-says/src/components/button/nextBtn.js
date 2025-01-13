@@ -21,7 +21,7 @@ export class NextBtn extends Button {
         clearInput();
 
         //update round in select
-        const rounds = document.getElementsByClassName('rounds')[0];
+       /*  const rounds = document.getElementsByClassName('rounds')[0];
         let currentRound = +rounds.value;
 
         Array.from(rounds.options).forEach(option => {
@@ -30,14 +30,16 @@ export class NextBtn extends Button {
             if (currentRound === (Number(option.value) - 1)) {
                 option.setAttribute('selected', '');
             }
-        });
+        }); */
 
         //update current round
         const currRound = document.querySelector('.current-round');
-        if (++currentRound === 6) {
-            currentRound = 1;
+        let roundValue = parseInt(currRound.innerText.match(/\d+/));
+
+        if (++roundValue === 6) {
+            roundValue = 1;
         }
-        const newRound = new RoundCounter(currentRound);
+        const newRound = new RoundCounter(roundValue);
         currRound.replaceWith(newRound.getElement());
 
         const currentSeq = getCurrentSeq();

@@ -1,14 +1,17 @@
 export function highlightBtn(i, el, dur = 1) {
-    const btns = document.querySelectorAll('button');
-    const selector = document.querySelectorAll('select')[1];
-    Array.from(btns).forEach(btn => btn.disabled = 'true');
-    selector.setAttribute('disabled', '');
 
+    const selector = document.getElementsByClassName('levels')[0];
+    selector.setAttribute('imit', 'active');
+
+    const btns = document.querySelectorAll('button');
+    /*     const selector = document.querySelectorAll('select')[1]; */
+    Array.from(btns).forEach(btn => btn.disabled = 'true');
+    /*  selector.setAttribute('disabled', '');
+  */
     let promise = new Promise((resolve, reject) => {
-        document.addEventListener('keydown', (e) => {
-            e.preventDefault();
-            return;
-        });
+        /*  document.addEventListener('keydown', (e) => {
+             return false;
+         }); */
 
         setTimeout(() => {
             el.classList.add('highlight');
@@ -31,7 +34,8 @@ export function highlightBtn(i, el, dur = 1) {
                     btn.removeAttribute('disabled')
                 }
             });
-            selector.removeAttribute('disabled');
+            selector.removeAttribute('imit');
+            /*  selector.removeAttribute('disabled'); */
         }, 300 * dur);
     })
 }

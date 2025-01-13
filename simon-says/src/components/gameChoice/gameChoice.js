@@ -11,7 +11,7 @@ export class GameChoice extends ElementCreator {
 
     appendChildren() {
         this.appendLevels();
-        this.appendRounds();
+      /*   this.appendRounds(); */
     }
 
     appendLevels() {
