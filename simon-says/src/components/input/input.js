@@ -41,9 +41,6 @@ export class UserInput extends ElementCreator {
                     return;
                 }
 
-                /*  const levelSelector = document.querySelectorAll('select')[1];
-                 if (levelSelector.disabled) return; */
-
                 const selector = document.getElementsByClassName('levels')[0];
                 if (selector.getAttribute('imit')) return;
 
