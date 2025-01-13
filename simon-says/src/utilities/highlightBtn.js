@@ -4,26 +4,20 @@ export function highlightBtn(i, el, dur = 1) {
     selector.setAttribute('imit', 'active');
 
     const btns = document.querySelectorAll('button');
-    /*     const selector = document.querySelectorAll('select')[1]; */
     Array.from(btns).forEach(btn => btn.disabled = 'true');
-    /*  selector.setAttribute('disabled', '');
-  */
-    let promise = new Promise((resolve, reject) => {
-        /*  document.addEventListener('keydown', (e) => {
-             return false;
-         }); */
 
+    let promise = new Promise((resolve, reject) => {
         setTimeout(() => {
             el.classList.add('highlight');
             resolve();
-        }, 300 * i)
+        }, 500 * i)
     })
 
 
     promise.then(result => {
         setTimeout(() => {
             el.classList.remove('highlight');
-        }, 500);
+        }, 800);
     })
 
     promise.then(result => {
@@ -35,8 +29,7 @@ export function highlightBtn(i, el, dur = 1) {
                 }
             });
             selector.removeAttribute('imit');
-            /*  selector.removeAttribute('disabled'); */
-        }, 300 * dur);
+        }, 500 * dur);
     })
 }
 
