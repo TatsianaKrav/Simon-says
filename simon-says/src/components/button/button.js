@@ -4,7 +4,6 @@ import { highlightBtn } from "../../utilities/highlightBtn.js";
 
 export class Button extends ElementCreator {
 
-    chars = document.getElementsByClassName('char');
     highlighted = false;
 
     constructor(btnContent, className) {
@@ -34,13 +33,14 @@ export class Button extends ElementCreator {
     handleSeq(currentSeq) {
         let count = 1;
         console.log(`Current sequence: ${currentSeq}`);
+        const chars = document.getElementsByClassName('char');
 
         currentSeq.forEach((el) => {
-            Array.from(this.chars).forEach(char => {
+            Array.from(chars).forEach(char => {
                 if (char.innerText == el) {
                     highlightBtn(count, char, currentSeq.length);
                     count++;
-                  /*   char.classList.remove('highlight'); */
+                    char.classList.remove('highlight');
                 }
             })
         })
