@@ -7,6 +7,7 @@ export class UserInput extends ElementCreator {
     currentKeyboard;
     result = new Result();
     val;
+    prevVal;
 
     constructor() {
         super('div', 'input-wrapper');
@@ -42,6 +43,7 @@ export class UserInput extends ElementCreator {
 
                 const selector = document.getElementsByClassName('levels')[0];
                 if (selector.getAttribute('imit')) return;
+                selector.setAttribute('pressed', 'true');
 
                 const currentLevel = document.querySelector('select').value;
                 this.currentKeyboard = setCurrentKeyboard(currentLevel);
@@ -62,10 +64,20 @@ export class UserInput extends ElementCreator {
                 const inputValue = [...input.getElement().value]
                 this.result.showResult(result2, input, inputValue.length);
                 this.result.checkResult(result2, inputValue.length);
+                this.prevVal = this.val;
             }
         })
 
         document.addEventListener('keyup', (e) => {
+            let currKey = e.key;
+            currKey = isNaN(parseInt(currKey)) ? currKey.toUpperCase() : +currKey;
+
+            if (currKey !== this.prevVal) return;
+
+            this.prevVal = currKey;
+            const selector = document.getElementsByClassName('levels')[0];
+            selector.removeAttribute('pressed');
+
             setTimeout(() => {
                 flag = false;
             }, 100)

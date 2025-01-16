@@ -24,7 +24,7 @@ export class VirtKeyboard extends ElementCreator {
 
     handleChar(e) {
         const selector = document.getElementsByClassName('levels')[0];
-        if (selector.getAttribute('imit')) return;
+        if (selector.getAttribute('imit') || selector.getAttribute('pressed')) return;
 
         const startBtn = document.querySelector('.start');
         if (startBtn) return;
