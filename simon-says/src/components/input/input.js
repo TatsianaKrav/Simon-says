@@ -28,6 +28,9 @@ export class UserInput extends ElementCreator {
         document.addEventListener('keydown', (e) => {
 
             if (!flag) {
+                const selector = document.getElementsByClassName('levels')[0];
+                if (selector.getAttribute('imit')) return;
+
                 flag = true;
 
                 const chars = document.querySelectorAll('.char');
@@ -40,9 +43,6 @@ export class UserInput extends ElementCreator {
                 } else if (result && result === 'correct') {
                     return;
                 }
-
-                const selector = document.getElementsByClassName('levels')[0];
-                if (selector.getAttribute('imit')) return;
 
 
                 const currentLevel = document.querySelector('select').value;
@@ -72,6 +72,9 @@ export class UserInput extends ElementCreator {
         })
 
         document.addEventListener('keyup', (e) => {
+            const selector = document.getElementsByClassName('levels')[0];
+            if (selector.getAttribute('imit')) return;
+
             let currKey = e.key;
             currKey = isNaN(parseInt(currKey)) ? currKey.toUpperCase() : +currKey;
 
@@ -79,8 +82,6 @@ export class UserInput extends ElementCreator {
             if (currKey !== this.prevVal) return;
 
             this.prevVal = currKey;
-            const selector = document.getElementsByClassName('levels')[0];
-
 
             setTimeout(() => {
                 flag = false;
