@@ -24,10 +24,8 @@ export class UserInput extends ElementCreator {
 
     keyboardHandler(input) {
         let flag = false;
-        console.log(this.prevVal);
 
         document.addEventListener('keydown', (e) => {
-            console.log(flag);
 
             if (!flag) {
                 flag = true;
@@ -77,7 +75,7 @@ export class UserInput extends ElementCreator {
             let currKey = e.key;
             currKey = isNaN(parseInt(currKey)) ? currKey.toUpperCase() : +currKey;
 
-            if (!this.currentKeyboard.includes(currKey)) flag = false;
+            if (!this.currentKeyboard || !this.currentKeyboard.includes(currKey)) flag = false;
             if (currKey !== this.prevVal) return;
 
             this.prevVal = currKey;
