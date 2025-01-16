@@ -24,8 +24,10 @@ export class UserInput extends ElementCreator {
 
     keyboardHandler(input) {
         let flag = false;
+        console.log(this.prevVal);
 
         document.addEventListener('keydown', (e) => {
+            console.log(flag);
 
             if (!flag) {
                 flag = true;
@@ -43,7 +45,7 @@ export class UserInput extends ElementCreator {
 
                 const selector = document.getElementsByClassName('levels')[0];
                 if (selector.getAttribute('imit')) return;
-                selector.setAttribute('pressed', 'true');
+
 
                 const currentLevel = document.querySelector('select').value;
                 this.currentKeyboard = setCurrentKeyboard(currentLevel);
@@ -51,6 +53,9 @@ export class UserInput extends ElementCreator {
                 this.val = e.key;
                 this.val = isNaN(parseInt(this.val)) ? this.val.toUpperCase() : +this.val;
                 if (!this.currentKeyboard.includes(this.val)) return;
+                if (this.currentKeyboard.includes(this.val)) {
+                    selector.setAttribute('pressed', 'true');
+                }
 
                 input.getElement().value += this.val;
 
@@ -72,14 +77,16 @@ export class UserInput extends ElementCreator {
             let currKey = e.key;
             currKey = isNaN(parseInt(currKey)) ? currKey.toUpperCase() : +currKey;
 
+            if (!this.currentKeyboard.includes(currKey)) flag = false;
             if (currKey !== this.prevVal) return;
 
             this.prevVal = currKey;
             const selector = document.getElementsByClassName('levels')[0];
-            selector.removeAttribute('pressed');
+
 
             setTimeout(() => {
                 flag = false;
+                selector.removeAttribute('pressed');
             }, 100)
         })
     }
