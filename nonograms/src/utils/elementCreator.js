@@ -1,7 +1,11 @@
 export class ElementCreator {
-    constructor(tagName, className, content, attributes) {
+    constructor(tagName, className, content = '', attributes) {
         this.element = document.createElement(tagName);
-        this.setClasses(className);
+
+        if (className) {
+            this.setClasses(className);
+        }
+
         this.element.innerText = content;
         this.setAttributes(attributes);
     }
@@ -12,6 +16,7 @@ export class ElementCreator {
 
 
     removeClasses(...classes) {
+        if (!classes) return;
         classes.forEach(name => this.element.classList.remove(name));
     }
 
@@ -21,5 +26,27 @@ export class ElementCreator {
 
         attributes.forEach(attr =>
             Object.entries(attr).forEach(([key, value]) => this.element.setAttribute(key, value)));
+    }
+
+    setInnerText(text) {
+        this.element.innerText = text;
+    }
+
+    append(...children) {
+        children.forEach(child => {
+            if (child instanceof HTMLElement) {
+                this.element.append(child);
+            } else if (child instanceof ElementCreator) {
+                this.element.append(child.element);
+            }
+        })
+    }
+
+    appendTo(parent) {
+        if (parent instanceof HTMLElement || parent instanceof ElementCreator) {
+            parent.append(this.element);
+        } else {
+            throw new Error('parent not instanceof HTMLElement or ElementCreator');
+        }
     }
 }
