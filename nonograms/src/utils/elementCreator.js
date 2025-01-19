@@ -54,6 +54,24 @@ export class ElementCreator {
         }
     }
 
+    prepend(...children) {
+        children.forEach((child) => {
+            if (child instanceof HTMLElement) {
+                this.element.prepend(child);
+            } else if (child instanceof ElementCreator) {
+                this.element.prepend(child.element);
+            }
+        });
+    }
+
+    prependTo(parent) {
+        if (parent instanceof HTMLElement || parent instanceof ElementCreator) {
+            parent.prepend(this.element);
+        } else {
+            throw new Error('parent not instanceof HTMLElement or ElementCreator');
+        }
+    }
+
     getFirstChild() {
         return this.element.firstChid;
     }

@@ -1,6 +1,6 @@
+import { FieldWrapper } from "./components/field-wrapper.js/field-wrapp.js";
 import { ElementCreator } from "./utils/elementCreator.js";
-import { Field } from "./components/field/field.js";
-import { easy, medium, hard } from "./data.js";
+import { easy } from "./data.js";
 
 export class Game extends ElementCreator {
     constructor() {
@@ -8,8 +8,10 @@ export class Game extends ElementCreator {
     }
 
     init() {
-        const field = new Field(easy);
-        field.appendTo(document.body);
+        const field = new FieldWrapper(easy);
+
+        this.append(field);
+        this.prependTo(document.body);
     }
 }
 

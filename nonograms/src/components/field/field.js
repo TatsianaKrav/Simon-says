@@ -5,12 +5,9 @@ import { Cell } from "../cell/cell.js";
 
 
 export class Field extends ElementCreator {
-    constructor(games) {
+    constructor(game) {
         super('table', 'field');
-        this.games = games;
-        this.tableId = Math.floor(1 + Math.random() * 5);
-        this.currentGame = this.games.find(game => game.id === this.tableId); //random game
-        localStorage.setItem('currGame', JSON.stringify(this.currentGame));
+       this.currentGame = game;
 
         this.create();
     }
