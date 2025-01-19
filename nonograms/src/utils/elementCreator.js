@@ -49,4 +49,17 @@ export class ElementCreator {
             throw new Error('parent not instanceof HTMLElement or ElementCreator');
         }
     }
+
+    getFirstChild() {
+        return this.element.firstChid;
+    }
+
+    //родитель.insertBefore(элемент, перед кем вставить);
+    insAfter(parent) {
+        if (parent instanceof HTMLElement) {
+            parent.insertBefore(this.element, parent.firstChild);
+        } else if (parent instanceof ElementCreator) {
+            parent.element.insertBefore(this.element, parent.element.children[0]);
+        }
+    }
 }

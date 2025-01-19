@@ -1,5 +1,7 @@
+import { calculateClues } from "../../utils/calculateClues.js";
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { Cell } from "../cell/cell.js";
+
 
 
 export class Field extends ElementCreator {
@@ -15,11 +17,12 @@ export class Field extends ElementCreator {
     create() {
         const topClues = this.currentGame.topClues;
         const leftClues = this.currentGame.leftClues;
+        const [topCluesMaxCount, leftCluesMaxCount] = calculateClues(this.currentGame);
 
-        for (let i = 0; i <= this.games.length; i++) {
+        for (let i = 0; i <= this.currentGame.image.length; i++) {
             const row = new ElementCreator("tr");
 
-            for (let j = 0; j <= this.games.length; j++) {
+            for (let j = 0; j <= this.currentGame.image.length; j++) {
                 const col = new Cell();
 
                 if (i === 0 && j === 0) {
@@ -28,19 +31,24 @@ export class Field extends ElementCreator {
                 } else if ((i === 0) & (j !== 0)) {
                     col.setClasses("top-cell");
 
-                    for (let k = 0; k < topClues[j - 1].length; k++) {
-                        const spanElem = new ElementCreator("span");
-                        spanElem.setClasses("top");
-                        spanElem.setInnerText(topClues[j - 1][k]);
-                        col.append(spanElem);
+                    for (let l = 0; l < topCluesMaxCount; l++) {
+                        const divElem = new ElementCreator("div", "top");
+                        divElem.insAfter(col);
+
+                        if (topClues[j - 1][l]) {
+                            divElem.setInnerText(topClues[j - 1][l]);
+                        }
                     }
                 } else if (i !== 0 && j === 0) {
                     col.setClasses("left-cell");
-                    for (let k = 0; k < leftClues[i - 1].length; k++) {
-                        const spanElem = new ElementCreator("span");
-                        spanElem.setClasses("left");
-                        spanElem.setInnerText(leftClues[i - 1][k]);
-                        col.append(spanElem);
+
+                    for (let l = 0; l < leftCluesMaxCount; l++) {
+                        const divElem = new ElementCreator("div", "left");
+                        divElem.insAfter(col);
+
+                        if (leftClues[i - 1][l]) {
+                            divElem.setInnerText(leftClues[i - 1][l]);
+                        }
                     }
                 } else {
                     col.setClasses("cell");
