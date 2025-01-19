@@ -1,4 +1,5 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
+import { ResetBtn } from "../button/resetBtn.js";
 import { Field } from "../field/field.js";
 
 export class FieldWrapper extends ElementCreator {
@@ -15,6 +16,8 @@ export class FieldWrapper extends ElementCreator {
     create() {
         const gameName = new ElementCreator('div', 'game-name', this.currentGame.name);
         const field = new Field(this.currentGame);
-        this.append(gameName, field);
+
+        const resetBtn = new ResetBtn();
+        this.append(gameName, field, resetBtn);
     }
 }
