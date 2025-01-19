@@ -1,4 +1,5 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
+import { checkGameEnd } from "../../utils/checkGameEnd.js";
 
 export class Cell extends ElementCreator {
     constructor() {
@@ -10,12 +11,18 @@ export class Cell extends ElementCreator {
 
     fill() {
         if (this.checkCLasses("top-cell", "left-cell", "empty")) return;
+
+        if (this.checkCLasses('not')) {
+            this.getElement().classList.toggle('not');
+        }
         this.getElement().classList.toggle('filled');
+        checkGameEnd();
     }
 
     cross(event) {
         event.preventDefault();
         if (this.checkCLasses("top-cell", "left-cell", "empty", "filled")) return;
         this.getElement().classList.toggle('not');
+        checkGameEnd();
     }
 }

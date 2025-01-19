@@ -10,6 +10,7 @@ export class Field extends ElementCreator {
         this.games = games;
         this.tableId = Math.floor(1 + Math.random() * 5);
         this.currentGame = this.games.find(game => game.id === this.tableId); //random game
+        localStorage.setItem('currGame', JSON.stringify(this.currentGame));
 
         this.create();
     }

@@ -1,3 +1,5 @@
+@import "../styles/mixins.scss";
+
 * {
     padding: 0;
     margin: 0;
@@ -172,6 +174,69 @@ $light-color: #fdeed0;
 
             &.filled {
                 background-color: black;
+            }
+        }
+    }
+}
+
+.popup-wrapper {
+    @include flex();
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    padding: 20px;
+    z-index: 10;
+    border: 2px solid black;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s linear;
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .modal {
+        @include flex();
+        flex-direction: column;
+        max-width: 70%;
+        padding: 2.5em;
+        border-radius: 15px;
+        background: #f3ecec;
+        gap: 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 30px;
+        position: relative;
+
+        .close-btn {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: -2px;
+                left: 11px;
+                width: 1px;
+                height: 30px;
+                background-color: black;
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: -2px;
+                left: 11px;
+                width: 1px;
+                height: 30px;
+                background-color: black;
+                transform: rotate(-45deg);
             }
         }
     }

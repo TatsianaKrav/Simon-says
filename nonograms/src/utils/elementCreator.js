@@ -14,6 +14,10 @@ export class ElementCreator {
         classes.forEach(name => this.element.classList.add(name));
     }
 
+    removeClasses(...classes) {
+        classes.forEach(name => this.element.classList.remove(name));
+    }
+
 
     removeClasses(...classes) {
         if (!classes) return;
