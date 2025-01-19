@@ -54,12 +54,23 @@ export class ElementCreator {
         return this.element.firstChid;
     }
 
-    //родитель.insertBefore(элемент, перед кем вставить);
     insAfter(parent) {
         if (parent instanceof HTMLElement) {
             parent.insertBefore(this.element, parent.firstChild);
         } else if (parent instanceof ElementCreator) {
             parent.element.insertBefore(this.element, parent.element.children[0]);
         }
+    }
+
+    setCallback(event, cb) {
+        this.element.addEventListener(event, cb);
+    }
+
+    getElement() {
+        return this.element;
+    }
+
+    checkCLasses(...classes) {
+        return classes.some(className => this.element.classList.contains(className));
     }
 }
