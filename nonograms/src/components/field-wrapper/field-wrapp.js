@@ -4,6 +4,8 @@ import { Timer } from "../button/timer.js";
 import { Field } from "../field/field.js";
 
 export class FieldWrapper extends ElementCreator {
+    timer;
+
     constructor(games) {
         super('div', 'field-wrapper');
         this.games = games;
@@ -16,10 +18,14 @@ export class FieldWrapper extends ElementCreator {
 
     create() {
         const gameName = new ElementCreator('div', 'game-name', this.currentGame.name);
-        const timer = new Timer();
-        const field = new Field(this.currentGame, timer);
+        this.timer = new Timer();
+        const field = new Field(this.currentGame, this.timer);
 
         const resetBtn = new ResetBtn();
-        this.append(gameName, timer, field, resetBtn);
+        this.append(gameName, this.timer, field, resetBtn);
+    }
+
+    getTimer() {
+        return this.timer;
     }
 }
