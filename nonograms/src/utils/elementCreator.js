@@ -28,8 +28,9 @@ export class ElementCreator {
     setAttributes(attributes) {
         if (!attributes) return;
 
-        attributes.forEach(attr =>
-            Object.entries(attr).forEach(([key, value]) => this.element.setAttribute(key, value)));
+        Object.entries(attributes).forEach(([key, val]) =>
+            this.element.setAttribute(key, val),
+        );
     }
 
     setInnerText(text) {

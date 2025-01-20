@@ -1,4 +1,5 @@
 import { Popup } from "../components/popup/popup.js";
+import { Audio } from "../components/audio/audio.js";
 
 export function checkGameEnd(timer) {
     const game = JSON.parse(localStorage.getItem('currGame'));
@@ -22,6 +23,8 @@ export function checkGameEnd(timer) {
 
         if (result) {
             const popup = new Popup(timer.getTime());
+            const sound = new Audio();
+            sound.win();
             timer.stop();
         }
     }

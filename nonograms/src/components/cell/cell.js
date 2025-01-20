@@ -1,5 +1,6 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { checkGameEnd } from "../../utils/checkGameEnd.js";
+import { Audio } from "../audio/audio.js";
 
 export class Cell extends ElementCreator {
     timerOn = false;
@@ -16,6 +17,7 @@ export class Cell extends ElementCreator {
     fill() {
         if (this.checkCLasses("top-cell", "left-cell", "empty")) return;
 
+        const sound = new Audio();
         this.timerOn = this.timer.getElement().classList.contains('on');
 
         if (!this.timerOn) {
@@ -27,6 +29,8 @@ export class Cell extends ElementCreator {
         if (this.checkCLasses('not')) {
             this.getElement().classList.toggle('not');
         }
+
+        this.checkCLasses('filled') ? sound.remove() : sound.fill();
         this.getElement().classList.toggle('filled');
         checkGameEnd(this.timer);
     }
@@ -34,6 +38,10 @@ export class Cell extends ElementCreator {
     cross(event) {
         event.preventDefault();
         if (this.checkCLasses("top-cell", "left-cell", "empty", "filled")) return;
+
+        const sound = new Audio();
+
+        this.checkCLasses('not') ? sound.remove() : sound.cross();
         this.getElement().classList.toggle('not');
         checkGameEnd(this.timer);
     }
