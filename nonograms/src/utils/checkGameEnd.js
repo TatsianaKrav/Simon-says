@@ -1,6 +1,6 @@
 import { Popup } from "../components/popup/popup.js";
 
-export function checkGameEnd() {
+export function checkGameEnd(timer) {
     const game = JSON.parse(localStorage.getItem('currGame'));
     let currentGameFilledCells = 0;
     const currentGameCells = document.querySelectorAll(
@@ -21,7 +21,8 @@ export function checkGameEnd() {
         const result = checkResult(game);
 
         if (result) {
-            const popup = new Popup(1);
+            const popup = new Popup(timer.getTime());
+            timer.stop();
         }
     }
 }

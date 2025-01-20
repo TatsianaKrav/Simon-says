@@ -36,6 +36,10 @@ export class ElementCreator {
         this.element.innerText = text;
     }
 
+    getInnerText() {
+        return this.element.innerText;
+    }
+
     append(...children) {
         children.forEach(child => {
             if (child instanceof HTMLElement) {

@@ -1,5 +1,6 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { ResetBtn } from "../button/resetBtn.js";
+import { Timer } from "../button/timer.js";
 import { Field } from "../field/field.js";
 
 export class FieldWrapper extends ElementCreator {
@@ -15,9 +16,10 @@ export class FieldWrapper extends ElementCreator {
 
     create() {
         const gameName = new ElementCreator('div', 'game-name', this.currentGame.name);
-        const field = new Field(this.currentGame);
+        const timer = new Timer();
+        const field = new Field(this.currentGame, timer);
 
         const resetBtn = new ResetBtn();
-        this.append(gameName, field, resetBtn);
+        this.append(gameName, timer, field, resetBtn);
     }
 }
