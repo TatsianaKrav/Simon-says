@@ -21,7 +21,7 @@ export class Cell extends ElementCreator {
         this.timerOn = this.timer.getElement().classList.contains('on');
 
         if (!this.timerOn) {
-            this.interval = this.timer.init()
+            this.interval = this.timer.init(0, 0);
             this.timerOn = true;
             this.timer.getElement().classList.add('on');
         }
@@ -38,6 +38,14 @@ export class Cell extends ElementCreator {
     cross(event) {
         event.preventDefault();
         if (this.checkCLasses("top-cell", "left-cell", "empty", "filled")) return;
+
+        this.timerOn = this.timer.getElement().classList.contains('on');
+
+        if (!this.timerOn) {
+            this.interval = this.timer.init(0, 0);
+            this.timerOn = true;
+            this.timer.getElement().classList.add('on');
+        }
 
         const sound = new Audio();
 

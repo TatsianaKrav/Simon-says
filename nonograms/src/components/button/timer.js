@@ -2,14 +2,17 @@ import { ElementCreator } from "../../utils/elementCreator.js";
 
 export class Timer extends ElementCreator {
     id;
-    sec = 0;
-    min = 0;
+    sec;
+    min;
 
     constructor() {
         super('div', 'timer', "00:00");
     }
 
-    init() {
+    init(min, sec) {
+        this.min = Number(min);
+        this.sec = Number(sec);
+
         this.id = setInterval(this.tick.bind(this), 1000)
     }
 
@@ -42,5 +45,9 @@ export class Timer extends ElementCreator {
 
     getTime() {
         return this.getInnerText();
+    }
+
+    setTime(time) {
+        this.setInnerText(time);
     }
 }
