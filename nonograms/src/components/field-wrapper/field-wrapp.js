@@ -1,4 +1,6 @@
+import { easy } from "../../data.js";
 import { ElementCreator } from "../../utils/elementCreator.js";
+import { getLevel } from "../../utils/getLevel.js";
 import { ResetBtn } from "../button/resetBtn.js";
 import { Timer } from "../button/timer.js";
 import { Field } from "../field/field.js";
@@ -6,17 +8,23 @@ import { Field } from "../field/field.js";
 export class FieldWrapper extends ElementCreator {
     timer;
 
-    constructor(games) {
+    constructor(level, games = []) {
         super('div', 'field-wrapper');
+
+        this.level = level;
         this.games = games;
-        this.tableId = Math.floor(1 + Math.random() * 5);
-        this.currentGame = this.games.find(game => game.id === this.tableId); //random game
-        localStorage.setItem('currGame', JSON.stringify(this.currentGame));
 
         this.create();
     }
 
+
     create() {
+
+        this.currentGames = this.level instanceof ElementCreator ? [...getLevel(this.level.getValue())]
+            : [...getLevel(this.level)];
+
+        this.currentGame = this.currentGames.find(game => game.name === this.games.getValue());
+
         const gameName = new ElementCreator('div', 'game-name', this.currentGame.name);
         this.timer = new Timer();
         const field = new Field(this.currentGame, this.timer);

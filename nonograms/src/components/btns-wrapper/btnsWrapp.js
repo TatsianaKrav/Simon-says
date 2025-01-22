@@ -6,18 +6,25 @@ import { Level } from "../select/level.js";
 
 export class ButtonsWrapper extends ElementCreator {
     level;
+    games;
 
-    constructor(timer) {
+    constructor() {
         super('div', 'btns-wrapper');
-        this.timer = timer;
+    /*     this.timer = timer; */
         this.create();
     }
 
     create() {
         this.level = new Level();
-        const games = new Game(this.level);
-        const saveBtn = new SaveBtn(this.timer);
-        const continueBtn = new ContinueBtn(this.timer);
-        this.append(this.level, games, saveBtn, continueBtn);
+        this.games = new Game(this.level);
+      /*   const saveBtn = new SaveBtn(this.timer); */
+        const saveBtn = new SaveBtn();
+       /*  const continueBtn = new ContinueBtn(this.timer); */
+        const continueBtn = new ContinueBtn();
+        this.append(this.level, this.games, saveBtn, continueBtn);
+    }
+
+    getSelections() {
+        return [this.level, this.games];
     }
 }

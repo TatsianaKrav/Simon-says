@@ -9,11 +9,14 @@ export class Game extends ElementCreator {
     }
 
     init() {
-        const field = new FieldWrapper(easy);
-        const timer = field.getTimer();
-        const btnsWrapper = new ButtonsWrapper(timer);
+        /*   const field = new FieldWrapper(easy); */
+        /*  const btnsWrapper = new ButtonsWrapper(timer); //timer? */
+        const btnsWrapper = new ButtonsWrapper();
+        const [level, games] = btnsWrapper.getSelections();
+        const field = new FieldWrapper(level, games);
+        /* const timer = field.getTimer(); */
 
-        this.append(field, btnsWrapper);
+        this.append(btnsWrapper, field);
         this.prependTo(document.body);
     }
 
