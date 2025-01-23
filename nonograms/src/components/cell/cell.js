@@ -24,6 +24,7 @@ export class Cell extends ElementCreator {
             this.interval = this.timer.init(0, 0);
             this.timerOn = true;
             this.timer.getElement().classList.add('on');
+            console.log(this.timer.id);
         }
 
         if (this.checkCLasses('not')) {

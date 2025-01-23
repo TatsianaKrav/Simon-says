@@ -1,6 +1,8 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { getLevel } from "../././../utils/getLevel.js";
+import { ButtonsWrapper } from "../btns-wrapper/btnsWrapp.js";
 import { FieldWrapper } from "../field-wrapper/field-wrapp.js";
+
 
 
 export class Game extends ElementCreator {
@@ -26,8 +28,13 @@ export class Game extends ElementCreator {
     change() {
         const levelVal = document.querySelector('select').value;
         const field = document.getElementsByClassName('field-wrapper')[0];
-        const newField = new FieldWrapper(levelVal, this);
-        field.replaceWith(newField.getElement());
+        const newFieldWrapp = new FieldWrapper(levelVal, this);
+        field.replaceWith(newFieldWrapp.getElement());
+
+        const newField = newFieldWrapp.getField();
+        const timer = newFieldWrapp.getTimer();
+        const btnsWrapper = new ButtonsWrapper(newField, timer);
+        newFieldWrapp.getElement().nextSibling.replaceWith(btnsWrapper.getElement());
     }
 
     getValue() {

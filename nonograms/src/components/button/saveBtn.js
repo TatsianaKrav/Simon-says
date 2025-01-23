@@ -8,6 +8,7 @@ export class SaveBtn extends Button {
     }
 
     save() {
+        console.log(this.timer);
         this.timer.stop();
 
         const cells = document.querySelectorAll(
