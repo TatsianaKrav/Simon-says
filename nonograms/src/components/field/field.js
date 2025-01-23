@@ -57,4 +57,15 @@ export class Field extends ElementCreator {
             this.append(row);
         }
     }
+
+    clear() {
+        const cells = document.querySelectorAll(
+            "td:not(.left-cell):not(.top-cell):not(.empty)"
+        );
+
+        cells.forEach(cell => {
+            cell.classList.remove('filled');
+            cell.classList.remove('not');
+        })
+    }
 }

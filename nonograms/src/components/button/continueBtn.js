@@ -1,18 +1,22 @@
 import { Button } from "./button.js";
 
 export class ContinueBtn extends Button {
-    constructor(timer) {
+    constructor(field, timer) {
         super('Continue last game', 'continue-btn');
+
+        this.field = field;
         this.timer = timer;
         this.setCallback('click', this.continue.bind(this));
     }
 
     continue() {
-        const currentGame = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
+        this.field.clear();
+        
+        const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
         const savedGame = JSON.parse(localStorage.getItem("savedGame")).savedGame;
         const timerTime = JSON.parse(localStorage.getItem("savedGame")).timer;
 
-        const gameName = document.getElementsByClassName('game-name')[0].innerText = currentGame;
+        const gameName = document.getElementsByClassName('game-name')[0].innerText = currentGameName;
         this.timer.setClasses('on');
 
         let min;

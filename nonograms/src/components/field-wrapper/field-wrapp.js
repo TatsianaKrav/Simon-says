@@ -1,4 +1,3 @@
-import { easy } from "../../data.js";
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { getLevel } from "../../utils/getLevel.js";
 import { ResetBtn } from "../button/resetBtn.js";
@@ -24,16 +23,21 @@ export class FieldWrapper extends ElementCreator {
             : [...getLevel(this.level)];
 
         this.currentGame = this.currentGames.find(game => game.name === this.games.getValue());
+        localStorage.setItem('currGame', JSON.stringify(this.currentGame));
 
         const gameName = new ElementCreator('div', 'game-name', this.currentGame.name);
         this.timer = new Timer();
-        const field = new Field(this.currentGame, this.timer);
+        this.field = new Field(this.currentGame, this.timer);
 
         const resetBtn = new ResetBtn();
-        this.append(gameName, this.timer, field, resetBtn);
+        this.append(gameName, this.timer, this.field, resetBtn);
     }
 
     getTimer() {
         return this.timer;
+    }
+
+    getField() {
+        return this.field;
     }
 }

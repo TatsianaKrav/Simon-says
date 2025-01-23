@@ -1,7 +1,8 @@
 import { FieldWrapper } from "./components/field-wrapper/field-wrapp.js";
 import { ElementCreator } from "./utils/elementCreator.js";
-import { easy } from "./data.js";
 import { ButtonsWrapper } from "./components/btns-wrapper/btnsWrapp.js";
+import { SelectsWrapper } from "./components/selectsWrapp/selectsWrapp.js";
+
 
 export class Game extends ElementCreator {
     constructor() {
@@ -9,14 +10,16 @@ export class Game extends ElementCreator {
     }
 
     init() {
-        /*   const field = new FieldWrapper(easy); */
-        /*  const btnsWrapper = new ButtonsWrapper(timer); //timer? */
-        const btnsWrapper = new ButtonsWrapper();
-        const [level, games] = btnsWrapper.getSelections();
-        const field = new FieldWrapper(level, games);
-        /* const timer = field.getTimer(); */
 
-        this.append(btnsWrapper, field);
+        const selectsWrapper = new SelectsWrapper();
+        const [level, games] = selectsWrapper.getSelections();
+        const fieldWrapper = new FieldWrapper(level, games);
+        const timer = fieldWrapper.getTimer();
+        const field = fieldWrapper.getField();
+        const btnsWrapper = new ButtonsWrapper(field, timer);
+
+
+        this.append(selectsWrapper, fieldWrapper, btnsWrapper);
         this.prependTo(document.body);
     }
 
