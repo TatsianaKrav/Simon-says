@@ -40,4 +40,10 @@ export class Game extends ElementCreator {
     getValue() {
         return this.getElement().value
     }
+
+    setValue(value) {
+        const options = this.getElement().options;
+        const option = Array.from(options).find(el => el.innerText === value);
+        option.setAttribute('selected', '');
+    }
 }

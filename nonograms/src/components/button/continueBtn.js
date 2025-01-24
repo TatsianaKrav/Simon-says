@@ -1,3 +1,4 @@
+import { Helper } from "../../utils/helper.js";
 import { Button } from "./button.js";
 
 export class ContinueBtn extends Button {
@@ -6,22 +7,32 @@ export class ContinueBtn extends Button {
 
         this.field = field;
         this.timer = timer;
+
         this.setCallback('click', this.continue.bind(this));
     }
 
     continue() {
         this.field.clear();
-        
+
         const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
         const savedGame = JSON.parse(localStorage.getItem("savedGame")).savedGame;
         const timerTime = JSON.parse(localStorage.getItem("savedGame")).timer;
 
-        const gameName = document.getElementsByClassName('game-name')[0].innerText = currentGameName;
+        const helper = new Helper(currentGameName);
+        helper.getGameInfo();
+
+
+        //selectors
+      
+
+        //fields
+        //buttons?
+
+
         this.timer.setClasses('on');
 
         let min;
         let sec;
-
 
         this.timer.setTime(timerTime);
 

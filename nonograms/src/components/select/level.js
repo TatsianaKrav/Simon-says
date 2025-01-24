@@ -38,4 +38,11 @@ export class Level extends ElementCreator {
     getValue() {
         return this.getElement().value;
     }
+
+    setValue(value) {
+        const options = this.getElement().options;
+        const option = Array.from(options).find(el => el.innerText.toLowerCase() === value);
+        option.setAttribute('selected', '');
+    }
+
 }

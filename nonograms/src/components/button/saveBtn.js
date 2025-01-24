@@ -1,14 +1,15 @@
 import { Button } from "./button.js";
 
 export class SaveBtn extends Button {
-    constructor(timer) {
+    constructor(timer, currentGame) {
         super('Save game', 'save-btn');
+
         this.timer = timer;
+        this.currentGame = currentGame
         this.setCallback('click', this.save.bind(this));
     }
 
     save() {
-        console.log(this.timer);
         this.timer.stop();
 
         const cells = document.querySelectorAll(
@@ -28,6 +29,7 @@ export class SaveBtn extends Button {
 
         const time = document.getElementsByClassName("timer")[0].innerText;
         const gameName = document.getElementsByClassName("game-name")[0].innerText;
+
 
         const toSave = {
             currentGameName: gameName,

@@ -2,7 +2,7 @@ export const easy = [
     {
         id: 1,
         name: "Ventilator",
-        level: "easy",
+        level: "Easy",
         image: [
             [0, 1, 0, 0, 0],
             [0, 1, 0, 1, 1],
@@ -16,7 +16,7 @@ export const easy = [
     {
         id: 2,
         name: "Heart",
-        level: "easy",
+        level: "Easy",
         image: [
             [0, 1, 0, 1, 0],
             [1, 1, 1, 1, 1],
@@ -30,7 +30,7 @@ export const easy = [
     {
         id: 3,
         name: "Clock",
-        level: "easy",
+        level: "Easy",
         image: [
             [0, 1, 1, 1, 0],
             [1, 0, 1, 0, 1],
@@ -44,7 +44,7 @@ export const easy = [
     {
         id: 4,
         name: "Bomb",
-        level: "easy",
+        level: "Easy",
         image: [
             [0, 0, 1, 1, 0],
             [0, 1, 0, 0, 1],
@@ -58,7 +58,7 @@ export const easy = [
     {
         id: 5,
         name: "Baby carriage",
-        level: "easy",
+        level: "Easy",
         image: [
             [0, 1, 1, 0, 0],
             [1, 1, 0, 0, 1],
@@ -75,7 +75,7 @@ export const medium = [
     {
         id: 1,
         name: "Cat",
-        level: "medium",
+        level: "Medium",
         image: [
             [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
             [1, 0, 0, 0, 1, 0, 1, 0, 1, 1],
@@ -116,7 +116,7 @@ export const medium = [
     {
         id: 2,
         name: "Teapot",
-        level: "medium",
+        level: "Medium",
         image: [
             [0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
             [0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
@@ -157,7 +157,7 @@ export const medium = [
     {
         id: 3,
         name: "Plum",
-        level: "medium",
+        level: "Medium",
         image: [
             [0, 0, 0, 0, 0, 1, 1, 1, 1, 0],
             [0, 1, 1, 1, 1, 0, 0, 1, 0, 0],
@@ -198,7 +198,7 @@ export const medium = [
     {
         id: 4,
         name: "Monkey",
-        level: "medium",
+        level: "Medium",
         image: [
             [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
             [1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
@@ -239,7 +239,7 @@ export const medium = [
     {
         id: 5,
         name: "Cup of coffee",
-        level: "medium",
+        level: "Medium",
         image: [
             [0, 0, 0, 0, 0, 0, 1, 1, 0, 0],
             [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
@@ -272,7 +272,7 @@ export const hard = [
     {
         id: 1,
         name: "Lion",
-        level: "hard",
+        level: "Hard",
         image: [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
             [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0],
@@ -328,7 +328,7 @@ export const hard = [
     {
         id: 2,
         name: "Cow",
-        level: "hard",
+        level: "Hard",
         image: [
             [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
             [1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
@@ -384,7 +384,7 @@ export const hard = [
     {
         id: 3,
         name: "Moose",
-        level: "hard",
+        level: "Hard",
         image: [
             [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
             [1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1],
@@ -440,7 +440,7 @@ export const hard = [
     {
         id: 4,
         name: "Mickey Mouse",
-        level: "hard",
+        level: "Hard",
         image: [
             [0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
@@ -496,7 +496,7 @@ export const hard = [
     {
         id: 5,
         name: "Bow",
-        level: "hard",
+        level: "Hard",
         image: [
             [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0],
             [1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1],

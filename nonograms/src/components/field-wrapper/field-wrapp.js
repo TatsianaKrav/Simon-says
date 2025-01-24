@@ -40,4 +40,8 @@ export class FieldWrapper extends ElementCreator {
     getField() {
         return this.field;
     }
+
+    getCurrentGame() {
+        return this.currentGame;
+    }
 }
