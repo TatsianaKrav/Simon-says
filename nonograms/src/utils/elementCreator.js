@@ -100,4 +100,8 @@ export class ElementCreator {
     checkCLasses(...classes) {
         return classes.some(className => this.element.classList.contains(className));
     }
+
+    getChildren() {
+        return this.element.children;
+    }
 }

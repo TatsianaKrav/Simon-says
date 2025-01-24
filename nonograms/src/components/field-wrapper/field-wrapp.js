@@ -7,11 +7,12 @@ import { Field } from "../field/field.js";
 export class FieldWrapper extends ElementCreator {
     timer;
 
-    constructor(level, games = []) {
+    constructor(level, games = [], gameName) {
         super('div', 'field-wrapper');
 
         this.level = level;
         this.games = games;
+        this.gameName = gameName;
 
         this.create();
     }

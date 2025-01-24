@@ -1,22 +1,25 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
-import { Game } from "../select/game.js";
+import {  Nonogram } from "../select/nonogram.js";
 import { Level } from "../select/level.js";
 
 export class SelectsWrapper extends ElementCreator {
-    constructor() {
+    constructor(level, gameName) {
         super('div', 'selects-wrapper');
+        this.level = level;
+        this.gameName = gameName;
+
         this.create();
     }
 
     create() {
-        this.level = new Level();
-        this.games = new Game(this.level);
+        this.levelSelect = new Level(this.level);
+        this.games = new Nonogram(this.levelSelect, this.gameName);
 
-        this.append(this.level, this.games);
+        this.append(this.levelSelect, this.games);
     }
 
 
     getSelections() {
-        return [this.level, this.games];
+        return [this.levelSelect, this.games];
     }
 }

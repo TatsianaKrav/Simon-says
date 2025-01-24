@@ -5,23 +5,42 @@ import { SelectsWrapper } from "./components/selectsWrapp/selectsWrapp.js";
 
 
 export class Game extends ElementCreator {
+    fieldWrapper;
+    btnsWrapper;
+
     constructor() {
         super('div', 'container');
     }
 
-    init() {
+    init(level, gameName) {
 
-        const selectsWrapper = new SelectsWrapper();
-        const [level, games] = selectsWrapper.getSelections();
-        const fieldWrapper = new FieldWrapper(level, games);
-        const timer = fieldWrapper.getTimer();
-        const field = fieldWrapper.getField();
-        const currentGame = fieldWrapper.getCurrentGame();
-        const btnsWrapper = new ButtonsWrapper(field, timer, currentGame);
+        const selectsWrapper = new SelectsWrapper(level, gameName);
+        const [levelSelect, games] = selectsWrapper.getSelections();
 
-
-        this.append(selectsWrapper, fieldWrapper, btnsWrapper);
+        this.append(selectsWrapper);
         this.prependTo(document.body);
+        this.create(levelSelect, games);
+    }
+
+    create(levelSelect, games) {
+        this.fieldWrapper = new FieldWrapper(levelSelect, games);
+        const timer = this.fieldWrapper.getTimer();
+        const field = this.fieldWrapper.getField();
+        const currentGame = this.fieldWrapper.getCurrentGame();
+        this.btnsWrapper = new ButtonsWrapper(field, timer, currentGame);
+
+        this.append(this.fieldWrapper, this.btnsWrapper);
+    }
+
+    recreate(level, gameName) {
+        const children = this.getChildren();
+        Array.from(children).forEach((el, i) => {
+            if (i !== 0) {
+                el.remove();
+            }
+        })
+
+        this.create(level, gameName);
     }
 
 }
