@@ -1,11 +1,11 @@
 import { Button } from "./button.js";
 
 export class SaveBtn extends Button {
-    constructor(timer, currentGame) {
+    constructor(timer, levelObj) {
         super('Save game', 'save-btn');
 
         this.timer = timer;
-        this.currentGame = currentGame
+        this.levelObj = levelObj;
         this.setCallback('click', this.save.bind(this));
     }
 
@@ -33,6 +33,7 @@ export class SaveBtn extends Button {
 
         const toSave = {
             currentGameName: gameName,
+            currentLevel: this.levelObj.getValue(),
             savedGame: savedGame,
             timer: time,
         };

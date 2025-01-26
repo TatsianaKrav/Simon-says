@@ -1,14 +1,10 @@
-import { Game } from "../../game.js";
 import { ElementCreator } from "../../utils/elementCreator.js";
-import { Field } from "../field/field.js";
-import { FieldWrapper } from "../field-wrapper/field-wrapp.js";
-import { ButtonsWrapper } from "../btns-wrapper/btnsWrapp.js";
-import { Nonogram } from "./nonogram.js";
 
 export class Level extends ElementCreator {
-    constructor(level) {
+    constructor(levelName, parent) {
         super('select', 'levels');
-        this.level = level;
+        this.levelName = levelName;
+        this.parent = parent;
 
         this.create();
         this.setCallback('change', this.change.bind(this));
@@ -20,30 +16,19 @@ export class Level extends ElementCreator {
         for (let i = 0; i < options.length; i++) {
             const option = new ElementCreator('option', '', options[i], { value: options[i] });
 
-            if (options[i] === this.level) {
+            if (options[i] === this.levelName) {
                 option.setAttributes({ selected: '' });
             }
             this.append(option);
         }
     }
 
-    change() {
-        const levelVal = this.getValue();
-        document.body.innerHTML = '';
-        const newGame = new Game();
-        newGame.init(levelVal);
+    restore(savedLevel, gameName) {
+        this.parent.updateGamesSelect(savedLevel, gameName);
+    }
 
-        /*  const newGames = new Game(this);
-         this.getElement().nextSibling.replaceWith(newGames.getElement());
- 
-         const field = document.getElementsByClassName('field-wrapper')[0];
-         const newFieldWrapp = new FieldWrapper(this, newGames);
-         field.replaceWith(newFieldWrapp.getElement());
- 
-         const newField = newFieldWrapp.getField();
-         const timer = newFieldWrapp.getTimer();
-         const btnsWrapper = new ButtonsWrapper(newField, timer);
-         newFieldWrapp.getElement().nextSibling.replaceWith(btnsWrapper.getElement()); */
+    change(gameName) {
+        this.parent.updateGamesSelect(this.getValue(), gameName);
     }
 
     getValue() {

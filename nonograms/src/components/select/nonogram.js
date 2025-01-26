@@ -1,16 +1,12 @@
 import { Game } from "../../game.js";
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { getLevel } from "../../utils/getLevel.js";
-import { ButtonsWrapper } from "../btns-wrapper/btnsWrapp.js";
-import { FieldWrapper } from "../field-wrapper/field-wrapp.js";
-
-
 
 
 export class Nonogram extends ElementCreator {
-    constructor(level, gameName) {
+    constructor(levelName, gameName) {
         super('select', 'games');
-        this.level = level;
+        this.levelName = levelName;
         this.gameName = gameName;
 
         this.create();
@@ -18,8 +14,7 @@ export class Nonogram extends ElementCreator {
     }
 
     create() {
-        const currentLevel = this.level.getElement().value;
-        const currentGames = getLevel(currentLevel);
+        const currentGames = getLevel(this.levelName);
         const options = [...currentGames];
 
         for (let i = 0; i < options.length; i++) {
@@ -32,21 +27,9 @@ export class Nonogram extends ElementCreator {
     }
 
     change() {
-
-        const levelVal = this.level.getValue();
         document.body.innerHTML = '';
         const newGame = new Game();
-        newGame.init(levelVal, this.getValue());
-
-        /* const levelVal = document.querySelector('select').value;
-        const field = document.getElementsByClassName('field-wrapper')[0];
-        const newFieldWrapp = new FieldWrapper(levelVal, this);
-        field.replaceWith(newFieldWrapp.getElement());
-
-        const newField = newFieldWrapp.getField();
-        const timer = newFieldWrapp.getTimer();
-        const btnsWrapper = new ButtonsWrapper(newField, timer);
-        newFieldWrapp.getElement().nextSibling.replaceWith(btnsWrapper.getElement()); */
+        newGame.init(this.levelName, this.getValue());
     }
 
     getValue() {

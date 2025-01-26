@@ -2,11 +2,12 @@ import { Helper } from "../../utils/helper.js";
 import { Button } from "./button.js";
 
 export class ContinueBtn extends Button {
-    constructor(field, timer) {
+    constructor(timer, field, levelSelect) {
         super('Continue last game', 'continue-btn');
 
-        this.field = field;
         this.timer = timer;
+        this.field = field;
+        this.levelSelect = levelSelect;
 
         this.setCallback('click', this.continue.bind(this));
     }
@@ -15,15 +16,15 @@ export class ContinueBtn extends Button {
         this.field.clear();
 
         const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
+        const currentLevelName = JSON.parse(localStorage.getItem("savedGame")).currentLevel;
         const savedGame = JSON.parse(localStorage.getItem("savedGame")).savedGame;
         const timerTime = JSON.parse(localStorage.getItem("savedGame")).timer;
 
-        const helper = new Helper(currentGameName);
-        helper.getGameInfo();
+       /*  const helper = new Helper(currentGameName);
+        helper.getGameInfo(); */
 
-
-        //selectors
-      
+        this.levelSelect.restore(currentLevelName, currentGameName);
+        //field isn't updted
 
         //fields
         //buttons?

@@ -7,11 +7,11 @@ import { Field } from "../field/field.js";
 export class FieldWrapper extends ElementCreator {
     timer;
 
-    constructor(level, games = [], gameName) {
+    constructor(levelObj, gameObj = [], gameName) {
         super('div', 'field-wrapper');
 
-        this.level = level;
-        this.games = games;
+        this.levelObj = levelObj;
+        this.gameObj = gameObj;
         this.gameName = gameName;
 
         this.create();
@@ -20,10 +20,10 @@ export class FieldWrapper extends ElementCreator {
 
     create() {
 
-        this.currentGames = this.level instanceof ElementCreator ? [...getLevel(this.level.getValue())]
-            : [...getLevel(this.level)];
+        this.currentGames = this.levelObj instanceof ElementCreator ? [...getLevel(this.levelObj.getValue())]
+            : [...getLevel(this.levelObj)];
 
-        this.currentGame = this.currentGames.find(game => game.name === this.games.getValue());
+        this.currentGame = this.currentGames.find(game => game.name === this.gameObj.getValue());
         localStorage.setItem('currGame', JSON.stringify(this.currentGame));
 
         const gameName = new ElementCreator('div', 'game-name', this.currentGame.name);

@@ -11,15 +11,14 @@ export class Helper {
     getGameInfo() {
         const allGames = easy.concat(medium).concat(hard);
         const game = allGames.find(el => el.name === this.gameName);
-        this.selLevelValue(game.level);
+      /*   this.selLevelValue(game.level);
         this.setGamesValue(game.name);
-
+ */
     }
 
     selLevelValue(value) {
         const level = document.querySelector('select');
         const options = level.options;
-        console.log(value);
         const option = Array.from(options).find(el => el.innerText === value);
         option.setAttribute('selected', '');
 

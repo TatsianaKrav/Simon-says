@@ -7,19 +7,19 @@ export class ButtonsWrapper extends ElementCreator {
     level;
     games;
 
-    constructor(field, timer, currentGame) {
+    constructor(levelObj) {
         super('div', 'btns-wrapper');
+        this.levelObj = levelObj;
+        /* 
+                this.field = field;
+                this.timer = timer; */
 
-        this.field = field;
-        this.timer = timer;
-        this.currentGame = currentGame;
-
-        this.create();
+        /*   this.create(); */
     }
 
-    create() {
-        const saveBtn = new SaveBtn(this.timer, this.currentGame);
-        const continueBtn = new ContinueBtn(this.field, this.timer);
+    create(timer, field) {
+        const saveBtn = new SaveBtn(timer , this.levelObj);
+        const continueBtn = new ContinueBtn(timer, field, this.levelObj);
         this.append(saveBtn, continueBtn);
     }
 
