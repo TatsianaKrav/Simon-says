@@ -17,21 +17,15 @@ export class SolutionBtn extends Button {
         );
 
         for (let i = 0; i < cells.length; i++) {
-            if (gameAnswers[i] === "0" && cells[i].getAttribute("filled")) {
-                cells[i].classList.remove("filled");
-                cells[i].removeAttribute("filled");
-            }
+            cells[i].classList.remove('not');
+            cells[i].classList.remove('filled');
 
-            if (gameAnswers[i] === "1" && cells[i].getAttribute("filled") === null) {
-                cells[i].classList.add("filled");
-                cells[i].setAttribute("filled", "true");
-            }
-
-            if (cells[i].getAttribute("not") === "x") {
-                cells[i].classList.remove("not");
+            if (gameAnswers[i] === "1") {
+                cells[i].classList.add('filled');
             }
         }
 
-        clearInterval(this.timer);
+
+        clearInterval(this.timer.id); 
     }
-}
+} 
