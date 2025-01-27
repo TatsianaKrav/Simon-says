@@ -1,5 +1,6 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { ContinueBtn } from "../button/continueBtn.js";
+import { RandomGameBtn } from "../button/randomBtn.js";
 import { SaveBtn } from "../button/saveBtn.js";
 import { SolutionBtn } from "../button/solutionBtn.js";
 
@@ -17,7 +18,8 @@ export class ButtonsWrapper extends ElementCreator {
         const saveBtn = new SaveBtn(timer, this.levelObj);
         const continueBtn = new ContinueBtn(timer, field, this.levelObj);
         const solutionBtn = new SolutionBtn(currentGame, timer);
-        this.append(saveBtn, continueBtn, solutionBtn);
+        const randomBtn = new RandomGameBtn();
+        this.append(saveBtn, continueBtn, solutionBtn, randomBtn);
     }
 
 }
