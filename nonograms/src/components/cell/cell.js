@@ -1,10 +1,13 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { checkGameEnd } from "../../utils/checkGameEnd.js";
 import { Audio } from "../audio/audio.js";
+import { Timer } from "../timer/timer.js";
+
 
 export class Cell extends ElementCreator {
     timerOn = false;
     interval;
+
 
     constructor(timer) {
         super('td');
@@ -18,6 +21,7 @@ export class Cell extends ElementCreator {
         if (this.checkCLasses("top-cell", "left-cell", "empty")) return;
 
         const sound = new Audio();
+
         this.timerOn = this.timer.getElement().classList.contains('on');
 
         if (!this.timerOn) {
@@ -54,3 +58,4 @@ export class Cell extends ElementCreator {
         checkGameEnd(this.timer);
     }
 }
+

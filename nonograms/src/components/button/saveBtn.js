@@ -35,10 +35,13 @@ export class SaveBtn extends Button {
             currentGameName: gameName,
             currentLevel: this.levelObj.getValue(),
             savedGame: savedGame,
-            timer: time,
+            timerTime: time,
+            timer: this.timer
         };
 
 
         localStorage.setItem("savedGame", JSON.stringify(toSave));
+
+ 
     }
 }

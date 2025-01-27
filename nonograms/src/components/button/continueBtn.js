@@ -1,5 +1,6 @@
-import { Helper } from "../../utils/helper.js";
+import { Timer } from "../timer/timer.js";
 import { Button } from "./button.js";
+
 
 export class ContinueBtn extends Button {
     constructor(timer, field, levelSelect) {
@@ -18,29 +19,26 @@ export class ContinueBtn extends Button {
         const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
         const currentLevelName = JSON.parse(localStorage.getItem("savedGame")).currentLevel;
         const savedGame = JSON.parse(localStorage.getItem("savedGame")).savedGame;
-        const timerTime = JSON.parse(localStorage.getItem("savedGame")).timer;
-
-       /*  const helper = new Helper(currentGameName);
-        helper.getGameInfo(); */
+        const timerTime = JSON.parse(localStorage.getItem("savedGame")).timerTime;
+        const timer = JSON.parse(localStorage.getItem("savedGame")).timer;
 
         this.levelSelect.restore(currentLevelName, currentGameName);
-        //field isn't updted
 
-        //fields
-        //buttons?
-
-
-        this.timer.setClasses('on');
+        const currentTimer = document.getElementsByClassName('timer')[0];
+        const newTimer = new Timer();
+        currentTimer.replaceWith(newTimer.getElement());
+        newTimer.setClasses('on');
+        newTimer.id = timer.id;
 
         let min;
         let sec;
 
-        this.timer.setTime(timerTime);
+        newTimer.setTime(timerTime);
 
         min = timerTime.slice(0, 2);
         sec = timerTime.slice(3);
 
-        this.timer.init(min, sec);
+
 
         if (min[0] === "0") {
             min = min.slice(1);
@@ -49,6 +47,11 @@ export class ContinueBtn extends Button {
         if (sec[0] === "0") {
             sec = sec.slice(1);
         }
+
+        newTimer.init(min, sec);
+
+        const currentField = document.getElementsByClassName('field')[0];
+        currentField.classList.add('continue');
 
         const cells = document.querySelectorAll(
             "td:not(.left-cell):not(.top-cell):not(.empty)"

@@ -1,5 +1,6 @@
 import { Popup } from "../components/popup/popup.js";
 import { Audio } from "../components/audio/audio.js";
+import { Timer } from "../components/timer/timer.js";
 
 export function checkGameEnd(timer) {
     const game = JSON.parse(localStorage.getItem('currGame'));
@@ -22,10 +23,29 @@ export function checkGameEnd(timer) {
         const result = checkResult(game);
 
         if (result) {
-            const popup = new Popup(timer.getTime());
-            const sound = new Audio();
-            sound.win();
-            timer.stop();
+            const currentField = document.getElementsByClassName('field')[0];
+
+
+            if (currentField.classList.contains('continue')) {
+                const savedTimer = JSON.parse(localStorage.getItem("savedGame")).timer;
+                const currentTimer = document.getElementsByClassName('timer')[0];
+                const currentTimerVal = currentTimer.innerText;
+
+                const newTimer = new Timer();
+                currentTimer.replaceWith(newTimer.getElement());
+                Object.assign(timer, savedTimer);
+                newTimer.setTime(currentTimerVal);
+                timer.setTime(currentTimerVal);
+            }
+
+            const timerVal = timer.getTime();
+
+            setTimeout(() => {
+                const popup = new Popup(timerVal);
+                const sound = new Audio();
+                sound.win();
+                timer.stop();
+            }, 1000)
         }
     }
 }

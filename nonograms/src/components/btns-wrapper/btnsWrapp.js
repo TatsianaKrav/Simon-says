@@ -10,11 +10,6 @@ export class ButtonsWrapper extends ElementCreator {
     constructor(levelObj) {
         super('div', 'btns-wrapper');
         this.levelObj = levelObj;
-        /* 
-                this.field = field;
-                this.timer = timer; */
-
-        /*   this.create(); */
     }
 
     create(timer, field) {

@@ -49,5 +49,15 @@ export class Timer extends ElementCreator {
 
     setTime(time) {
         this.setInnerText(time);
+        this.min = time.slice(0, 2);
+        this.sec = time.slice(3);
+
+        if (this.min[0] === "0") {
+            this.min = this.min.slice(1);
+        }
+
+        if (this.sec[0] === "0") {
+            this.sec = this.sec.slice(1);
+        }
     }
 }
