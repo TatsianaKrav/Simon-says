@@ -13,7 +13,7 @@ export class SolutionBtn extends Button {
         const gameAnswers = String(this.currentGame.image.flat()).split(",").join("");
 
         const cells = document.querySelectorAll(
-            "td:not(.left-cell):not(.top-cell):not(.empty)"
+            "td:not(.left-cell):not(.top-cell):not(.empty):not(.score-cell)"
         );
 
         for (let i = 0; i < cells.length; i++) {

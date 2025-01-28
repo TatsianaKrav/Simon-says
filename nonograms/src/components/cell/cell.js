@@ -9,9 +9,10 @@ export class Cell extends ElementCreator {
     interval;
 
 
-    constructor(timer) {
+    constructor(timer, scoreTable) {
         super('td');
         this.timer = timer;
+        this.scoreTable = scoreTable;
 
         this.setCallback('click', this.fill.bind(this));
         this.setCallback('contextmenu', (e) => this.cross(e));
@@ -36,7 +37,7 @@ export class Cell extends ElementCreator {
 
         this.checkCLasses('filled') ? sound.remove() : sound.fill();
         this.getElement().classList.toggle('filled');
-        checkGameEnd(this.timer);
+        checkGameEnd(this.timer, this.scoreTable);
     }
 
     cross(event) {

@@ -13,7 +13,7 @@ export class SaveBtn extends Button {
         this.timer.stop();
 
         const cells = document.querySelectorAll(
-            "td:not(.left-cell):not(.top-cell):not(.empty)"
+            "td:not(.left-cell):not(.top-cell):not(.empty):not(.score-cell)"
         );
         const savedGame = [];
 

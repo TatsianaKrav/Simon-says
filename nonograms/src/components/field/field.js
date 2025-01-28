@@ -5,10 +5,11 @@ import { Cell } from "../cell/cell.js";
 
 
 export class Field extends ElementCreator {
-    constructor(game, timer) {
+    constructor(game, timer, scoreTable) {
         super('table', 'field');
         this.currentGame = game;
         this.timer = timer;
+        this.scoreTable = scoreTable;
 
         this.create();
     }
@@ -22,7 +23,7 @@ export class Field extends ElementCreator {
             const row = new ElementCreator("tr");
 
             for (let j = 0; j <= this.currentGame.image.length; j++) {
-                const col = new Cell(this.timer);
+                const col = new Cell(this.timer, this.scoreTable);
 
                 if (i === 0 && j === 0) {
                     col.setClasses("empty");
@@ -60,7 +61,7 @@ export class Field extends ElementCreator {
 
     clear() {
         const cells = document.querySelectorAll(
-            "td:not(.left-cell):not(.top-cell):not(.empty)"
+            "td:not(.left-cell):not(.top-cell):not(.empty):not(.score-cell)"
         );
 
         cells.forEach(cell => {

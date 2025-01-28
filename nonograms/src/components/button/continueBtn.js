@@ -54,7 +54,7 @@ export class ContinueBtn extends Button {
         currentField.classList.add('continue');
 
         const cells = document.querySelectorAll(
-            "td:not(.left-cell):not(.top-cell):not(.empty)"
+            "td:not(.left-cell):not(.top-cell):not(.empty):not(.score-cell)"
         );
 
         savedGame.forEach((item, index) => {

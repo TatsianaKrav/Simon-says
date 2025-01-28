@@ -2,7 +2,7 @@ import { Popup } from "../components/popup/popup.js";
 import { Audio } from "../components/audio/audio.js";
 import { Timer } from "../components/timer/timer.js";
 
-export function checkGameEnd(timer) {
+export function checkGameEnd(timer, scoreTable) {
     const game = JSON.parse(localStorage.getItem('currGame'));
     let currentGameFilledCells = 0;
     const currentGameCells = document.querySelectorAll(
@@ -41,18 +41,40 @@ export function checkGameEnd(timer) {
             const timerVal = timer.getTime();
 
             setTimeout(() => {
-                const popup = new Popup(timerVal);
+                const popup = new Popup(timerVal);  //-1sec
                 const sound = new Audio();
                 sound.win();
                 timer.stop();
             }, 1000)
+
+            let lastGames = localStorage.getItem('lastGames');
+            lastGames = lastGames === 'undefined' || !lastGames ? [] : JSON.parse(lastGames);
+
+            const nonogram = {
+                gameName: game.name,
+                gameLevel: game.level,
+                gameTime: timer.getTime(),
+            };
+
+
+            if (lastGames.length < 5) {
+                lastGames.push(nonogram);
+            } else {
+                lastGames.shift();
+                lastGames.push(nonogram);
+            };
+
+            lastGames = sortTable(lastGames);
+            localStorage.setItem('lastGames', JSON.stringify(lastGames));
+
+            scoreTable.update(lastGames);
         }
     }
 }
 
 function checkResult(nonogram) {
     const currentGameCells = document.querySelectorAll(
-        "td:not(.left-cell):not(.top-cell):not(.empty)"
+        "td:not(.left-cell):not(.top-cell):not(.empty):not(.score-cell)"
     );
 
     const gameAnswers = String(nonogram.image.flat()).split(",").join("");
@@ -68,4 +90,23 @@ function checkResult(nonogram) {
     });
 
     return gameAnswers === stringResult;
+}
+
+function sortTable(arr) {
+    arr.sort((a, b) => {
+        return calculateTimer(a.gameTime) - calculateTimer(b.gameTime);
+    });
+
+    return arr;
+}
+
+function calculateTimer(time) {
+    let minStr = time.slice(0, 2);
+    let secStr = time.slice(3, 5);
+
+    let min = Number(minStr);
+    let sec = Number(secStr);
+
+    min = min > 0 ? min * 60 : min;
+    return min + sec;
 }
