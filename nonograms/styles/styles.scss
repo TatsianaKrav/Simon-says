@@ -1,5 +1,15 @@
 @import "../styles/mixins.scss";
 
+@font-face {
+    font-family: "Edge-Bold";
+    src: url(../assets/fonts/EdgeDisplay-Bold.otf);
+}
+
+@font-face {
+    font-family: "Edge-Regular";
+    src: url(../assets/fonts/EdgeDisplay-Regular.otf);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -7,236 +17,326 @@
 
 $main-color: #808080;
 $bg-color: #ffffff;
-$light-color: #fdeed0;
+$light-color: #fbe4b7;
+$body-bg-color: #fdeed0;
 
-.field {
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: $bg-color;
+body {
 
-    tr {
-        &:first-child {
-            border-bottom: 3px solid $main-color;
-        }
+    @include flex();
+    background-color: $body-bg-color;
+    /*   height: 100vh; */
 
-        &:not(:last-child):nth-child(5n + 1) {
-            border-bottom: 3px solid $main-color;
+    .container {
+        @include flex();
+        padding: 15px 25px;
+        max-width: 1440px;
+        gap: 50px;
+        margin: 0 auto;
+        /*   max-height: 640px; */
+        border: 2px solid gray;
+        border-radius: 5px;
+        font-family: Edge-Regular, sans-serif;
+        font-size: 18px;
 
-            .left-cell {
-                border-bottom: none;
+        .menu {
+            @include flex-column();
+            align-self: start;
+            gap: 1em;
+            max-width: 320px;
+
+            .selects-wrapper {
+                @include flex();
+                gap: 15px;
+
+                select {
+                    width: 150px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    background-color: $light-color;
+                    outline: none;
+                    font-family: Edge-Regular, sans-serif;
+                    font-size: 18px;
+                }
+            }
+
+            .btns-wrapper {
+                @include flex-column();
+                gap: 0.5em;
+
+                button {
+                    width: 150px;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    border: 1px solid gray;
+                    font-family: Edge-Regular, sans-serif;
+                    font-size: 18px;
+                    background-color: $light-color;
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
+
+            .score-table-wrapper {
+                .table-name {
+                    text-align: center;
+                    margin-bottom: 5px;
+                    border-bottom: 2px solid $main-color;
+                }
+
+                table {
+                    font-size: 16px;
+
+                    tr {
+                        td {
+                            padding: 3px;
+                        }
+                    }
+                }
             }
         }
 
-        &:last-child {
-            border-bottom: 1px solid $main-color;
+        .field-wrapper {
+            @include flex-column();
+            align-self: start;
+            gap: 10px;
+            max-width: 560px;
 
-            td:first-child {
-                border-bottom: none;
+            .game-name {
+                font-family: Edge-Bold, sans-serif;
+                font-size: 22px;
+            }
+
+            .field {
+                border-collapse: collapse;
+                margin-bottom: 20px;
+                background-color: $bg-color;
+
+                tr {
+                    &:first-child {
+                        border-bottom: 3px solid $main-color;
+                    }
+
+                    &:not(:last-child):nth-child(5n + 1) {
+                        border-bottom: 3px solid $main-color;
+
+                        .left-cell {
+                            border-bottom: none;
+                        }
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid $main-color;
+
+                        td:first-child {
+                            border-bottom: none;
+                        }
+                    }
+
+                    td {
+                        padding: 0;
+                        /*  width: 5%;
+                        height: 5%; */
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        border: 1px solid $main-color;
+                        box-sizing: border-box;
+                        position: relative;
+
+                        &.empty {
+                            border-right: 3px solid $main-color;
+                            cursor: none;
+                        }
+
+                        &.left-cell {
+                            text-align: right;
+                            border-right: 2px solid $main-color;
+                            width: auto;
+                            display: flex;
+                            justify-content: flex-end;
+                            text-align: center;
+                            border: none;
+                            border-bottom: 1px solid $main-color;
+
+                            .left {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 25px;
+                                height: 25px;
+                                border-left: 1px solid $main-color;
+
+                                &:nth-last-child(5n) {
+                                    border-left: 3px solid $main-color;
+                                }
+
+                                &:first-child {
+                                    border-left: 1px solid $main-color;
+                                }
+
+                                &.not:before {
+                                    content: "";
+                                    position: absolute;
+                                    width: 1px;
+                                    height: 30px;
+                                    background-color: $main-color;
+                                    transform: rotate(45deg);
+                                }
+
+                                &.not:after {
+                                    content: "";
+                                    position: absolute;
+                                    width: 1px;
+                                    height: 30px;
+                                    background-color: $main-color;
+                                    transform: rotate(-45deg);
+                                }
+                            }
+                        }
+
+                        &.top-cell {
+                            height: auto;
+                            vertical-align: bottom;
+                            text-align: center;
+
+                            .top {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                width: 25px;
+                                height: 25px;
+                                border-top: 1px solid $main-color;
+
+                                &:nth-last-child(5n) {
+                                    border-top: 3px solid $main-color;
+                                }
+
+                                &:first-child {
+                                    border-top: none;
+                                }
+
+                                &.not:before {
+                                    content: "";
+                                    position: absolute;
+                                    width: 1px;
+                                    height: 30px;
+                                    background-color: $main-color;
+                                    transform: rotate(45deg);
+                                }
+
+                                &.not:after {
+                                    content: "";
+                                    position: absolute;
+                                    width: 1px;
+                                    height: 30px;
+                                    background-color: $main-color;
+                                    transform: rotate(-45deg);
+                                }
+                            }
+                        }
+
+                        &.not:before {
+                            content: "";
+                            position: absolute;
+                            top: -2px;
+                            left: 11px;
+                            width: 1px;
+                            height: 30px;
+                            background-color: $main-color;
+                            transform: rotate(45deg);
+                        }
+
+                        &.not:after {
+                            content: "";
+                            position: absolute;
+                            top: -2px;
+                            left: 11px;
+                            width: 1px;
+                            height: 30px;
+                            background-color: $main-color;
+                            transform: rotate(-45deg);
+                        }
+
+                        &:nth-child(5n + 1) {
+                            border-right: 3px solid $main-color;
+
+                            &.left-cell {
+                                border-right: 2px solid $main-color;
+                            }
+                        }
+
+                        &:last-child {
+                            border-right: 2px solid $main-color;
+                        }
+
+                        &.filled {
+                            background-color: black;
+                        }
+                    }
+                }
             }
         }
+    }
 
-        td {
-            padding: 0;
-            /*  width: 5%;
-            height: 5%; */
+    .popup-wrapper {
+        @include flex();
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+        padding: 20px;
+        z-index: 10;
+        border: 2px solid black;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .6s linear;
+
+        &.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal {
+            @include flex();
+            flex-direction: column;
+            max-width: 70%;
+            padding: 2.5em;
+            border-radius: 15px;
+            background: #f3ecec;
+            gap: 20px;
             box-sizing: border-box;
             cursor: pointer;
-            border: 1px solid $main-color;
-            box-sizing: border-box;
+            font-size: 30px;
             position: relative;
 
-            &.empty {
-                border-right: 3px solid $main-color;
-                cursor: none;
-            }
+            .close-btn {
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top: 20px;
+                right: 20px;
 
-            &.left-cell {
-                text-align: right;
-                border-right: 2px solid $main-color;
-                width: auto;
-                display: flex;
-                justify-content: flex-end;
-                text-align: center;
-                border: none;
-                border-bottom: 1px solid $main-color;
-
-                .left {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 25px;
-                    height: 25px;
-                    border-left: 1px solid $main-color;
-
-                    &:nth-last-child(5n) {
-                        border-left: 3px solid $main-color;
-                    }
-
-                    &:first-child {
-                        border-left: 1px solid $main-color;
-                    }
-
-                    &.not:before {
-                        content: "";
-                        position: absolute;
-                        width: 1px;
-                        height: 30px;
-                        background-color: $main-color;
-                        transform: rotate(45deg);
-                    }
-
-                    &.not:after {
-                        content: "";
-                        position: absolute;
-                        width: 1px;
-                        height: 30px;
-                        background-color: $main-color;
-                        transform: rotate(-45deg);
-                    }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: -2px;
+                    left: 11px;
+                    width: 1px;
+                    height: 30px;
+                    background-color: black;
+                    transform: rotate(45deg);
                 }
-            }
 
-            &.top-cell {
-                height: auto;
-                vertical-align: bottom;
-                text-align: center;
-
-                .top {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    width: 25px;
-                    height: 25px;
-                    border-top: 1px solid $main-color;
-
-                    &:nth-last-child(5n) {
-                        border-top: 3px solid $main-color;
-                    }
-
-                    &:first-child {
-                        border-top: none;
-                    }
-
-                    &.not:before {
-                        content: "";
-                        position: absolute;
-                        width: 1px;
-                        height: 30px;
-                        background-color: $main-color;
-                        transform: rotate(45deg);
-                    }
-
-                    &.not:after {
-                        content: "";
-                        position: absolute;
-                        width: 1px;
-                        height: 30px;
-                        background-color: $main-color;
-                        transform: rotate(-45deg);
-                    }
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: -2px;
+                    left: 11px;
+                    width: 1px;
+                    height: 30px;
+                    background-color: black;
+                    transform: rotate(-45deg);
                 }
-            }
-
-            &.not:before {
-                content: "";
-                position: absolute;
-                top: -2px;
-                left: 11px;
-                width: 1px;
-                height: 30px;
-                background-color: $main-color;
-                transform: rotate(45deg);
-            }
-
-            &.not:after {
-                content: "";
-                position: absolute;
-                top: -2px;
-                left: 11px;
-                width: 1px;
-                height: 30px;
-                background-color: $main-color;
-                transform: rotate(-45deg);
-            }
-
-            &:nth-child(5n + 1) {
-                border-right: 3px solid $main-color;
-
-                &.left-cell {
-                    border-right: 2px solid $main-color;
-                }
-            }
-
-            &:last-child {
-                border-right: 2px solid $main-color;
-            }
-
-            &.filled {
-                background-color: black;
-            }
-        }
-    }
-}
-
-.popup-wrapper {
-    @include flex();
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-    padding: 20px;
-    z-index: 10;
-    border: 2px solid black;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .6s linear;
-
-    &.open {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .modal {
-        @include flex();
-        flex-direction: column;
-        max-width: 70%;
-        padding: 2.5em;
-        border-radius: 15px;
-        background: #f3ecec;
-        gap: 20px;
-        box-sizing: border-box;
-        cursor: pointer;
-        font-size: 30px;
-        position: relative;
-
-        .close-btn {
-            width: 25px;
-            height: 25px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-
-            &:before {
-                content: "";
-                position: absolute;
-                top: -2px;
-                left: 11px;
-                width: 1px;
-                height: 30px;
-                background-color: black;
-                transform: rotate(45deg);
-            }
-
-            &:after {
-                content: "";
-                position: absolute;
-                top: -2px;
-                left: 11px;
-                width: 1px;
-                height: 30px;
-                background-color: black;
-                transform: rotate(-45deg);
             }
         }
     }

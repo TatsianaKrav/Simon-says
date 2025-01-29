@@ -1,29 +1,124 @@
+@font-face {
+  font-family: "Edge-Bold";
+  src: url(../assets/fonts/EdgeDisplay-Bold.otf);
+}
+@font-face {
+  font-family: "Edge-Regular";
+  src: url(../assets/fonts/EdgeDisplay-Regular.otf);
+}
 * {
   padding: 0;
   margin: 0;
 }
 
-.field {
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdeed0;
+  /*   height: 100vh; */
+}
+body .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  max-width: 1440px;
+  gap: 50px;
+  margin: 0 auto;
+  /*   max-height: 640px; */
+  border: 2px solid gray;
+  border-radius: 5px;
+  font-family: Edge-Regular, sans-serif;
+  font-size: 18px;
+}
+body .container .menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-self: start;
+  gap: 1em;
+  max-width: 320px;
+}
+body .container .menu .selects-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+body .container .menu .selects-wrapper select {
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #fbe4b7;
+  outline: none;
+  font-family: Edge-Regular, sans-serif;
+  font-size: 18px;
+}
+body .container .menu .btns-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5em;
+}
+body .container .menu .btns-wrapper button {
+  width: 150px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: Edge-Regular, sans-serif;
+  font-size: 18px;
+  background-color: #fbe4b7;
+  outline: none;
+  cursor: pointer;
+}
+body .container .menu .score-table-wrapper .table-name {
+  text-align: center;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #808080;
+}
+body .container .menu .score-table-wrapper table {
+  font-size: 16px;
+}
+body .container .menu .score-table-wrapper table tr td {
+  padding: 3px;
+}
+body .container .field-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-self: start;
+  gap: 10px;
+  max-width: 560px;
+}
+body .container .field-wrapper .game-name {
+  font-family: Edge-Bold, sans-serif;
+  font-size: 22px;
+}
+body .container .field-wrapper .field {
   border-collapse: collapse;
   margin-bottom: 20px;
   background-color: #ffffff;
 }
-.field tr:first-child {
+body .container .field-wrapper .field tr:first-child {
   border-bottom: 3px solid #808080;
 }
-.field tr:not(:last-child):nth-child(5n+1) {
+body .container .field-wrapper .field tr:not(:last-child):nth-child(5n+1) {
   border-bottom: 3px solid #808080;
 }
-.field tr:not(:last-child):nth-child(5n+1) .left-cell {
+body .container .field-wrapper .field tr:not(:last-child):nth-child(5n+1) .left-cell {
   border-bottom: none;
 }
-.field tr:last-child {
+body .container .field-wrapper .field tr:last-child {
   border-bottom: 1px solid #808080;
 }
-.field tr:last-child td:first-child {
+body .container .field-wrapper .field tr:last-child td:first-child {
   border-bottom: none;
 }
-.field tr td {
+body .container .field-wrapper .field tr td {
   padding: 0;
   /*  width: 5%;
   height: 5%; */
@@ -33,11 +128,11 @@
   box-sizing: border-box;
   position: relative;
 }
-.field tr td.empty {
+body .container .field-wrapper .field tr td.empty {
   border-right: 3px solid #808080;
   cursor: none;
 }
-.field tr td.left-cell {
+body .container .field-wrapper .field tr td.left-cell {
   text-align: right;
   border-right: 2px solid #808080;
   width: auto;
@@ -47,7 +142,7 @@
   border: none;
   border-bottom: 1px solid #808080;
 }
-.field tr td.left-cell .left {
+body .container .field-wrapper .field tr td.left-cell .left {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,13 +150,13 @@
   height: 25px;
   border-left: 1px solid #808080;
 }
-.field tr td.left-cell .left:nth-last-child(5n) {
+body .container .field-wrapper .field tr td.left-cell .left:nth-last-child(5n) {
   border-left: 3px solid #808080;
 }
-.field tr td.left-cell .left:first-child {
+body .container .field-wrapper .field tr td.left-cell .left:first-child {
   border-left: 1px solid #808080;
 }
-.field tr td.left-cell .left.not:before {
+body .container .field-wrapper .field tr td.left-cell .left.not:before {
   content: "";
   position: absolute;
   width: 1px;
@@ -69,7 +164,7 @@
   background-color: #808080;
   transform: rotate(45deg);
 }
-.field tr td.left-cell .left.not:after {
+body .container .field-wrapper .field tr td.left-cell .left.not:after {
   content: "";
   position: absolute;
   width: 1px;
@@ -77,12 +172,12 @@
   background-color: #808080;
   transform: rotate(-45deg);
 }
-.field tr td.top-cell {
+body .container .field-wrapper .field tr td.top-cell {
   height: auto;
   vertical-align: bottom;
   text-align: center;
 }
-.field tr td.top-cell .top {
+body .container .field-wrapper .field tr td.top-cell .top {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,13 +185,13 @@
   height: 25px;
   border-top: 1px solid #808080;
 }
-.field tr td.top-cell .top:nth-last-child(5n) {
+body .container .field-wrapper .field tr td.top-cell .top:nth-last-child(5n) {
   border-top: 3px solid #808080;
 }
-.field tr td.top-cell .top:first-child {
+body .container .field-wrapper .field tr td.top-cell .top:first-child {
   border-top: none;
 }
-.field tr td.top-cell .top.not:before {
+body .container .field-wrapper .field tr td.top-cell .top.not:before {
   content: "";
   position: absolute;
   width: 1px;
@@ -104,7 +199,7 @@
   background-color: #808080;
   transform: rotate(45deg);
 }
-.field tr td.top-cell .top.not:after {
+body .container .field-wrapper .field tr td.top-cell .top.not:after {
   content: "";
   position: absolute;
   width: 1px;
@@ -112,7 +207,7 @@
   background-color: #808080;
   transform: rotate(-45deg);
 }
-.field tr td.not:before {
+body .container .field-wrapper .field tr td.not:before {
   content: "";
   position: absolute;
   top: -2px;
@@ -122,7 +217,7 @@
   background-color: #808080;
   transform: rotate(45deg);
 }
-.field tr td.not:after {
+body .container .field-wrapper .field tr td.not:after {
   content: "";
   position: absolute;
   top: -2px;
@@ -132,20 +227,19 @@
   background-color: #808080;
   transform: rotate(-45deg);
 }
-.field tr td:nth-child(5n+1) {
+body .container .field-wrapper .field tr td:nth-child(5n+1) {
   border-right: 3px solid #808080;
 }
-.field tr td:nth-child(5n+1).left-cell {
+body .container .field-wrapper .field tr td:nth-child(5n+1).left-cell {
   border-right: 2px solid #808080;
 }
-.field tr td:last-child {
+body .container .field-wrapper .field tr td:last-child {
   border-right: 2px solid #808080;
 }
-.field tr td.filled {
+body .container .field-wrapper .field tr td.filled {
   background-color: black;
 }
-
-.popup-wrapper {
+body .popup-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,11 +254,11 @@
   opacity: 0;
   transition: all 0.6s linear;
 }
-.popup-wrapper.open {
+body .popup-wrapper.open {
   visibility: visible;
   opacity: 1;
 }
-.popup-wrapper .modal {
+body .popup-wrapper .modal {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,14 +273,14 @@
   font-size: 30px;
   position: relative;
 }
-.popup-wrapper .modal .close-btn {
+body .popup-wrapper .modal .close-btn {
   width: 25px;
   height: 25px;
   position: absolute;
   top: 20px;
   right: 20px;
 }
-.popup-wrapper .modal .close-btn:before {
+body .popup-wrapper .modal .close-btn:before {
   content: "";
   position: absolute;
   top: -2px;
@@ -196,7 +290,7 @@
   background-color: black;
   transform: rotate(45deg);
 }
-.popup-wrapper .modal .close-btn:after {
+body .popup-wrapper .modal .close-btn:after {
   content: "";
   position: absolute;
   top: -2px;
