@@ -15,6 +15,9 @@ export class Field extends ElementCreator {
     }
 
     create() {
+     /*    const currentTheme = localStorage.getItem('theme'); // bug when refresh + game-name, timer, score
+        if(currentTheme) this.setClasses('dark'); */
+
         const topClues = this.currentGame.topClues;
         const leftClues = this.currentGame.leftClues;
         const [topCluesMaxCount, leftCluesMaxCount] = calculateClues(this.currentGame);

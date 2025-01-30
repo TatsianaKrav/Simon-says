@@ -19,12 +19,17 @@ $main-color: #808080;
 $bg-color: #ffffff;
 $light-color: #fbe4b7;
 $body-bg-color: #fdeed0;
+$dark-color: #524d44;
 
 body {
 
     @include flex();
     background-color: $body-bg-color;
     /*   height: 100vh; */
+
+    &.dark {
+        background-color: $dark-color;
+    }
 
     .container {
         @include flex();
@@ -56,6 +61,11 @@ body {
                     outline: none;
                     font-family: Edge-Regular, sans-serif;
                     font-size: 18px;
+
+                    &.dark {
+                        background-color: $dark-color;
+                        color: $light-color;
+                    }
                 }
             }
 
@@ -73,14 +83,116 @@ body {
                     background-color: $light-color;
                     outline: none;
                     cursor: pointer;
+
+                    &.dark {
+                        background-color: $dark-color;
+                        color: $light-color;
+                    }
+                }
+            }
+
+            .theme {
+                max-width: 310px;
+                height: 67px;
+
+                .theme-names {
+                    @include flex();
+                    justify-content: space-between;
+                    padding: 5px 10px;
+                    gap: 10px;
+                    font-size: 14px;
+
+                    .light-name {
+                        padding: 5px;
+                        border-radius: 5px;
+                        border: 1px solid $main-color;
+                        background-color: $light-color;
+                    }
+
+                    .dark-name {
+                        padding: 5px;
+                        border-radius: 5px;
+                        border: 1px solid $main-color;
+                        background-color: $dark-color;
+                        color: $light-color;
+                        /* 
+                        &.dark {
+                            color: black;
+                        } */
+                    }
+                }
+
+                .choice-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .theme-label {
+                        display: inline-block;
+                        width: 100px;
+                        position: relative;
+
+                        input {
+                            position: absolute;
+                            opacity: 0;
+                            width: 0;
+                            height: 0;
+                            appearance: none;
+
+                            &:checked+.span-inner::before {
+                                background-color: $dark-color;
+                            }
+
+                            &:checked+.span-inner::after {
+                                background-color: $light-color;
+                                left: 64px;
+                            }
+                        }
+
+                        .span-inner::before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100px;
+                            height: 36px;
+                            background-color: #fff;
+                            display: block;
+                            border-radius: 20px;
+                            border: 1px solid $main-color;
+                            transition: background-color 0.3s linear;
+                        }
+
+                        .span-inner::after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            border: 1px solid $main-color;
+                            background-color: $light-color;
+                            top: 3px;
+                            left: 3px;
+                            cursor: pointer;
+                            transition: all 0.3s linear;
+                        }
+                    }
+
                 }
             }
 
             .score-table-wrapper {
+                margin-top: 10px;
+
                 .table-name {
                     text-align: center;
                     margin-bottom: 5px;
                     border-bottom: 2px solid $main-color;
+
+                    &.dark {
+                        color: $light-color;
+                    }
                 }
 
                 table {
@@ -90,6 +202,10 @@ body {
                         td {
                             padding: 3px;
                         }
+                    }
+
+                    &.dark {
+                        color: $light-color;
                     }
                 }
             }
@@ -104,6 +220,17 @@ body {
             .game-name {
                 font-family: Edge-Bold, sans-serif;
                 font-size: 22px;
+
+                &.dark {
+                    color: $light-color;
+                }
+
+            }
+
+            .timer {
+                &.dark {
+                    color: $light-color;
+                }
             }
 
             .field {
@@ -271,8 +398,17 @@ body {
 
                         &.filled {
                             background-color: black;
+
+                            &.dark {
+                                background-color: $light-color;
+                            }
                         }
                     }
+                }
+
+                &.dark {
+                    background-color: #313030cc;
+                    color: $light-color;
                 }
             }
         }
@@ -306,8 +442,22 @@ body {
             gap: 20px;
             box-sizing: border-box;
             cursor: pointer;
-            font-size: 30px;
+            font-family: Edge-Regular, sans-serif;
+            font-size: 26px;
             position: relative;
+
+            &.dark {
+                background-color: $main-color;
+                color: $light-color;
+
+                &:before {
+                    background-color: $light-color;
+                }
+
+                &:after {
+                    background-color: $light-color;
+                }
+            }
 
             .close-btn {
                 width: 25px;

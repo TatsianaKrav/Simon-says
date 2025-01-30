@@ -18,6 +18,9 @@ body {
   background-color: #fdeed0;
   /*   height: 100vh; */
 }
+body.dark {
+  background-color: #524d44;
+}
 body .container {
   display: flex;
   align-items: center;
@@ -56,6 +59,10 @@ body .container .menu .selects-wrapper select {
   font-family: Edge-Regular, sans-serif;
   font-size: 18px;
 }
+body .container .menu .selects-wrapper select.dark {
+  background-color: #524d44;
+  color: #fbe4b7;
+}
 body .container .menu .btns-wrapper {
   display: flex;
   align-items: center;
@@ -74,16 +81,112 @@ body .container .menu .btns-wrapper button {
   outline: none;
   cursor: pointer;
 }
+body .container .menu .btns-wrapper button.dark {
+  background-color: #524d44;
+  color: #fbe4b7;
+}
+body .container .menu .theme {
+  max-width: 310px;
+  height: 67px;
+}
+body .container .menu .theme .theme-names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  gap: 10px;
+  font-size: 14px;
+}
+body .container .menu .theme .theme-names .light-name {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #808080;
+  background-color: #fbe4b7;
+}
+body .container .menu .theme .theme-names .dark-name {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #808080;
+  background-color: #524d44;
+  color: #fbe4b7;
+  /* 
+  &.dark {
+      color: black;
+  } */
+}
+body .container .menu .theme .choice-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .menu .theme .choice-wrapper .theme-label {
+  display: inline-block;
+  width: 100px;
+  position: relative;
+}
+body .container .menu .theme .choice-wrapper .theme-label input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+body .container .menu .theme .choice-wrapper .theme-label input:checked + .span-inner::before {
+  background-color: #524d44;
+}
+body .container .menu .theme .choice-wrapper .theme-label input:checked + .span-inner::after {
+  background-color: #fbe4b7;
+  left: 64px;
+}
+body .container .menu .theme .choice-wrapper .theme-label .span-inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 36px;
+  background-color: #fff;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid #808080;
+  transition: background-color 0.3s linear;
+}
+body .container .menu .theme .choice-wrapper .theme-label .span-inner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #808080;
+  background-color: #fbe4b7;
+  top: 3px;
+  left: 3px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+body .container .menu .score-table-wrapper {
+  margin-top: 10px;
+}
 body .container .menu .score-table-wrapper .table-name {
   text-align: center;
   margin-bottom: 5px;
   border-bottom: 2px solid #808080;
+}
+body .container .menu .score-table-wrapper .table-name.dark {
+  color: #fbe4b7;
 }
 body .container .menu .score-table-wrapper table {
   font-size: 16px;
 }
 body .container .menu .score-table-wrapper table tr td {
   padding: 3px;
+}
+body .container .menu .score-table-wrapper table.dark {
+  color: #fbe4b7;
 }
 body .container .field-wrapper {
   display: flex;
@@ -97,6 +200,12 @@ body .container .field-wrapper {
 body .container .field-wrapper .game-name {
   font-family: Edge-Bold, sans-serif;
   font-size: 22px;
+}
+body .container .field-wrapper .game-name.dark {
+  color: #fbe4b7;
+}
+body .container .field-wrapper .timer.dark {
+  color: #fbe4b7;
 }
 body .container .field-wrapper .field {
   border-collapse: collapse;
@@ -239,6 +348,13 @@ body .container .field-wrapper .field tr td:last-child {
 body .container .field-wrapper .field tr td.filled {
   background-color: black;
 }
+body .container .field-wrapper .field tr td.filled.dark {
+  background-color: #fbe4b7;
+}
+body .container .field-wrapper .field.dark {
+  background-color: rgba(49, 48, 48, 0.8);
+  color: #fbe4b7;
+}
 body .popup-wrapper {
   display: flex;
   align-items: center;
@@ -270,8 +386,19 @@ body .popup-wrapper .modal {
   gap: 20px;
   box-sizing: border-box;
   cursor: pointer;
-  font-size: 30px;
+  font-family: Edge-Regular, sans-serif;
+  font-size: 26px;
   position: relative;
+}
+body .popup-wrapper .modal.dark {
+  background-color: #808080;
+  color: #fbe4b7;
+}
+body .popup-wrapper .modal.dark:before {
+  background-color: #fbe4b7;
+}
+body .popup-wrapper .modal.dark:after {
+  background-color: #fbe4b7;
 }
 body .popup-wrapper .modal .close-btn {
   width: 25px;
