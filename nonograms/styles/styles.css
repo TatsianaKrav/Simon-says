@@ -265,7 +265,7 @@ body .container .field-wrapper .field tr td.left-cell .left:nth-last-child(5n) {
 body .container .field-wrapper .field tr td.left-cell .left:first-child {
   border-left: 1px solid #808080;
 }
-body .container .field-wrapper .field tr td.left-cell .left.not:before {
+body .container .field-wrapper .field tr td.left-cell .left.cross:before {
   content: "";
   position: absolute;
   width: 1px;
@@ -273,7 +273,7 @@ body .container .field-wrapper .field tr td.left-cell .left.not:before {
   background-color: #808080;
   transform: rotate(45deg);
 }
-body .container .field-wrapper .field tr td.left-cell .left.not:after {
+body .container .field-wrapper .field tr td.left-cell .left.cross:after {
   content: "";
   position: absolute;
   width: 1px;
@@ -300,7 +300,7 @@ body .container .field-wrapper .field tr td.top-cell .top:nth-last-child(5n) {
 body .container .field-wrapper .field tr td.top-cell .top:first-child {
   border-top: none;
 }
-body .container .field-wrapper .field tr td.top-cell .top.not:before {
+body .container .field-wrapper .field tr td.top-cell .top.cross:before {
   content: "";
   position: absolute;
   width: 1px;
@@ -308,7 +308,7 @@ body .container .field-wrapper .field tr td.top-cell .top.not:before {
   background-color: #808080;
   transform: rotate(45deg);
 }
-body .container .field-wrapper .field tr td.top-cell .top.not:after {
+body .container .field-wrapper .field tr td.top-cell .top.cross:after {
   content: "";
   position: absolute;
   width: 1px;

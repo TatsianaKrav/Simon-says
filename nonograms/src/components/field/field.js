@@ -1,6 +1,7 @@
 import { calculateClues } from "../../utils/calculateClues.js";
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { Cell } from "../cell/cell.js";
+import { Clue } from "../clue/clue.js";
 
 
 
@@ -32,7 +33,8 @@ export class Field extends ElementCreator {
                     col.setClasses("top-cell");
 
                     for (let l = 0; l < topCluesMaxCount; l++) {
-                        const divElem = new ElementCreator("div", "top");
+                        /* const divElem = new ElementCreator("div", "top"); */
+                        const divElem = new Clue("top");
                         divElem.insAfter(col);
 
                         if (topClues[j - 1][l]) {
@@ -43,7 +45,8 @@ export class Field extends ElementCreator {
                     col.setClasses("left-cell");
 
                     for (let l = 0; l < leftCluesMaxCount; l++) {
-                        const divElem = new ElementCreator("div", "left");
+                        /*  const divElem = new ElementCreator("div", "left"); */
+                        const divElem = new Clue("left");
                         divElem.insAfter(col);
 
                         if (leftClues[i - 1][l]) {

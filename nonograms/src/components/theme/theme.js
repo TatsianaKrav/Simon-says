@@ -23,19 +23,13 @@ export class Theme extends ElementCreator {
         const span = new ElementCreator('span', 'span-inner');
         label.append(this.input, span);
 
-
-
         currentTheme ? this.input.setAttributes({ 'checked': '' })
             : this.input.removeAttributes('checked');
-
-        console.log(currentTheme);
-
 
         this.input.setCallback('change', this.change.bind(this));
 
         wrapper.append(label);
         this.append(themeNames, wrapper);
-
     }
 
     change() {

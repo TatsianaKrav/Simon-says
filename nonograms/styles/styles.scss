@@ -300,7 +300,7 @@ body {
                                     border-left: 1px solid $main-color;
                                 }
 
-                                &.not:before {
+                                &.cross:before {
                                     content: "";
                                     position: absolute;
                                     width: 1px;
@@ -309,7 +309,7 @@ body {
                                     transform: rotate(45deg);
                                 }
 
-                                &.not:after {
+                                &.cross:after {
                                     content: "";
                                     position: absolute;
                                     width: 1px;
@@ -342,7 +342,7 @@ body {
                                     border-top: none;
                                 }
 
-                                &.not:before {
+                                &.cross:before {
                                     content: "";
                                     position: absolute;
                                     width: 1px;
@@ -351,7 +351,7 @@ body {
                                     transform: rotate(45deg);
                                 }
 
-                                &.not:after {
+                                &.cross:after {
                                     content: "";
                                     position: absolute;
                                     width: 1px;
