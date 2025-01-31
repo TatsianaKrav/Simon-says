@@ -9,17 +9,24 @@ export class ButtonsWrapper extends ElementCreator {
     level;
     games;
 
-    constructor(levelObj) {
+    constructor(levelObj, container) {
         super('div', 'btns-wrapper');
         this.levelObj = levelObj;
+        this.container = container;
     }
 
     create(timer, field, currentGame) {
         const saveBtn = new SaveBtn(timer, this.levelObj);
-        const continueBtn = new ContinueBtn(timer, field, this.levelObj);
+        const continueBtn = new ContinueBtn(timer, field, this.levelObj, this.container);
         const solutionBtn = new SolutionBtn(currentGame, timer);
         const randomBtn = new RandomGameBtn();
         this.append(saveBtn, continueBtn, solutionBtn, randomBtn);
+
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            Array.from(this.getChildren()).forEach(btn => btn.classList.add('dark'));
+        }
     }
 
 }

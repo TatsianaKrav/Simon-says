@@ -1,10 +1,11 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 
 export class Level extends ElementCreator {
-    constructor(levelName, parent) {
+    constructor(levelName, parent, container) {
         super('select', 'levels');
         this.levelName = levelName;
         this.parent = parent;
+        this.container = container;
 
         this.create();
         this.setCallback('change', this.change.bind(this));
@@ -23,12 +24,12 @@ export class Level extends ElementCreator {
         }
     }
 
-    restore(savedLevel, gameName) {
-        this.parent.updateGamesSelect(savedLevel, gameName);
+    restore(savedLevel, gameName, container) {
+        this.parent.updateGamesSelect(savedLevel, gameName, container);
     }
 
     change(gameName) {
-        this.parent.updateGamesSelect(this.getValue(), gameName);
+        this.parent.updateGamesSelect(this.getValue(), gameName, this.container);
     }
 
     getValue() {

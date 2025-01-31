@@ -33,6 +33,10 @@ export class ElementCreator {
         );
     }
 
+    removeAttributes(attributes) {
+        [...attributes].forEach(attr => this.element.removeAttribute(attr));
+    }
+
     setInnerText(text) {
         this.element.innerText = text;
     }

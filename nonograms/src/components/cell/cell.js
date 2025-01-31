@@ -13,6 +13,8 @@ export class Cell extends ElementCreator {
         super('td');
         this.timer = timer;
         this.scoreTable = scoreTable;
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) this.setClasses('dark');
 
         this.setCallback('click', this.fill.bind(this));
         this.setCallback('contextmenu', (e) => this.cross(e));

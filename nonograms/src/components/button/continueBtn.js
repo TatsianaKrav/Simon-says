@@ -3,12 +3,13 @@ import { Button } from "./button.js";
 
 
 export class ContinueBtn extends Button {
-    constructor(timer, field, levelSelect) {
+    constructor(timer, field, levelSelect, container) {
         super('Continue last game', 'continue-btn');
 
         this.timer = timer;
         this.field = field;
         this.levelSelect = levelSelect;
+        this.container = container;
 
         this.setCallback('click', this.continue.bind(this));
     }
@@ -16,13 +17,15 @@ export class ContinueBtn extends Button {
     continue() {
         this.field.clear();
 
+        //currentGameName if not - popup (there is not saved game)
+
         const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
         const currentLevelName = JSON.parse(localStorage.getItem("savedGame")).currentLevel;
         const savedGame = JSON.parse(localStorage.getItem("savedGame")).savedGame;
         const timerTime = JSON.parse(localStorage.getItem("savedGame")).timerTime;
         const timer = JSON.parse(localStorage.getItem("savedGame")).timer;
 
-        this.levelSelect.restore(currentLevelName, currentGameName);
+        this.levelSelect.restore(currentLevelName, currentGameName, this.container);
 
         const currentTimer = document.getElementsByClassName('timer')[0];
         const newTimer = new Timer();

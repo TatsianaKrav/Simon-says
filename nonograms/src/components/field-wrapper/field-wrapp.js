@@ -33,6 +33,11 @@ export class FieldWrapper extends ElementCreator {
 
         const resetBtn = new ResetBtn();
         this.append(gameName, this.timer, this.field, resetBtn);
+
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            Array.from(this.getChildren()).forEach(el => el.classList.add('dark'));
+        }
     }
 
     getTimer() {

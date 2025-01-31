@@ -4,10 +4,11 @@ import { getLevel } from "../../utils/getLevel.js";
 
 
 export class Nonogram extends ElementCreator {
-    constructor(levelName, gameName) {
+    constructor(levelName, gameName, container) {
         super('select', 'games');
         this.levelName = levelName;
         this.gameName = gameName;
+        this.container = container;
 
         this.create();
         this.setCallback('change', this.change.bind(this));
@@ -27,9 +28,10 @@ export class Nonogram extends ElementCreator {
     }
 
     change() {
-        document.body.innerHTML = '';
-        const newGame = new Game();
-        newGame.init(this.levelName, this.getValue());
+        /*   document.body.innerHTML = ''; */
+        /*  const newGame = new Game();
+         newGame.init(this.levelName, this.getValue()); */
+        this.container.recreate(this.levelName, this.getValue());
     }
 
     getValue() {

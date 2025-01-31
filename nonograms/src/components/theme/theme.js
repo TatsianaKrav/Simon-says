@@ -9,6 +9,7 @@ export class Theme extends ElementCreator {
 
     create() {
         const currentTheme = localStorage.getItem('theme');
+        console.log(currentTheme);
 
         const themeNames = new ElementCreator('div', 'theme-names');
         const lightTheme = new ElementCreator('span', 'light-name', 'Light theme');
@@ -22,7 +23,12 @@ export class Theme extends ElementCreator {
         const span = new ElementCreator('span', 'span-inner');
         label.append(this.input, span);
 
-        if (currentTheme) this.input.setAttributes({ 'checked': '' });
+
+
+        currentTheme ? this.input.setAttributes({ 'checked': '' })
+            : this.input.removeAttributes('checked');
+
+        console.log(currentTheme);
 
 
         this.input.setCallback('change', this.change.bind(this));
@@ -47,7 +53,7 @@ export class Theme extends ElementCreator {
             });
         }
 
-        localStorage.setItem('theme', this.input.getElement());
+        localStorage.setItem('theme', this.input.getElement().checked);
 
     }
 

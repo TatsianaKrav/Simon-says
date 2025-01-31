@@ -1,8 +1,9 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 
 export class ScoreTable extends ElementCreator {
-    constructor() {
+    constructor(currentTheme) {
         super('table', 'score');
+        this.currentTheme = currentTheme;
 
         this.create();
     }
@@ -15,6 +16,8 @@ export class ScoreTable extends ElementCreator {
 
         const row = this.createRow(options);
         tHead.append(row);
+
+        if (this.currentTheme) this.setClasses('dark');
 
         //render results
         let lastGames = localStorage.getItem('lastGames');
