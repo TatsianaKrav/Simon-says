@@ -9,10 +9,12 @@ export class Cell extends ElementCreator {
     interval;
 
 
-    constructor(timer, scoreTable) {
+    constructor(timer, scoreTable, field) {
         super('td');
         this.timer = timer;
         this.scoreTable = scoreTable;
+        this.field = field;
+
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) this.setClasses('dark');
 
@@ -22,8 +24,9 @@ export class Cell extends ElementCreator {
 
     fill() {
         if (this.checkCLasses("top-cell", "left-cell", "empty")) return;
+        if (this.field.checkCLasses('done')) return;
 
-        const sound = new Audio();
+            const sound = new Audio();
 
         this.timerOn = this.timer.getElement().classList.contains('on');
 
@@ -45,6 +48,7 @@ export class Cell extends ElementCreator {
     cross(event) {
         event.preventDefault();
         if (this.checkCLasses("top-cell", "left-cell", "empty", "filled")) return;
+        if (this.field.checkCLasses('done')) return;
 
         this.timerOn = this.timer.getElement().classList.contains('on');
 

@@ -25,7 +25,9 @@ export class SolutionBtn extends Button {
             }
         }
 
+        const field = document.getElementsByClassName('field')[0];
+        field.classList.add('done');
 
-        clearInterval(this.timer.id); 
+        clearInterval(this.timer.id);
     }
 } 

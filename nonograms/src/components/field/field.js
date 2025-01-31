@@ -24,7 +24,7 @@ export class Field extends ElementCreator {
             const row = new ElementCreator("tr");
 
             for (let j = 0; j <= this.currentGame.image.length; j++) {
-                const col = new Cell(this.timer, this.scoreTable);
+                const col = new Cell(this.timer, this.scoreTable, this);
 
                 if (i === 0 && j === 0) {
                     col.setClasses("empty");
