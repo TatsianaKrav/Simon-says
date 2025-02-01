@@ -18,7 +18,6 @@ export class Popup extends ElementCreator {
         );
 
         const closeBtn = new ElementCreator('div', 'close-btn');
-        /* closeBtn.setCallback('click', () => this.removeClasses('open')); */
         closeBtn.setCallback('click', this.close.bind(this));
 
         this.modal.append(modalInfo, closeBtn);

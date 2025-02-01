@@ -34,7 +34,6 @@ export class Field extends ElementCreator {
                     col.setClasses("top-cell");
 
                     for (let l = 0; l < topCluesMaxCount; l++) {
-                        /* const divElem = new ElementCreator("div", "top"); */
                         const divElem = new Clue("top");
                         divElem.insAfter(col);
 
@@ -46,7 +45,6 @@ export class Field extends ElementCreator {
                     col.setClasses("left-cell");
 
                     for (let l = 0; l < leftCluesMaxCount; l++) {
-                        /*  const divElem = new ElementCreator("div", "left"); */
                         const divElem = new Clue("left");
                         divElem.insAfter(col);
 

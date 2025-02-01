@@ -1,6 +1,5 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { getLevel } from "../../utils/getLevel.js";
-import { ResetBtn } from "../button/resetBtn.js";
 import { Timer } from "../timer/timer.js";
 import { Field } from "../field/field.js";
 

@@ -17,8 +17,6 @@ export class ContinueBtn extends Button {
     continue() {
         this.field.clear();
 
-        //currentGameName if not - popup (there is not saved game)
-
         const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
         const currentLevelName = JSON.parse(localStorage.getItem("savedGame")).currentLevel;
         const savedGame = JSON.parse(localStorage.getItem("savedGame")).savedGame;

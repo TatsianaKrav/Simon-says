@@ -39,9 +39,6 @@ export class SaveBtn extends Button {
             timer: this.timer
         };
 
-
         localStorage.setItem("savedGame", JSON.stringify(toSave));
-
- 
     }
 }

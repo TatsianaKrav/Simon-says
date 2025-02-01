@@ -12,7 +12,7 @@ export function findNextGame(gameName) {
     const currentLevelGames = getLevel(currentGame.level);
     let currentGameIndex = currentLevelGames.indexOf(currentGame);
 
-    const nextGameIndex = currentGameIndex < 4 ? ++currentGameIndex : 0; // 1 общий  масисив, нверный индекс
+    const nextGameIndex = currentGameIndex < 4 ? ++currentGameIndex : 0;
 
     return currentLevelGames[nextGameIndex];
 }

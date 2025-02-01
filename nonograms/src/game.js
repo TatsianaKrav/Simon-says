@@ -42,28 +42,5 @@ export class Game extends ElementCreator {
         Array.from(this.getChildren()).forEach(child => child.remove());
         this.init(levelName, gameName);
     }
-
-
-    /*  create(levelSelect, games) {
-         this.fieldWrapper = new FieldWrapper(levelSelect, games);
-         const timer = this.fieldWrapper.getTimer();
-         const field = this.fieldWrapper.getField();
-         const currentGame = this.fieldWrapper.getCurrentGame();
-         this.btnsWrapper = new ButtonsWrapper(field, timer, currentGame);
- 
-         this.append(this.fieldWrapper, this.btnsWrapper);
-     } */
-
-    /*   recreate(level, gameName) {
-          const children = this.getChildren();
-          Array.from(children).forEach((el, i) => {
-              if (i !== 0) {
-                  el.remove();
-              }
-          })
-  
-          this.create(level, gameName);
-      } */
-
 }
 

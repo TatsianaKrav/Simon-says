@@ -30,5 +30,4 @@ export class ButtonsWrapper extends ElementCreator {
             Array.from(this.getChildren()).forEach(btn => btn.classList.add('dark'));
         }
     }
-
 }

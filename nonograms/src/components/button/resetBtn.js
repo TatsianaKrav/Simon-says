@@ -8,8 +8,6 @@ export class ResetBtn extends Button {
     }
 
     reset() {
-        //timer stop??
-        
         const cells = document.querySelectorAll(
             "td:not(.left-cell):not(.top-cell)"
         );
@@ -17,6 +15,5 @@ export class ResetBtn extends Button {
             cell.classList.remove("filled");
             cell.classList.remove("not");
         });
-
     }
 }

@@ -75,5 +75,4 @@ export class ScoreTable extends ElementCreator {
 
         return row;
     }
-
 }

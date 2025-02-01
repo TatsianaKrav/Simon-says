@@ -1,4 +1,3 @@
-import { Game } from "../../game.js";
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { getLevel } from "../../utils/getLevel.js";
 
@@ -28,9 +27,6 @@ export class Nonogram extends ElementCreator {
     }
 
     change() {
-        /*   document.body.innerHTML = ''; */
-        /*  const newGame = new Game();
-         newGame.init(this.levelName, this.getValue()); */
         this.container.recreate(this.levelName, this.getValue());
     }
 

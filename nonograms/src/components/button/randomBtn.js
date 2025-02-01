@@ -1,6 +1,5 @@
 import { Button } from "./button.js";
 import { easy, medium, hard } from "../../data.js";
-import { Game } from "../../game.js";
 
 
 export class RandomGameBtn extends Button {
@@ -17,8 +16,6 @@ export class RandomGameBtn extends Button {
         let random = Math.floor(Math.random() * allGames.length);
         let randomGame = allGames[random];
 
-        /*  document.body.innerHTML = '';
-         const newGame = new Game(); */
         this.container.recreate(randomGame.level, randomGame.name);
     }
 }

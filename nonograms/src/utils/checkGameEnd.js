@@ -49,7 +49,7 @@ export function handleGameEnd(timer, scoreTable, container) {
         const timerVal = timer.getTime();
 
         setTimeout(() => {
-            const popup = new Popup(timerVal, container, game.name);  //-1sec
+            const popup = new Popup(timerVal, container, game.name);
             const sound = new Audio();
             sound.win();
             timer.stop();

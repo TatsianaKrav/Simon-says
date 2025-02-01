@@ -1,9 +1,6 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 import { checkGameEnd, handleGameEnd } from "../../utils/checkGameEnd.js";
 import { Audio } from "../audio/audio.js";
-import { Timer } from "../timer/timer.js";
-
-
 
 export class Cell extends ElementCreator {
     timerOn = false;
