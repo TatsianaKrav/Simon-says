@@ -35,6 +35,58 @@ body .container {
   font-family: Edge-Regular, sans-serif;
   font-size: 18px;
 }
+@media screen and (max-width: 760px) {
+  body .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+body .container .burger {
+  cursor: pointer;
+  /*  display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center; */
+  gap: 5px;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  z-index: 5;
+  position: relative;
+  transition: opacity 0.3s linear;
+  /*  .line {
+      height: 2px;
+      width: 15px;
+      background-color: black;
+  } */
+}
+@media screen and (max-width: 580px) {
+  body .container .burger {
+    opacity: 1;
+    transition: opacity 0.3s linear;
+  }
+}
+body .container .burger::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 15px;
+  top: 12px;
+  left: 7px;
+  background-color: black;
+}
+body .container .burger::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 15px;
+  bottom: 12px;
+  left: 7px;
+  background-color: black;
+}
 body .container .menu {
   display: flex;
   align-items: center;
@@ -43,6 +95,11 @@ body .container .menu {
   align-self: start;
   gap: 1em;
   max-width: 320px;
+}
+@media screen and (max-width: 760px) {
+  body .container .menu {
+    align-self: unset;
+  }
 }
 body .container .menu .selects-wrapper {
   display: flex;
@@ -195,6 +252,11 @@ body .container .field-wrapper {
   align-self: start;
   gap: 10px;
   max-width: 560px;
+}
+@media screen and (max-width: 760px) {
+  body .container .field-wrapper {
+    align-self: unset;
+  }
 }
 body .container .field-wrapper .game-name {
   font-family: Edge-Bold, sans-serif;

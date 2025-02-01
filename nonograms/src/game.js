@@ -4,6 +4,7 @@ import { ButtonsWrapper } from "./components/btns-wrapper/btnsWrapp.js";
 import { SelectsWrapper } from "./components/selectsWrapp/selectsWrapp.js";
 import { ScoreTableWrapper } from "./components/score-table-wrapper/scoreTableWrapp.js";
 import { Theme } from "./components/theme/theme.js";
+import { Burger } from "./components/burger/burger.js";
 
 
 export class Game extends ElementCreator {
@@ -17,7 +18,7 @@ export class Game extends ElementCreator {
     }
 
     init(levelName, gameName) {
-        const actionsWrapper = new ElementCreator('div', 'menu');
+        const menu = new ElementCreator('div', 'menu');
         const selectsWrapper = new SelectsWrapper(levelName, gameName, this);
         this.levelObj = selectsWrapper.getSelections()[0];
         this.gameObj = selectsWrapper.getSelections()[1];
@@ -32,9 +33,11 @@ export class Game extends ElementCreator {
         const currentGame = this.fieldWrapper.getCurrentGame();
         this.btnsWrapper.create(timer, field, currentGame);
 
+        const burger = new Burger();
 
-        actionsWrapper.append(selectsWrapper, this.btnsWrapper, theme, scoreTableWrapper);
-        this.append(actionsWrapper, this.fieldWrapper);
+
+        menu.append(selectsWrapper, this.btnsWrapper, theme, scoreTableWrapper);
+        this.append(burger, menu, this.fieldWrapper);
         this.prependTo(document.body);
     }
 

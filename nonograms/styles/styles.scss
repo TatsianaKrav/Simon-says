@@ -43,11 +43,70 @@ body {
         font-family: Edge-Regular, sans-serif;
         font-size: 18px;
 
+        @media screen and (max-width: 760px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .burger {
+            cursor: pointer;
+           /*  display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; */
+            gap: 5px;
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            opacity: 0;
+            z-index: 5;
+            position: relative;
+            transition: opacity 0.3s linear;
+
+            @media screen and (max-width: 580px) {
+                opacity: 1;
+                transition: opacity 0.3s linear;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 15px;
+                top: 12px;
+                left: 7px;
+                background-color: black;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 15px;
+                bottom: 12px;
+                left: 7px;
+                background-color: black;
+            }
+
+            /*  .line {
+                height: 2px;
+                width: 15px;
+                background-color: black;
+            } */
+        }
+
+
         .menu {
             @include flex-column();
             align-self: start;
             gap: 1em;
             max-width: 320px;
+
+            @media screen and (max-width: 760px) {
+                align-self: unset;
+            }
 
             .selects-wrapper {
                 @include flex();
@@ -215,6 +274,10 @@ body {
             align-self: start;
             gap: 10px;
             max-width: 560px;
+
+            @media screen and (max-width: 760px) {
+                align-self: unset;
+            }
 
             .game-name {
                 font-family: Edge-Bold, sans-serif;
