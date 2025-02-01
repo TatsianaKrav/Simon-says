@@ -50,6 +50,7 @@ export function handleGameEnd(timer, scoreTable, container) {
 
         setTimeout(() => {
             const popup = new Popup(timerVal, container, game.name);
+            popup.open();
             const sound = new Audio();
             sound.win();
             timer.stop();

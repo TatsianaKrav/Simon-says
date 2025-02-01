@@ -23,15 +23,20 @@ export class Popup extends ElementCreator {
         this.modal.append(modalInfo, closeBtn);
         this.append(this.modal);
         this.appendTo(document.body);
-        this.setClasses('open');
 
         if (this.getElement().parentNode.classList.contains('dark')) {
             this.modal.setClasses('dark');
         }
     }
 
+    open() {
+        this.setClasses('open');
+        document.body.style.overflowY = 'hidden';
+    }
+
     close() {
         this.removeClasses('open');
+        document.body.style.overflowY = 'auto';
 
         const nextGame = findNextGame(this.gameName);
         this.container.recreate(nextGame.level, nextGame.name);
