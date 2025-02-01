@@ -2,7 +2,8 @@ import { Popup } from "../components/popup/popup.js";
 import { Audio } from "../components/audio/audio.js";
 import { Timer } from "../components/timer/timer.js";
 
-export function checkGameEnd(timer, scoreTable) {
+export function checkGameEnd() {
+    let result = false;
     const game = JSON.parse(localStorage.getItem('currGame'));
     let currentGameFilledCells = 0;
     const currentGameCells = document.querySelectorAll(
@@ -20,56 +21,67 @@ export function checkGameEnd(timer, scoreTable) {
         .filter((item) => item === 1).length;
 
     if (currentGameFilledCells === nonogramFilledCells) {
-        const result = checkResult(game);
-
-        if (result) {
-            const currentField = document.getElementsByClassName('field')[0];
-
-
-            if (currentField.classList.contains('continue')) {
-                const savedTimer = JSON.parse(localStorage.getItem("savedGame")).timer;
-                const currentTimer = document.getElementsByClassName('timer')[0];
-                const currentTimerVal = currentTimer.innerText;
-
-                const newTimer = new Timer();
-                currentTimer.replaceWith(newTimer.getElement());
-                Object.assign(timer, savedTimer);
-                newTimer.setTime(currentTimerVal);
-                timer.setTime(currentTimerVal);
-            }
-
-            const timerVal = timer.getTime();
-
-            setTimeout(() => {
-                const popup = new Popup(timerVal);  //-1sec
-                const sound = new Audio();
-                sound.win();
-                timer.stop();
-            }, 1000)
-
-            let lastGames = localStorage.getItem('lastGames');
-            lastGames = lastGames === 'undefined' || !lastGames ? [] : JSON.parse(lastGames);
-
-            const nonogram = {
-                gameName: game.name,
-                gameLevel: game.level,
-                gameTime: timer.getTime(),
-            };
-
-
-            if (lastGames.length < 5) {
-                lastGames.push(nonogram);
-            } else {
-                lastGames.shift();
-                lastGames.push(nonogram);
-            };
-
-            lastGames = sortTable(lastGames);
-            localStorage.setItem('lastGames', JSON.stringify(lastGames));
-
-            scoreTable.update(lastGames);
-        }
+        result = checkResult(game);
     }
+
+    return result;
+}
+
+export function handleGameEnd(timer, scoreTable) {
+    const result = checkGameEnd();
+    const game = JSON.parse(localStorage.getItem('currGame'));
+
+    if (result) {
+        const currentField = document.getElementsByClassName('field')[0];
+
+
+        if (currentField.classList.contains('continue')) {
+            const savedTimer = JSON.parse(localStorage.getItem("savedGame")).timer;
+            const currentTimer = document.getElementsByClassName('timer')[0];
+            const currentTimerVal = currentTimer.innerText;
+
+            const newTimer = new Timer();
+            currentTimer.replaceWith(newTimer.getElement());
+            Object.assign(timer, savedTimer);
+            newTimer.setTime(currentTimerVal);
+            timer.setTime(currentTimerVal);
+        }
+
+        const timerVal = timer.getTime();
+
+        setTimeout(() => {
+            const popup = new Popup(timerVal);  //-1sec
+            const sound = new Audio();
+            sound.win();
+            timer.stop();
+        }, 1000)
+
+        handleScoreTable(game, timer, scoreTable);
+    }
+}
+
+function handleScoreTable(game, timer, scoreTable) {
+    let lastGames = localStorage.getItem('lastGames');
+    lastGames = lastGames === 'undefined' || !lastGames ? [] : JSON.parse(lastGames);
+
+    const nonogram = {
+        gameName: game.name,
+        gameLevel: game.level,
+        gameTime: timer.getTime(),
+    };
+
+
+    if (lastGames.length < 5) {
+        lastGames.push(nonogram);
+    } else {
+        lastGames.shift();
+        lastGames.push(nonogram);
+    };
+
+    lastGames = sortTable(lastGames);
+    localStorage.setItem('lastGames', JSON.stringify(lastGames));
+
+    scoreTable.update(lastGames);
 }
 
 function checkResult(nonogram) {

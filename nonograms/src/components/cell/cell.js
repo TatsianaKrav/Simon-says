@@ -1,7 +1,8 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
-import { checkGameEnd } from "../../utils/checkGameEnd.js";
+import { checkGameEnd, handleGameEnd } from "../../utils/checkGameEnd.js";
 import { Audio } from "../audio/audio.js";
 import { Timer } from "../timer/timer.js";
+
 
 
 export class Cell extends ElementCreator {
@@ -23,10 +24,13 @@ export class Cell extends ElementCreator {
     }
 
     fill() {
+        const result = checkGameEnd();
+        if (result) return;
+
         if (this.checkCLasses("top-cell", "left-cell", "empty")) return;
         if (this.field.checkCLasses('done')) return;
 
-            const sound = new Audio();
+        const sound = new Audio();
 
         this.timerOn = this.timer.getElement().classList.contains('on');
 
@@ -42,11 +46,14 @@ export class Cell extends ElementCreator {
 
         this.checkCLasses('filled') ? sound.remove() : sound.fill();
         this.getElement().classList.toggle('filled');
-        checkGameEnd(this.timer, this.scoreTable);
+        handleGameEnd(this.timer, this.scoreTable);
     }
 
     cross(event) {
         event.preventDefault();
+        const result = checkGameEnd();
+        if (result) return;
+
         if (this.checkCLasses("top-cell", "left-cell", "empty", "filled")) return;
         if (this.field.checkCLasses('done')) return;
 
@@ -62,7 +69,7 @@ export class Cell extends ElementCreator {
 
         this.checkCLasses('not') ? sound.remove() : sound.cross();
         this.getElement().classList.toggle('not');
-        checkGameEnd(this.timer);
+        handleGameEnd(this.timer, this.scoreTable);;
     }
 }
 
