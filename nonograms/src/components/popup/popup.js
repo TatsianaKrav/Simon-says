@@ -1,9 +1,13 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
+import { findNextGame } from "../../utils/findGame.js";
 
 export class Popup extends ElementCreator {
-    constructor(time) {
+    constructor(time, container, gameName) {
         super('div', 'popup-wrapper');
         this.time = time;
+        this.container = container;
+        this.gameName = gameName;
+
         this.create();
     }
 
@@ -14,7 +18,8 @@ export class Popup extends ElementCreator {
         );
 
         const closeBtn = new ElementCreator('div', 'close-btn');
-        closeBtn.setCallback('click', () => this.removeClasses('open'));
+        /* closeBtn.setCallback('click', () => this.removeClasses('open')); */
+        closeBtn.setCallback('click', this.close.bind(this));
 
         this.modal.append(modalInfo, closeBtn);
         this.append(this.modal);
@@ -24,5 +29,12 @@ export class Popup extends ElementCreator {
         if (this.getElement().parentNode.classList.contains('dark')) {
             this.modal.setClasses('dark');
         }
+    }
+
+    close() {
+        this.removeClasses('open');
+
+        const nextGame = findNextGame(this.gameName);
+        this.container.recreate(nextGame.level, nextGame.name);
     }
 }

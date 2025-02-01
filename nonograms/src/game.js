@@ -26,7 +26,7 @@ export class Game extends ElementCreator {
         const theme = new Theme();
 
         this.btnsWrapper = new ButtonsWrapper(this.levelObj, this);
-        this.fieldWrapper = new FieldWrapper(this.levelObj, this.gameObj, scoreTable);
+        this.fieldWrapper = new FieldWrapper(this.levelObj, this.gameObj, scoreTable, this);
         const timer = this.fieldWrapper.getTimer();
         const field = this.fieldWrapper.getField();
         const currentGame = this.fieldWrapper.getCurrentGame();

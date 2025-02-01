@@ -6,11 +6,12 @@ import { Clue } from "../clue/clue.js";
 
 
 export class Field extends ElementCreator {
-    constructor(game, timer, scoreTable) {
+    constructor(game, timer, scoreTable, container) {
         super('table', 'field');
         this.currentGame = game;
         this.timer = timer;
         this.scoreTable = scoreTable;
+        this.container = container;
 
         this.create();
     }
@@ -24,7 +25,7 @@ export class Field extends ElementCreator {
             const row = new ElementCreator("tr");
 
             for (let j = 0; j <= this.currentGame.image.length; j++) {
-                const col = new Cell(this.timer, this.scoreTable, this);
+                const col = new Cell(this.timer, this.scoreTable, this, this.container);
 
                 if (i === 0 && j === 0) {
                     col.setClasses("empty");

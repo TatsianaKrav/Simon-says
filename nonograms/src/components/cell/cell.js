@@ -10,11 +10,12 @@ export class Cell extends ElementCreator {
     interval;
 
 
-    constructor(timer, scoreTable, field) {
+    constructor(timer, scoreTable, field, container) {
         super('td');
         this.timer = timer;
         this.scoreTable = scoreTable;
         this.field = field;
+        this.container = container;
 
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) this.setClasses('dark');
@@ -46,7 +47,7 @@ export class Cell extends ElementCreator {
 
         this.checkCLasses('filled') ? sound.remove() : sound.fill();
         this.getElement().classList.toggle('filled');
-        handleGameEnd(this.timer, this.scoreTable);
+        handleGameEnd(this.timer, this.scoreTable, this.container);
     }
 
     cross(event) {
@@ -69,7 +70,7 @@ export class Cell extends ElementCreator {
 
         this.checkCLasses('not') ? sound.remove() : sound.cross();
         this.getElement().classList.toggle('not');
-        handleGameEnd(this.timer, this.scoreTable);;
+        handleGameEnd(this.timer, this.scoreTable, this.container);
     }
 }
 

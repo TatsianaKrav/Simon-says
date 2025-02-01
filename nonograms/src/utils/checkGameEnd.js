@@ -27,13 +27,12 @@ export function checkGameEnd() {
     return result;
 }
 
-export function handleGameEnd(timer, scoreTable) {
+export function handleGameEnd(timer, scoreTable, container) {
     const result = checkGameEnd();
     const game = JSON.parse(localStorage.getItem('currGame'));
 
     if (result) {
         const currentField = document.getElementsByClassName('field')[0];
-
 
         if (currentField.classList.contains('continue')) {
             const savedTimer = JSON.parse(localStorage.getItem("savedGame")).timer;
@@ -50,7 +49,7 @@ export function handleGameEnd(timer, scoreTable) {
         const timerVal = timer.getTime();
 
         setTimeout(() => {
-            const popup = new Popup(timerVal);  //-1sec
+            const popup = new Popup(timerVal, container, game.name);  //-1sec
             const sound = new Audio();
             sound.win();
             timer.stop();
