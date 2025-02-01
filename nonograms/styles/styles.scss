@@ -302,18 +302,18 @@ body {
                                 &.cross:before {
                                     content: "";
                                     position: absolute;
-                                    width: 1px;
+                                    width: 2px;
                                     height: 30px;
-                                    background-color: $main-color;
+                                    background-color: black;
                                     transform: rotate(45deg);
                                 }
 
                                 &.cross:after {
                                     content: "";
                                     position: absolute;
-                                    width: 1px;
+                                    width: 2px;
                                     height: 30px;
-                                    background-color: $main-color;
+                                    background-color: black;
                                     transform: rotate(-45deg);
                                 }
                             }
@@ -344,18 +344,18 @@ body {
                                 &.cross:before {
                                     content: "";
                                     position: absolute;
-                                    width: 1px;
+                                    width: 2px;
                                     height: 30px;
-                                    background-color: $main-color;
+                                    background-color: black;
                                     transform: rotate(45deg);
                                 }
 
                                 &.cross:after {
                                     content: "";
                                     position: absolute;
-                                    width: 1px;
+                                    width: 2px;
                                     height: 30px;
-                                    background-color: $main-color;
+                                    background-color: black;
                                     transform: rotate(-45deg);
                                 }
                             }

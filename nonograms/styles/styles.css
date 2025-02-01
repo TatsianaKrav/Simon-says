@@ -267,17 +267,17 @@ body .container .field-wrapper .field tr td.left-cell .left:first-child {
 body .container .field-wrapper .field tr td.left-cell .left.cross:before {
   content: "";
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 30px;
-  background-color: #808080;
+  background-color: black;
   transform: rotate(45deg);
 }
 body .container .field-wrapper .field tr td.left-cell .left.cross:after {
   content: "";
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 30px;
-  background-color: #808080;
+  background-color: black;
   transform: rotate(-45deg);
 }
 body .container .field-wrapper .field tr td.top-cell {
@@ -302,17 +302,17 @@ body .container .field-wrapper .field tr td.top-cell .top:first-child {
 body .container .field-wrapper .field tr td.top-cell .top.cross:before {
   content: "";
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 30px;
-  background-color: #808080;
+  background-color: black;
   transform: rotate(45deg);
 }
 body .container .field-wrapper .field tr td.top-cell .top.cross:after {
   content: "";
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 30px;
-  background-color: #808080;
+  background-color: black;
   transform: rotate(-45deg);
 }
 body .container .field-wrapper .field tr td.not:before {
