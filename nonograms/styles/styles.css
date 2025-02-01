@@ -71,7 +71,6 @@ body .container .menu .btns-wrapper {
   gap: 0.5em;
 }
 body .container .menu .btns-wrapper button {
-  width: 150px;
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid gray;
