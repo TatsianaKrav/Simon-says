@@ -9,7 +9,6 @@ export class Theme extends ElementCreator {
 
     create() {
         const currentTheme = localStorage.getItem('theme');
-        console.log(currentTheme);
 
         const themeNames = new ElementCreator('div', 'theme-names');
         const lightTheme = new ElementCreator('span', 'light-name', 'Light theme');
@@ -41,14 +40,14 @@ export class Theme extends ElementCreator {
             elemsToChangeColor.forEach((elem) => {
                 elem.classList.add("dark");
             });
+
+            localStorage.setItem('theme', true);
         } else {
             elemsToChangeColor.forEach((elem) => {
                 elem.classList.remove("dark");
             });
+
+            localStorage.removeItem('theme');
         }
-
-        localStorage.setItem('theme', this.input.getElement().checked);
-
     }
-
 }
