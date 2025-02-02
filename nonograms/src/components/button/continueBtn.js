@@ -16,6 +16,7 @@ export class ContinueBtn extends Button {
 
     continue() {
         this.field.clear();
+        this.field.setClasses('continue');
 
         const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
         const currentLevelName = JSON.parse(localStorage.getItem("savedGame")).currentLevel;

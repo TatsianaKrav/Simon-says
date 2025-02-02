@@ -28,6 +28,13 @@ export class SolutionBtn extends Button {
         const field = document.getElementsByClassName('field')[0];
         field.classList.add('done');
 
+        if (field.classList.contains('continue')) {
+            const savedTimer = JSON.parse(localStorage.getItem("savedGame")).timer;
+            Object.assign(this.timer, savedTimer);
+            this.timer.id = savedTimer.id;
+            this.timer.stop();
+        }
+
         clearInterval(this.timer.id);
     }
 } 

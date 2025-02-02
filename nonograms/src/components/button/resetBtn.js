@@ -15,5 +15,8 @@ export class ResetBtn extends Button {
             cell.classList.remove("filled");
             cell.classList.remove("not");
         });
+
+        const clues = document.querySelectorAll('.top, .left');
+        Array.from(clues).forEach(clue => clue.classList.remove('cross'));
     }
 }

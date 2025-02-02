@@ -19,7 +19,7 @@ body {
 }
 @media screen and (max-width: 580px) {
   body {
-    height: 100dvh;
+    min-height: 100dvh;
   }
 }
 body.dark {
@@ -39,7 +39,7 @@ body .container {
   font-family: Edge-Regular, sans-serif;
   font-size: 18px;
 }
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1060px) {
   body .container {
     flex-direction: column;
     align-items: center;
@@ -100,7 +100,7 @@ body .container .menu {
   gap: 1em;
   max-width: 320px;
 }
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1060px) {
   body .container .menu {
     align-self: unset;
   }

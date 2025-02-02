@@ -74,7 +74,7 @@ function handleScoreTable(game, timer, scoreTable) {
     if (lastGames.length < 5) {
         lastGames.push(nonogram);
     } else {
-        lastGames.shift();
+        lastGames.pop();
         lastGames.push(nonogram);
     };
 
