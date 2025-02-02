@@ -3,19 +3,21 @@ import { Nonogram } from "../select/nonogram.js";
 import { Level } from "../select/level.js";
 
 export class SelectsWrapper extends ElementCreator {
-    constructor(levelName, gameName, container) {
+    constructor(levelName, gameName, container, menu) {
         super('div', 'selects-wrapper');
         this.levelName = levelName;
         this.gameName = gameName;
         this.container = container;
+        this.menu = menu;
         this.currentTheme = localStorage.getItem('theme');
+
 
         this.create();
     }
 
     create() {
 
-        this.levelObj = new Level(this.levelName, this, this.container);
+        this.levelObj = new Level(this.levelName, this, this.container, this.menu);
         this.games = new Nonogram(this.levelName, this.gameName, this.container);
 
         this.append(this.levelObj, this.games);
@@ -25,9 +27,9 @@ export class SelectsWrapper extends ElementCreator {
         }
     }
 
-    updateGamesSelect(levelName, gameName, container) {
+    updateGamesSelect(levelName, gameName, container, openedBurger) {
         Array.from(this.getChildren())[1].remove();
-        this.games = new Nonogram(levelName, gameName, container);
+        this.games = new Nonogram(levelName, gameName, container, openedBurger);
         this.games.change();
         this.append(this.games);
     }

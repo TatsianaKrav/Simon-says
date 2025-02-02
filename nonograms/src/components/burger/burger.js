@@ -1,13 +1,14 @@
 import { ElementCreator } from "../../utils/elementCreator.js";
 
 export class Burger extends ElementCreator {
-    constructor() {
+    constructor(menu) {
         super('div', 'burger');
-        this.setCallback('click', this.handle.bind(this));
+        this.menu = menu;
 
+        this.setCallback('click', this.handle.bind(this));
     }
 
     handle() {
-        console.log(1);
+        this.menu.element.classList.toggle('open');
     }
 }

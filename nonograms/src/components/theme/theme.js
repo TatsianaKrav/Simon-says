@@ -33,7 +33,7 @@ export class Theme extends ElementCreator {
 
     change() {
         const elemsToChangeColor = document.querySelectorAll(
-            "body, .score, td, select, .btn, .game-name, .timer, .table-name, .field, .modal"
+            "body, .score, td, select, .btn, .game-name, .timer, .table-name, .field, .modal, .score-table-wrapper"
         );
 
         if (this.input.getElement().checked) {

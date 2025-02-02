@@ -18,8 +18,16 @@ export class Game extends ElementCreator {
     }
 
     init(levelName, gameName) {
-        const menu = new ElementCreator('div', 'menu');
-        const selectsWrapper = new SelectsWrapper(levelName, gameName, this);
+        this.menu = new ElementCreator('div', 'menu');
+        this.menu.setCallback('click', (e) => {
+            const target = e.target;
+
+            if (target.classList.contains('open')) {
+                this.menu.removeClasses('open');
+            }
+        })
+
+        const selectsWrapper = new SelectsWrapper(levelName, gameName, this, this.menu);
         this.levelObj = selectsWrapper.getSelections()[0];
         this.gameObj = selectsWrapper.getSelections()[1];
         const scoreTableWrapper = new ScoreTableWrapper();
@@ -33,17 +41,18 @@ export class Game extends ElementCreator {
         const currentGame = this.fieldWrapper.getCurrentGame();
         this.btnsWrapper.create(timer, field, currentGame);
 
-        const burger = new Burger();
+        this.burger = new Burger(this.menu);
 
 
-        menu.append(selectsWrapper, this.btnsWrapper, theme, scoreTableWrapper);
-        this.append(burger, menu, this.fieldWrapper);
+        this.menu.append(selectsWrapper, this.btnsWrapper, theme, scoreTableWrapper);
+        this.append(this.burger, this.menu, this.fieldWrapper);
         this.prependTo(document.body);
     }
 
-    recreate(levelName, gameName) {
+    recreate(levelName, gameName, openedBurger) {
         Array.from(this.getChildren()).forEach(child => child.remove());
         this.init(levelName, gameName);
+        if (openedBurger) this.menu.setClasses('open');
     }
 }
 

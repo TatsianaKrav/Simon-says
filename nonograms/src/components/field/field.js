@@ -5,6 +5,8 @@ import { Clue } from "../clue/clue.js";
 
 
 
+
+
 export class Field extends ElementCreator {
     constructor(game, timer, scoreTable, container) {
         super('table', 'field');
