@@ -74,14 +74,14 @@ function handleScoreTable(game, timer, scoreTable) {
     if (lastGames.length < 5) {
         lastGames.push(nonogram);
     } else {
-        lastGames.pop();
+        lastGames.shift();
         lastGames.push(nonogram);
     };
 
-    lastGames = sortTable(lastGames);
+    const sortedLastGames = sortTable(lastGames);
     localStorage.setItem('lastGames', JSON.stringify(lastGames));
 
-    scoreTable.update(lastGames);
+    scoreTable.update(sortedLastGames);
 }
 
 function checkResult(nonogram) {
