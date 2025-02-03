@@ -41,7 +41,6 @@ body {
         max-width: 1440px;
         gap: 50px;
         margin: 0 auto;
-        /*   max-height: 640px; */
         border: 2px solid gray;
         border-radius: 5px;
         font-family: Edge-Regular, sans-serif;
@@ -212,10 +211,6 @@ body {
                         border: 1px solid $main-color;
                         background-color: $dark-color;
                         color: $light-color;
-                        /* 
-                        &.dark {
-                            color: black;
-                        } */
                     }
                 }
 
@@ -400,8 +395,6 @@ body {
 
                     td {
                         padding: 0;
-                        /*  width: 5%;
-                        height: 5%; */
                         box-sizing: border-box;
                         cursor: pointer;
                         border: 1px solid $main-color;
@@ -434,6 +427,7 @@ body {
                                 @media screen and (max-width: 580px) {
                                     width: 20px;
                                     height: 20px;
+                                    align-items: baseline;
                                 }
 
 
@@ -461,6 +455,10 @@ body {
                                     height: 30px;
                                     background-color: black;
                                     transform: rotate(-45deg);
+
+                                    @media screen and (max-width: 580px) {
+                                        height: 25px;
+                                    }
                                 }
                             }
                         }
@@ -472,9 +470,6 @@ body {
 
                             .top {
                                 @include flex();
-                                /*  display: flex;
-                                align-items: center;
-                                justify-content: center; */
                                 width: 25px;
                                 height: 25px;
                                 border-top: 1px solid $main-color;
@@ -482,6 +477,7 @@ body {
                                 @media screen and (max-width: 580px) {
                                     width: 20px;
                                     height: 20px;
+                                    align-items: baseline;
                                 }
 
                                 &:nth-last-child(5n) {
@@ -498,7 +494,11 @@ body {
                                     width: 2px;
                                     height: 30px;
                                     background-color: black;
-                                    transform: rotate(45deg);
+                                    transform: rotate(45deg); 
+
+                                    @media screen and (max-width: 580px) {
+                                        height: 25px;
+                                    }
                                 }
 
                                 &.cross:after {
@@ -508,6 +508,10 @@ body {
                                     height: 30px;
                                     background-color: black;
                                     transform: rotate(-45deg);
+
+                                    @media screen and (max-width: 580px) {
+                                        height: 25px;
+                                    }
                                 }
                             }
                         }
@@ -521,6 +525,11 @@ body {
                             height: 30px;
                             background-color: $main-color;
                             transform: rotate(45deg);
+
+                            @media screen and (max-width: 580px) {
+                                height: 25px;
+                                left: 10px;
+                            }
                         }
 
                         &.not:after {
@@ -532,6 +541,11 @@ body {
                             height: 30px;
                             background-color: $main-color;
                             transform: rotate(-45deg);
+
+                            @media screen and (max-width: 580px) {
+                                height: 25px;
+                                left: 10px;
+                            }
                         }
 
                         &:nth-child(5n + 1) {
@@ -595,6 +609,10 @@ body {
             font-family: Edge-Regular, sans-serif;
             font-size: 26px;
             position: relative;
+
+            @media screen and (max-width: 580px) {
+                font-size: 18px;
+            }
 
             &.dark {
                 background-color: $main-color;
