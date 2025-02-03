@@ -1,3 +1,4 @@
+import { PopupInfo } from "../popup/popupInfo.js";
 import { Timer } from "../timer/timer.js";
 import { Button } from "./button.js";
 
@@ -18,11 +19,19 @@ export class ContinueBtn extends Button {
         this.field.clear();
         this.field.setClasses('continue');
 
-        const currentGameName = JSON.parse(localStorage.getItem("savedGame")).currentGameName;
-        const currentLevelName = JSON.parse(localStorage.getItem("savedGame")).currentLevel;
-        const savedGame = JSON.parse(localStorage.getItem("savedGame")).savedGame;
-        const timerTime = JSON.parse(localStorage.getItem("savedGame")).timerTime;
-        const timer = JSON.parse(localStorage.getItem("savedGame")).timer;
+        const currentGame = JSON.parse(localStorage.getItem("savedGame"));
+
+        if (!currentGame) {
+            const popup = new PopupInfo();
+            popup.open();
+            return;
+        }
+
+        const currentGameName = currentGame.currentGameName;
+        const currentLevelName = currentGame.currentLevel;
+        const savedGame = currentGame.savedGame;
+        const timerTime = currentGame.timerTime;
+        const timer = currentGame.timer;
 
         this.levelSelect.restore(currentLevelName, currentGameName, this.container);
 
@@ -39,7 +48,6 @@ export class ContinueBtn extends Button {
 
         min = timerTime.slice(0, 2);
         sec = timerTime.slice(3);
-
 
 
         if (min[0] === "0") {

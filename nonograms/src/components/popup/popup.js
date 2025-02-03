@@ -2,25 +2,26 @@ import { ElementCreator } from "../../utils/elementCreator.js";
 import { findNextGame } from "../../utils/findGame.js";
 
 export class Popup extends ElementCreator {
-    constructor(time, container, gameName) {
+    constructor() {
         super('div', 'popup-wrapper');
-        this.time = time;
-        this.container = container;
-        this.gameName = gameName;
-
+        /*    this.time = time;
+           this.container = container;
+           this.gameName = gameName;
+    */
         this.create();
     }
 
     create() {
         this.modal = new ElementCreator('div', 'modal');
-        const modalInfo = new ElementCreator('div', 'modal-info',
-            `Great! You have solved the nonogram in ${this.time} seconds!`
-        );
+        /*   const modalInfo = new ElementCreator('div', 'modal-info',
+              `Great! You have solved the nonogram in ${this.time} seconds!`
+          ); */
+        this.modalInfo = new ElementCreator('div', 'modal-info');
 
         const closeBtn = new ElementCreator('div', 'close-btn');
         closeBtn.setCallback('click', this.close.bind(this));
 
-        this.modal.append(modalInfo, closeBtn);
+        this.modal.append(this.modalInfo, closeBtn);
         this.append(this.modal);
         this.appendTo(document.body);
 
@@ -37,8 +38,8 @@ export class Popup extends ElementCreator {
     close() {
         this.removeClasses('open');
         document.body.style.overflowY = 'auto';
-
-        const nextGame = findNextGame(this.gameName);
-        this.container.recreate(nextGame.level, nextGame.name);
+        /* 
+                const nextGame = findNextGame(this.gameName);
+                this.container.recreate(nextGame.level, nextGame.name); */
     }
 }

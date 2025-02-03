@@ -1,6 +1,7 @@
 import { Popup } from "../components/popup/popup.js";
 import { Audio } from "../components/audio/audio.js";
 import { Timer } from "../components/timer/timer.js";
+import { PopupResult } from "../components/popup/popupResult.js";
 
 export function checkGameEnd() {
     let result = false;
@@ -49,7 +50,7 @@ export function handleGameEnd(timer, scoreTable, container) {
         const timerVal = timer.getTime();
 
         setTimeout(() => {
-            const popup = new Popup(timerVal, container, game.name);
+            const popup = new PopupResult(timerVal, container, game.name);
             popup.open();
             const sound = new Audio();
             sound.win();

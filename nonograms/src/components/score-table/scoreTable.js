@@ -44,8 +44,7 @@ export class ScoreTable extends ElementCreator {
 
             for (let i = rows.length; i < arr.length; i++) {
 
-                const index = i + 1;
-                const options = [index, arr[index].gameName, arr[index].gameLevel, arr[index].gameTime];
+                const options = [i + 1, arr[i].gameName, arr[i].gameLevel, arr[i].gameTime];
                 const row = this.createRow(options);
                 this.tBody.append(row);
             }
