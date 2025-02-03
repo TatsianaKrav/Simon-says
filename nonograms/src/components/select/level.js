@@ -25,8 +25,8 @@ export class Level extends ElementCreator {
         }
     }
 
-    restore(savedLevel, gameName, container) {
-        this.parent.updateGamesSelect(savedLevel, gameName, container);
+    restore(savedLevel, gameName, container, restored) {
+        this.parent.updateGamesSelect(savedLevel, gameName, container, '', restored);
     }
 
     change(gameName) {

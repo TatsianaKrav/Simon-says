@@ -27,9 +27,9 @@ export class SelectsWrapper extends ElementCreator {
         }
     }
 
-    updateGamesSelect(levelName, gameName, container, openedBurger) {
+    updateGamesSelect(levelName, gameName, container, openedBurger, restored) {
         Array.from(this.getChildren())[1].remove();
-        this.games = new Nonogram(levelName, gameName, container, openedBurger);
+        this.games = new Nonogram(levelName, gameName, container, openedBurger, restored);
         this.games.change();
         this.append(this.games);
     }

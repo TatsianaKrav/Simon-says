@@ -1,4 +1,3 @@
-import { Popup } from "../components/popup/popup.js";
 import { Audio } from "../components/audio/audio.js";
 import { Timer } from "../components/timer/timer.js";
 import { PopupResult } from "../components/popup/popupResult.js";

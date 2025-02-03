@@ -17,7 +17,7 @@ export class Game extends ElementCreator {
         super('div', 'container');
     }
 
-    init(levelName, gameName) {
+    init(levelName, gameName, restoreFlag) {
         this.menu = new ElementCreator('div', 'menu');
         this.menu.setCallback('click', (e) => {
             const target = e.target;
@@ -35,7 +35,7 @@ export class Game extends ElementCreator {
         const theme = new Theme();
 
         this.btnsWrapper = new ButtonsWrapper(this.levelObj, this);
-        this.fieldWrapper = new FieldWrapper(this.levelObj, this.gameObj, scoreTable, this);
+        this.fieldWrapper = new FieldWrapper(this.levelObj, this.gameObj, scoreTable, this, '', restoreFlag);
         const timer = this.fieldWrapper.getTimer();
         const field = this.fieldWrapper.getField();
         const currentGame = this.fieldWrapper.getCurrentGame();
@@ -49,9 +49,9 @@ export class Game extends ElementCreator {
         this.prependTo(document.body);
     }
 
-    recreate(levelName, gameName, openedBurger) {
+    recreate(levelName, gameName, openedBurger, restored) {
         Array.from(this.getChildren()).forEach(child => child.remove());
-        this.init(levelName, gameName);
+        this.init(levelName, gameName, restored);
         if (openedBurger) this.menu.setClasses('open');
     }
 }

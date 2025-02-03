@@ -1,5 +1,4 @@
 import { PopupInfo } from "../popup/popupInfo.js";
-import { Timer } from "../timer/timer.js";
 import { Button } from "./button.js";
 
 
@@ -33,32 +32,9 @@ export class ContinueBtn extends Button {
         const timerTime = currentGame.timerTime;
         const timer = currentGame.timer;
 
-        this.levelSelect.restore(currentLevelName, currentGameName, this.container);
-
-        const currentTimer = document.getElementsByClassName('timer')[0];
-        const newTimer = new Timer();
-        currentTimer.replaceWith(newTimer.getElement());
-        newTimer.setClasses('on');
-        newTimer.id = timer.id;
-
-        let min;
-        let sec;
-
-        newTimer.setTime(timerTime);
-
-        min = timerTime.slice(0, 2);
-        sec = timerTime.slice(3);
-
-
-        if (min[0] === "0") {
-            min = min.slice(1);
-        }
-
-        if (sec[0] === "0") {
-            sec = sec.slice(1);
-        }
-
-        newTimer.init(min, sec);
+        this.levelSelect.restore(currentLevelName, currentGameName, this.container, true);
+        Object.assign(this.timer, this.container.fieldWrapper.timer);
+    
 
         const currentField = document.getElementsByClassName('field')[0];
         currentField.classList.add('continue');

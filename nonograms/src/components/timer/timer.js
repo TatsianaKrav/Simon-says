@@ -5,15 +5,33 @@ export class Timer extends ElementCreator {
     sec;
     min;
 
-    constructor() {
+    constructor(restored) {
         super('div', 'timer', "00:00");
+        this.restored = restored;
+
+        if (this.restored) {
+            this.restore();
+        }
+    }
+
+    restore() {
+        const savedGame = JSON.parse(localStorage.getItem('savedGame'));
+
+        this.min = Number(savedGame.timer.min);
+        this.sec = Number(savedGame.timer.sec);
+        this.id = savedGame.timer.id
+
+        this.setTime(savedGame.timerTime);
+        this.setClasses('on');
+
+        this.id = setInterval(this.tick.bind(this), 1000);
     }
 
     init(min, sec) {
         this.min = Number(min);
         this.sec = Number(sec);
 
-        this.id = setInterval(this.tick.bind(this), 1000)
+        this.id = setInterval(this.tick.bind(this), 1000);
     }
 
     stop() {

@@ -19,9 +19,9 @@ export class ButtonsWrapper extends ElementCreator {
     create(timer, field, currentGame) {
         const saveBtn = new SaveBtn(timer, this.levelObj);
         const continueBtn = new ContinueBtn(timer, field, this.levelObj, this.container);
-        const solutionBtn = new SolutionBtn(currentGame, timer);
+        const solutionBtn = new SolutionBtn(currentGame, timer, this.container);
         const randomBtn = new RandomGameBtn(this.container);
-        const resetBtn = new ResetBtn(timer);
+        const resetBtn = new ResetBtn(timer, this.container, currentGame);
         this.append(saveBtn, continueBtn, solutionBtn, randomBtn, resetBtn);
 
         const currentTheme = localStorage.getItem('theme');
