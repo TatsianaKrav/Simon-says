@@ -1,10 +1,11 @@
 import { Button } from "./button.js";
 
 export class ResetBtn extends Button {
-    constructor() {
+    constructor(timer) {
         super('Reset game', 'reset-btn');
+        this.timer = timer;
 
-        this.setCallback('click', this.reset);
+        this.setCallback('click', this.reset.bind(this));
     }
 
     reset() {
@@ -18,5 +19,9 @@ export class ResetBtn extends Button {
 
         const clues = document.querySelectorAll('.top, .left');
         Array.from(clues).forEach(clue => clue.classList.remove('cross'));
+
+        this.timer.stop();
+        this.timer.element.classList.remove('on');
+        this.timer.setTime('00:00');
     }
 }
