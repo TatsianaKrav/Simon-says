@@ -333,7 +333,7 @@ body .container .field-wrapper {
   gap: 10px;
   max-width: 560px;
 }
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1060px) {
   body .container .field-wrapper {
     align-self: unset;
   }
