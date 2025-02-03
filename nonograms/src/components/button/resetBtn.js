@@ -23,5 +23,9 @@ export class ResetBtn extends Button {
         this.timer.stop();
         this.timer.element.classList.remove('on');
         this.timer.setTime('00:00');
+
+
+        const field = document.getElementsByClassName('field')[0];
+        field.classList.remove('done');
     }
 }
