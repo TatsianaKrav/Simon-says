@@ -8,12 +8,13 @@ import { Clue } from "../clue/clue.js";
 
 
 export class Field extends ElementCreator {
-    constructor(game, timer, scoreTable, container) {
+    constructor(game, timer, scoreTable, container, sound) {
         super('table', 'field');
         this.currentGame = game;
         this.timer = timer;
         this.scoreTable = scoreTable;
         this.container = container;
+        this.sound = sound;
 
         this.create();
     }
@@ -27,7 +28,7 @@ export class Field extends ElementCreator {
             const row = new ElementCreator("tr");
 
             for (let j = 0; j <= this.currentGame.image.length; j++) {
-                const col = new Cell(this.timer, this.scoreTable, this, this.container);
+                const col = new Cell(this.timer, this.scoreTable, this, this.container, this.sound);
 
                 if (i === 0 && j === 0) {
                     col.setClasses("empty");

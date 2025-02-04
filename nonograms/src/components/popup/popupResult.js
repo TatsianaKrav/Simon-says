@@ -15,6 +15,6 @@ export class PopupResult extends Popup {
     close() {
         super.close();
         const nextGame = findNextGame(this.gameName);
-        this.container.recreate(nextGame.level, nextGame.name);
+        this.container.container.recreate(nextGame.level, nextGame.name);
     }
 }

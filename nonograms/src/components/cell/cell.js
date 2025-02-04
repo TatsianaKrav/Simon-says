@@ -7,12 +7,13 @@ export class Cell extends ElementCreator {
     interval;
 
 
-    constructor(timer, scoreTable, field, container) {
+    constructor(timer, scoreTable, field, container, sound) {
         super('td');
         this.timer = timer;
         this.scoreTable = scoreTable;
         this.field = field;
         this.container = container;
+        this.sound = sound;
 
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) this.setClasses('dark');
@@ -24,6 +25,8 @@ export class Cell extends ElementCreator {
     fill() {
         const result = checkGameEnd();
         if (result) return;
+
+        const soundOff = this.sound.getValue();
 
         if (this.checkCLasses("top-cell", "left-cell", "empty")) return;
         if (this.field.checkCLasses('done')) return;
@@ -42,9 +45,11 @@ export class Cell extends ElementCreator {
             this.getElement().classList.toggle('not');
         }
 
-        this.checkCLasses('filled') ? sound.remove() : sound.fill();
+        if (!soundOff) {
+            this.checkCLasses('filled') ? sound.remove() : sound.fill();
+        }
         this.getElement().classList.toggle('filled');
-        handleGameEnd(this.timer, this.scoreTable, this.container);
+        handleGameEnd(this.timer, this.scoreTable, this.container, this.sound);
     }
 
     cross(event) {
@@ -55,6 +60,7 @@ export class Cell extends ElementCreator {
         if (this.checkCLasses("top-cell", "left-cell", "empty", "filled")) return;
         if (this.field.checkCLasses('done')) return;
 
+        const soundOff = this.sound.getValue();
         this.timerOn = this.timer.getElement().classList.contains('on');
 
         if (!this.timerOn) {
@@ -65,9 +71,11 @@ export class Cell extends ElementCreator {
 
         const sound = new Audio();
 
-        this.checkCLasses('not') ? sound.remove() : sound.cross();
+        if (!soundOff) {
+            this.checkCLasses('not') ? sound.remove() : sound.cross();
+        }
         this.getElement().classList.toggle('not');
-        handleGameEnd(this.timer, this.scoreTable, this.container);
+        handleGameEnd(this.timer, this.scoreTable, this.container, this.sound);
     }
 }
 

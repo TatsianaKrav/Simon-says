@@ -346,6 +346,7 @@ body {
             align-self: start;
             gap: 10px;
             max-width: 560px;
+            position: relative;
 
             @media screen and (max-width: 1060px) {
                 align-self: unset;
@@ -364,6 +365,30 @@ body {
             .timer {
                 &.dark {
                     color: $light-color;
+                }
+            }
+
+            .sound {
+                position: absolute;
+                top: 5px;
+                right: 0;
+                width: 15px;
+                height: 15px;
+                background-image: url('../assets/volume.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                cursor: pointer;
+
+                &.off:before {
+                    content: "";
+                    position: absolute;
+                    left: 5px; 
+                    bottom: -5px;
+                    width: 2px;
+                    height: 25px;
+                    background-color: black;
+                    transform: rotate(45deg);
                 }
             }
 
@@ -494,7 +519,7 @@ body {
                                     width: 2px;
                                     height: 30px;
                                     background-color: black;
-                                    transform: rotate(45deg); 
+                                    transform: rotate(45deg);
 
                                     @media screen and (max-width: 580px) {
                                         height: 25px;

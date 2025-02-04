@@ -27,7 +27,7 @@ export function checkGameEnd() {
     return result;
 }
 
-export function handleGameEnd(timer, scoreTable, container) {
+export function handleGameEnd(timer, scoreTable, container, soundObj) {
     const result = checkGameEnd();
     const game = JSON.parse(localStorage.getItem('currGame'));
 
@@ -47,13 +47,18 @@ export function handleGameEnd(timer, scoreTable, container) {
         }
 
         const timerVal = timer.getTime();
+        const sound = new Audio();
+        const soundOff = soundObj.getValue();
 
         setTimeout(() => {
             const popup = new PopupResult(timerVal, container, game.name);
             popup.open();
-            const sound = new Audio();
-            sound.win();
+            /* const sound = new Audio(); */
             timer.stop();
+
+            if (!soundOff) {
+                sound.win();
+            }
         }, 1000)
 
         handleScoreTable(game, timer, scoreTable);

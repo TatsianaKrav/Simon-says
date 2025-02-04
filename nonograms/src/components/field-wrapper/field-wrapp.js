@@ -2,6 +2,7 @@ import { ElementCreator } from "../../utils/elementCreator.js";
 import { getLevel } from "../../utils/getLevel.js";
 import { Timer } from "../timer/timer.js";
 import { Field } from "../field/field.js";
+import { Sound } from "../sound/sound.js";
 
 export class FieldWrapper extends ElementCreator {
     timer;
@@ -30,9 +31,10 @@ export class FieldWrapper extends ElementCreator {
 
         const gameName = new ElementCreator('div', 'game-name', this.currentGame.name);
         this.timer = new Timer(this.restored);
-        this.field = new Field(this.currentGame, this.timer, this.scoreTable, this.container);
+        this.sound = new Sound();
+        this.field = new Field(this.currentGame, this.timer, this.scoreTable, this, this.sound);
 
-        this.append(gameName, this.timer, this.field);
+        this.append(gameName, this.timer, this.sound, this.field);
 
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) {
