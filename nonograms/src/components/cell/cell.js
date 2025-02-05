@@ -29,7 +29,7 @@ export class Cell extends ElementCreator {
         const soundOff = this.sound.getValue();
 
         if (this.checkCLasses("top-cell", "left-cell", "empty")) return;
-        if (this.field.checkCLasses('done')) return;
+        if (this.field.checkCLasses('done') || this.field.checkCLasses('saved')) return;
 
         const sound = new Audio();
 
@@ -58,7 +58,7 @@ export class Cell extends ElementCreator {
         if (result) return;
 
         if (this.checkCLasses("top-cell", "left-cell", "empty", "filled")) return;
-        if (this.field.checkCLasses('done')) return;
+        if (this.field.checkCLasses('done') || this.field.checkCLasses('saved')) return;
 
         const soundOff = this.sound.getValue();
         this.timerOn = this.timer.getElement().classList.contains('on');

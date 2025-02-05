@@ -29,6 +29,8 @@ export class SaveBtn extends Button {
 
         const time = document.getElementsByClassName("timer")[0].innerText;
         const gameName = document.getElementsByClassName("game-name")[0].innerText;
+        const field = document.getElementsByClassName("field")[0];
+        field.classList.add('saved');
 
 
         const toSave = {
