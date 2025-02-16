@@ -1,0 +1,251 @@
+@import '../styles/mixins/mixins.scss';
+
+@font-face {
+    font-family: 'Supreme';
+    src: url('../../static/Supreme.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../static/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../../static/Montserrat-Bold.ttf');
+}
+
+$blue-color: #07e2f1;
+$red-color: #ee8787;
+$bg-color: #fbe4b7;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(134, 121, 121)
+}
+
+.container {
+    @include flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 25px;
+    font-family: Supreme, sans-serif;
+
+    @media screen and (max-width: 767px) {
+        .container {
+            gap: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        gap: 1rem;
+    }
+
+    .game-name {
+        font-size: 24px;
+        color: $blue-color;
+
+        @media screen and (max-width: 569px) {
+            font-size: 20px;
+        }
+    }
+
+    .levels-wrapp {
+        font-size: 18px;
+
+        @media screen and (max-width: 569px) {
+            font-size: 14px;
+        }
+
+        .levels {
+            @include selector();
+            font-family: Supreme, sans-serif;
+            font-size: 14px;
+            background-color: $bg-color;
+
+            @media screen and (max-width: 569px) {
+                font-size: 12px;
+            }
+
+            option {
+                font-size: 14px;
+
+                @media screen and (max-width: 569px) {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+
+    .current-game-info {
+        @include flex();
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 16px;
+
+        @media screen and (max-width: 569px) {
+            font-size: 12px;
+        }
+
+        .current-level {
+            .level-value {
+                color: $blue-color;
+            }
+        }
+
+        .current-round {
+            .round-value {
+                color: $blue-color;
+            }
+        }
+    }
+
+    .input-wrapper {
+        input {
+            font-family: Montserrat-Bold, sans-serif;
+            padding: 5px;
+            font-size: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            width: 200px;
+            background-color: $bg-color;
+
+            @media screen and (max-width: 569px) {
+                font-size: 16px;
+            }
+
+            &.correct {
+                background-color: $blue-color;
+            }
+
+            &.wrong {
+                background-color: $red-color;
+            }
+        }
+    }
+
+    .keyboard-wrapp {
+        @include flex();
+        flex-wrap: wrap;
+        gap: 0.5em;
+        max-width: 50%;
+
+        @media screen and (max-width: 767px) {
+            max-width: 80%;
+        }
+
+        .char {
+            font-family: Montserrat, sans-serif;
+            font-size: 18px;
+            outline: none;
+            border: none;
+            width: 45px;
+            height: 45px;
+            background-color: #fbe4b7;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s linear;
+
+            @media screen and (max-width: 569px) {
+                font-size: 14px;
+                width: 40px;
+                height: 40px;
+            }
+
+            @media screen and (max-width: 520px) {
+                font-size: 14px;
+                width: 35px;
+                height: 35px;
+            }
+
+            &.highlight {
+                background-color: $blue-color;
+            }
+
+            &.clicked {
+                background-color: rgb(0, 255, 76);
+            }
+        }
+    }
+
+    .buttons-wrap {
+        @include flex();
+        gap: 15px;
+        flex-wrap: wrap;
+
+        .btn {
+            @include btn();
+            font-family: Supreme, sans-serif;
+        }
+    }
+}
+
+
+.popup-wrapper {
+    @include flex();
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    padding: 20px;
+    z-index: 10;
+    border: 2px solid black;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s linear;
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .modal {
+        @include flex();
+        flex-direction: column;
+        max-width: 70%;
+        padding: 2.5em;
+        border-radius: 15px;
+        background: #f3ecec;
+        gap: 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 30px;
+
+        @media screen and (max-width: 569px) {
+            font-size: 26px;
+        }
+
+        @media screen and (max-width: 520px) {
+            font-size: 20px;
+        }
+
+        .modal-info {
+            .modal-content {
+                @include flex();
+
+                &.correct {
+                    color: $blue-color;
+                }
+
+                &.wrong {
+                    color: $red-color;
+                }
+            }
+        }
+    }
+
+    .new-game {
+        @include btn();
+        font-family: Supreme, sans-serif;
+    }
+}

@@ -1,0 +1,277 @@
+@font-face {
+  font-family: "Supreme";
+  src: url("../../static/Supreme.otf");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../static/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../../static/Montserrat-Bold.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(134, 121, 121);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 25px;
+  font-family: Supreme, sans-serif;
+}
+@media screen and (max-width: 767px) {
+  .container .container {
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container {
+    gap: 1rem;
+  }
+}
+.container .game-name {
+  font-size: 24px;
+  color: #07e2f1;
+}
+@media screen and (max-width: 569px) {
+  .container .game-name {
+    font-size: 20px;
+  }
+}
+.container .levels-wrapp {
+  font-size: 18px;
+}
+@media screen and (max-width: 569px) {
+  .container .levels-wrapp {
+    font-size: 14px;
+  }
+}
+.container .levels-wrapp .levels {
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  font-family: Supreme, sans-serif;
+  font-size: 14px;
+  background-color: #fbe4b7;
+}
+@media screen and (max-width: 569px) {
+  .container .levels-wrapp .levels {
+    font-size: 12px;
+  }
+}
+.container .levels-wrapp .levels option {
+  font-size: 14px;
+}
+@media screen and (max-width: 569px) {
+  .container .levels-wrapp .levels option {
+    font-size: 10px;
+  }
+}
+.container .current-game-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 16px;
+}
+@media screen and (max-width: 569px) {
+  .container .current-game-info {
+    font-size: 12px;
+  }
+}
+.container .current-game-info .current-level .level-value {
+  color: #07e2f1;
+}
+.container .current-game-info .current-round .round-value {
+  color: #07e2f1;
+}
+.container .input-wrapper input {
+  font-family: Montserrat-Bold, sans-serif;
+  padding: 5px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  background-color: #fbe4b7;
+}
+@media screen and (max-width: 569px) {
+  .container .input-wrapper input {
+    font-size: 16px;
+  }
+}
+.container .input-wrapper input.correct {
+  background-color: #07e2f1;
+}
+.container .input-wrapper input.wrong {
+  background-color: #ee8787;
+}
+.container .keyboard-wrapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  max-width: 50%;
+}
+@media screen and (max-width: 767px) {
+  .container .keyboard-wrapp {
+    max-width: 80%;
+  }
+}
+.container .keyboard-wrapp .char {
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  width: 45px;
+  height: 45px;
+  background-color: #fbe4b7;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s linear;
+}
+@media screen and (max-width: 569px) {
+  .container .keyboard-wrapp .char {
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container .keyboard-wrapp .char {
+    font-size: 14px;
+    width: 35px;
+    height: 35px;
+  }
+}
+.container .keyboard-wrapp .char.highlight {
+  background-color: #07e2f1;
+}
+.container .keyboard-wrapp .char.clicked {
+  background-color: rgb(0, 255, 76);
+}
+.container .buttons-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.container .buttons-wrap .btn {
+  width: 150px;
+  height: 45px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 14px;
+  background-color: #fbe4b7;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: Supreme, sans-serif;
+}
+@media screen and (max-width: 569px) {
+  .container .buttons-wrap .btn {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .container .buttons-wrap .btn {
+    height: 40px;
+    font-size: 11px;
+  }
+}
+
+.popup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  padding: 20px;
+  z-index: 10;
+  border: 2px solid black;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.6s linear;
+}
+.popup-wrapper.open {
+  visibility: visible;
+  opacity: 1;
+}
+.popup-wrapper .modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 70%;
+  padding: 2.5em;
+  border-radius: 15px;
+  background: #f3ecec;
+  gap: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 30px;
+}
+@media screen and (max-width: 569px) {
+  .popup-wrapper .modal {
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .popup-wrapper .modal {
+    font-size: 20px;
+  }
+}
+.popup-wrapper .modal .modal-info .modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup-wrapper .modal .modal-info .modal-content.correct {
+  color: #07e2f1;
+}
+.popup-wrapper .modal .modal-info .modal-content.wrong {
+  color: #ee8787;
+}
+.popup-wrapper .new-game {
+  width: 150px;
+  height: 45px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 14px;
+  background-color: #fbe4b7;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: Supreme, sans-serif;
+}
+@media screen and (max-width: 569px) {
+  .popup-wrapper .new-game {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .popup-wrapper .new-game {
+    height: 40px;
+    font-size: 11px;
+  }
+}/*# sourceMappingURL=game.css.map */
